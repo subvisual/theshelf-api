@@ -1,14 +1,20 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'capistrano'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'dotenv-rails'
+gem 'draper', '~> 1.3'
 gem 'jquery-rails'
+gem "paperclip", "~> 3.0"
+gem 'paranoia', '~> 2.0'
 gem 'puma'
 gem 'rails', '4.0.0'
 gem 'rvm-capistrano'
-gem 'slim-rails'
 gem 'sass-rails', '~> 4.0.0'
+gem 'slim-rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'susy'
@@ -19,7 +25,7 @@ end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.0'
   gem 'sqlite3'
 end
 

@@ -1,0 +1,19 @@
+section.books
+  h1 = t('books.header')
+  - if @books.empty?
+    p = t('books.empty')
+  - else
+    table
+      thead
+        tr
+          td = t('books.index.title')
+          td = t('books.index.authors')
+          td = t('books.index.average_rating')
+          td = t('books.index.availability')
+      tbody
+        - @books.each do |book|
+          tr
+            td = link_to book.title, book.path
+            td = book.authors
+            td = book.average_rating
+            td = book.availability

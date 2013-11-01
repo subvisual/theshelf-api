@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bookinc::Application.load_tasks
+TheShelf::Application.load_tasks

@@ -1,14 +1,31 @@
 en:
   books:
     all: All Books
+    by: by
+    edit: Edit book
     empty: No books yet
     header: Books
-    index:
-      authors: Authors
-      availability: Availability
-      average_rating: Average Rating
-      title: Title
+    new: New Book
     state:
       available: Available
       lent: Lent
       unavailable: Unavailable
+    submit: Submit Book
+
+  flash:
+    book:
+      created: Book successfully created
+      deleted: Book successfully deleted
+      updated: Book successfully updated
+
+  helpers:
+    label:
+      book:
+        authors: Authors
+        availability: Availability
+        average_rating: Average Rating
+        pages: Pages
+        published_on: Published
+        readings: No. of readings
+        title: Title
+        url: URL

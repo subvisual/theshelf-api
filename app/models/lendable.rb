@@ -11,7 +11,7 @@ module Lendable
 
   def initialize(*args, &block)
     super
-    self.state = LoanStates.initial_state
+    self.state ||= LoanStates.initial_state
   end
 
   def self.define_state_methods(state_names)

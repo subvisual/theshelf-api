@@ -1,0 +1,31 @@
+.form__field
+  = form.label :title
+  = form.text_field :title, required: true
+.form__field
+  = form.label :subtitle
+  = form.text_field :subtitle
+.form__field
+  = form.label :authors
+  = form.text_field :authors, required: true
+.form__field
+  = form.label :summary
+  = form.text_area :summary
+.form__field
+  = form.label :published_on
+  = form.date_field :published_on
+.form__field
+  = form.label :url
+  = form.url_field :url
+.form__field
+  = form.label :pages
+  = form.text_field :pages
+
+.form__actions
+  = form.submit t('books.submit')
+
+coffee:
+  $ ->
+    $("form").validate({
+      rules:
+        "book[pages]": "number"
+    })

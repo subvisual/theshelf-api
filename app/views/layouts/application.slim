@@ -14,8 +14,14 @@ head
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
+
 body
+  - flash.each do |key, value|
+    p class="#{key}" = value
+
   = render 'layouts/header'
+
   .content
     = yield
+
   = render 'layouts/footer'

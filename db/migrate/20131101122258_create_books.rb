@@ -14,5 +14,7 @@ class CreateBooks < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :books, :state
   end
 end

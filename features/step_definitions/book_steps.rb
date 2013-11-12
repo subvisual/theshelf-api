@@ -1,3 +1,14 @@
+Given(/^I am a registered user$/) do
+  user = create :user
+  visit sign_in_path
+  fill_in 'session_email', with: user.email
+  fill_in 'session_password', with: user.password
+  click_on I18n.t('helpers.submit.session.submit')
+end
+
+Given(/^I am a visitor$/) do
+end
+
 Given(/^there are books$/) do
   @books = BookDecorator.decorate_collection create_list(:book, 2)
 end

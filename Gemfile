@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
+gem 'cancan'
 gem 'capistrano'
+gem 'clearance'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'dotenv-rails'
@@ -25,7 +27,7 @@ end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.13'
   gem 'sqlite3'
 end
 
@@ -36,13 +38,11 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.0'
   gem 'capybara-webkit'
-  gem 'codeclimate-test-reporter', require: false
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem "launchy"
+  gem 'factory_girl_rails', '~> 4.2'
 end
 
 group :doc do

@@ -1,0 +1,4 @@
+en:
+  flashes:
+    failure_after_create: Bad email or password.
+    signup_disabled: Sign up is disabled.

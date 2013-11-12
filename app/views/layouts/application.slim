@@ -10,14 +10,18 @@ doctype html
 | <!--[if (gte IE 9)|!(IE)]<!--> <html> <!--<![endif]-->
 
 head
-  title TheShelf
+  title The Shelf
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 
 body
+  - if signed_in?
+    = current_user.email
+    = link_to 'Sign out', sign_out_path, :method => :delete
+
   - flash.each do |key, value|
-    p class="#{key}" = value
+    div class="flash #{key}" = value
 
   = render 'layouts/header'
 

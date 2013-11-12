@@ -1,6 +1,3 @@
-Given(/^I am a user$/) do
-end
-
 When(/^I go to the book's index$/) do
   visit books_path
 end
@@ -15,4 +12,8 @@ end
 
 Given(/^I am on the add a book page$/) do
   visit new_book_path()
+end
+
+Then(/^I should be redirected to the sign in page$/) do
+  current_path.should eq sign_in_path
 end

@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authorize
+
   decorates_assigned :book
 
   def index

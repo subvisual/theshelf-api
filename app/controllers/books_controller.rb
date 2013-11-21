@@ -1,14 +1,12 @@
 class BooksController < ApplicationController
   before_action :authorize
 
-  decorates_assigned :book
-
   def index
     @books = Book.all.decorate
   end
 
   def show
-    @book = get_book
+    @book = book.decorate
   end
 
   def new
@@ -26,11 +24,11 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = get_book
+    @book = book.decorate
   end
 
   def update
-    if get_book.update(book_params)
+    if book.update(book_params)
       redirect_to book_path(@book), notice: t('flash.book.updated')
     else
       render :edit
@@ -38,14 +36,20 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    get_book.destroy
+    book.destroy
     redirect_to books_path, notice: t('flash.book.deleted')
+  end
+
+  def borrow
+    BookKeeper.new(book: book).lend_to(user: current_user)
+
+    redirect_to books_path
   end
 
   private
 
-  def get_book
-    Book.find(params[:id])
+  def book
+    @_book ||= Book.find(params[:id])
   end
 
   def book_params

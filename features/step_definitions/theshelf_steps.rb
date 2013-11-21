@@ -2,6 +2,10 @@ When(/^I go to the book's index$/) do
   visit books_path
 end
 
+Given(/^I (?:am on|go to) the shelf page$/) do
+  visit books_path
+end
+
 When(/^I go to the book's page$/) do
   visit book_path(@book.id)
 end

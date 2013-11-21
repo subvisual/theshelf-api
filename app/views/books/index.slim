@@ -1,4 +1,4 @@
-section.books
+section#books
   h1 = t('books.header')
   - if @books.empty?
     p = t('books.empty')
@@ -12,8 +12,13 @@ section.books
           td = t('label.book.availability')
       tbody
         - @books.each do |book|
-          tr
+          tr class="#{book.state}"
             td = link_to book.title, book.path
             td = book.authors
             td = book.average_rating
             td = book.availability
+            td.actions
+              - if book.available?
+                = link_to t('books.actions.borrow'), book.borrow_path, class: "borrow"
+              - else
+                span.borrowed = book.current_borrower.name

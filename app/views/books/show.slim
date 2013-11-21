@@ -1,22 +1,22 @@
 section.book-info
   header
-    h2 = book.title
-    h3 = book.subtitle
-    = "#{t('books.by')} #{book.authors}"
+    h2 = @book.title
+    h3 = @book.subtitle
+    = "#{t('books.by')} #{@book.authors}"
   section.book-info__details
-    .book-info__summary = book.summary
+    .book-info__summary = @book.summary
     .book-info__detail
       .label = "#{t('helpers.label.book.published_on')}: "
-      = book.published_on
+      = @book.published_on
     .book-info__detail
       .label = "#{t('helpers.label.book.url')}: "
-      = book.url
+      = @book.url
     .book-info__detail
       .label = "#{t('helpers.label.book.pages')}: "
-      = book.pages
+      = @book.pages
     .book-info__detail
       .label = "#{t('helpers.label.book.readings')}: "
-      = book.readings
+      = @book.readings
     .book-info__detail
       .label = "#{t('helpers.label.book.availability')}: "
-      = book.availability
+      = @book.availability

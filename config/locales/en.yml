@@ -1,5 +1,7 @@
 en:
   books:
+    actions:
+      borrow: Borrow
     all: All Books
     by: by
     edit: Edit book

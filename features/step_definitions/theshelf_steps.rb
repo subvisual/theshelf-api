@@ -1,5 +1,12 @@
-When(/^I go to the book's index$/) do
-  visit books_path
+Given(/^I have an account on the system$/) do
+  @user ||= create :user
+  visit sign_in_path
+  fill_in 'session_email', with: @user.email
+  fill_in 'session_password', with: @user.password
+  click_on I18n.t('helpers.submit.session.submit')
+end
+
+Given(/^I am a visitor$/) do
 end
 
 Given(/^I (?:am on|go to) the shelf page$/) do
@@ -11,7 +18,11 @@ Given(/^I am on the add a book page$/) do
 end
 
 Given(/^I (?:am on|go to) (?:a|an available) book's page$/) do
-  @book = @books.map{ |book| book if book.available? }.first
+  @book = @books.find{ |book| book.available? }
+  visit book_path(@book.id)
+end
+
+Given(/^I (?:am on|go to) a borrowed book's page$/) do
   visit book_path(@book.id)
 end
 

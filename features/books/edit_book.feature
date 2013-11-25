@@ -1,10 +1,10 @@
 Feature: Edit book
-  As a registered user
+  As a user
   I want to edit a book
   In order to correct its details
 
   Scenario: I can edit a book
-    Given I am a registered user
+    Given I have an account on the system
     And there are books
     When I go to a book's edit page
     And I change the book's title

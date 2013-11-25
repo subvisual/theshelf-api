@@ -9,7 +9,11 @@ class Book < ActiveRecord::Base
   validates :state, inclusion: { in: LoanStates.all }
 
   def current_borrower
-    borrowers.first
+    current_loan.borrower
+  end
+
+  def current_loan
+    loans.by_most_recent.first
   end
 
   def lend_to!(borrower: nil)

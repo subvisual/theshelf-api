@@ -7,15 +7,49 @@ class BookDecorator < Draper::Decorator
     h.t("books.state.#{state}")
   end
 
-  def current_borrower
-    object.current_borrower.decorate
+  def action
+    if object.available?
+      borrow_link
+    elsif object.lent?
+      lent_actions
+    end
+  end
+
+  def path
+    h.book_path(object)
   end
 
   def borrow_path
     h.borrow_book_path(object)
   end
 
-  def path
-    h.book_path(object)
+  def return_path
+    h.return_book_path(object)
+  end
+
+  private
+
+  def lent_actions
+    if borrowed_by_me?
+      return_link
+    else
+      h.content_tag :span, current_borrower.name, class: 'borrowed'
+    end
+  end
+
+  def borrowed_by_me?
+    current_borrower == h.presented_current_user
+  end
+
+  def current_borrower
+    object.current_borrower.decorate
+  end
+
+  def borrow_link
+    h.link_to h.t('books.actions.borrow'), borrow_path, class: 'borrow'
+  end
+
+  def return_link
+    h.link_to h.t('books.actions.return'), return_path, class: 'return'
   end
 end

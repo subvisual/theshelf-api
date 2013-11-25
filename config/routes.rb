@@ -6,6 +6,7 @@ TheShelf::Application.routes.draw do
   resources :books do
     member do
       get 'borrow'
+      get 'return'
     end
   end
 

@@ -1,25 +1,16 @@
-Given(/^I am a registered user$/) do
-  step "I have an account on the system"
+Given(/^there are(?: available)? books$/) do
+  @books = BookDecorator.decorate_collection(create_list(:available_book, 2))
 end
 
-Given(/^I have an account on the system$/) do
-  @user ||= create :user
-  visit sign_in_path
-  fill_in 'session_email', with: @user.email
-  fill_in 'session_password', with: @user.password
-  click_on I18n.t('helpers.submit.session.submit')
-end
-
-Given(/^I am a visitor$/) do
-end
-
-Given(/^there are(?: )?(available|lent)? books$/) do |status|
-  status ||= "available"
-  books_with_status = create_list(:book, 2).map {|book| book.public_send("make_#{status}".to_sym)}
-  @books = BookDecorator.decorate_collection(books_with_status)
+Given(/^there are no books borrowed by me$/) do
+  @books = [create(:lent_book, borrower: create(:user))]
 end
 
 Given(/^there are no books$/) do
+end
+
+Given(/^I've borrowed a book$/) do
+  @book = create(:lent_book, borrower: @user).decorate
 end
 
 When(/^I borrow an available book$/) do
@@ -47,6 +38,10 @@ When(/^I borrow the book$/) do
   find(".book-info .borrow").click
 end
 
+When(/^I return the book$/) do
+  first(".return").click
+end
+
 Then(/^I should see a list of all books$/) do
   @books.each do |book|
     page.should have_content book.title
@@ -66,6 +61,13 @@ Then(/^I should see the book's details$/) do
 end
 
 Then(/^I see that the book was borrowed by me$/) do
-  page.should have_css ".borrowed", text: @user.decorate.name
+  page.should have_css ".return"
 end
 
+Then(/^I see that the book is available for borrowing$/) do
+  page.should have_css ".available"
+end
+
+Then(/^I can't see a return button$/) do
+  page.should_not have_css ".return"
+end

@@ -20,8 +20,4 @@ section.book-info
     .book-info__detail
       .label = "#{t('helpers.label.book.availability')}: "
       = @book.availability
-  .actions
-    - if @book.available?
-      = link_to t('books.actions.borrow'), @book.borrow_path, class: 'borrow'
-    - else
-      span.borrowed = @book.current_borrower.name
+  .book_info__availability = @book.action

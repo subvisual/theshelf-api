@@ -46,6 +46,12 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def return
+    BookKeeper.new(book: book).return_by!(borrower: current_user)
+
+    redirect_to books_path
+  end
+
   private
 
   def book

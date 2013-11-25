@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20131122144510) do
     t.datetime "updated_at"
   end
 
+  add_index "books", ["state"], name: "index_books_on_state"
+
   create_table "loans", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "book_id",    null: false

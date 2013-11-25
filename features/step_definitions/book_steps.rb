@@ -22,10 +22,6 @@ end
 Given(/^there are no books$/) do
 end
 
-Given(/^there is a book$/) do
-  @book = BookDecorator.decorate create(:book)
-end
-
 When(/^I borrow an available book$/) do
   first("#books .available .borrow").click
 end
@@ -45,6 +41,10 @@ When(/^I fill the new book form$/) do
     fill_in 'book_title', with: @book.title
     fill_in 'book_authors', with: @book.authors
   end
+end
+
+When(/^I borrow the book$/) do
+  find(".book-info .borrow").click
 end
 
 Then(/^I should see a list of all books$/) do

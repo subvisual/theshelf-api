@@ -5,8 +5,8 @@ Feature: Edit book
 
   Scenario: I can edit a book
     Given I am a registered user
-    And there is a book
-    When I go to the book's edit page
+    And there are books
+    When I go to a book's edit page
     And I change the book's title
     And I submit the book
     Then I should see that the title has changed

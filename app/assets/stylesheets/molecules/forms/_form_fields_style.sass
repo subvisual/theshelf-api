@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Form fields' style
+   ========================================================================== */
+
+%form-field-style
+  padding: 15px
+  margin-bottom: 10px
+  border: $form-field-border
+  background-color: $form-field-bg
+  color: $base-text-color
+  outline: 0
+  &:focus
+    +single-box-shadow($base-text-color, 0, 0, 5px)
+    background-color: $body-bg
+  // Override browser's autofill highlighting
+  &:-webkit-autofill
+    +single-box-shadow($form-field-bg, 0, 0, 0, 50px, inset)
+    -webkit-text-fill-color: $base-text-color
+    &:focus
+      +box-shadow(0 0 0 50px $body-bg inset, 0 0 5px 0 $base-text-color)

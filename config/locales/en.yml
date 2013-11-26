@@ -29,5 +29,7 @@ en:
         pages: Pages
         published_on: Published
         readings: No. of readings
+        subtitle: Subtitle
+        summary: Summary
         title: Title
         url: URL

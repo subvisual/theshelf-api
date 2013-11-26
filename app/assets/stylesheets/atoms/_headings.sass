@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1, .nano,
+h2, .micro,
+h3, .milli,
+h4, .kilo
+  @extend %base-spacing
+  font-style: normal
+  font-weight: bold
+
+h1,
+.nano
+  +font-size($nano-size)
+
+h2,
+.micro
+  +font-size($micro-size)
+  font-family: $secondary-font-family
+
+h3,
+.milli
+  +font-size($milli-size)
+  color: $soft-blue
+
+h4,
+.kilo
+  +font-size($kilo-size)
+  font-family: $secondary-font-family

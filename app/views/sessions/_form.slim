@@ -1,9 +1,9 @@
-= form_for :session, :url => session_path do |form|
-  .text-field
-    = form.label :email
-    = form.text_field :email, :type => 'email'
-  .password-field
-    = form.label :password
-    = form.password_field :password
-  .submit-field
+= form_for :session, :url => session_path, html: { class: 'form' } do |form|
+  .field
+    = form.label :email, class: 'hide-visually'
+    .text = form.text_field :email, :type => 'email'
+  .field
+    = form.label :password, class: 'hide-visually'
+    .text = form.password_field :password
+  .field
     = form.submit

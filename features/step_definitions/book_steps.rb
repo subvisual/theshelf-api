@@ -28,7 +28,7 @@ end
 
 When(/^I fill the new book form$/) do
   @book ||= build(:book)
-  within(".form__body") do
+  within(".form") do
     fill_in 'book_title', with: @book.title
     fill_in 'book_authors', with: @book.authors
   end

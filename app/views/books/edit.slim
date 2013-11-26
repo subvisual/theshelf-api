@@ -1,6 +1,4 @@
-section.form
-  h1 = t('books.edit')
+h1 = t('books.edit')
 
-  .form__body
-    = form_for @book, method: :patch do |form|
-      = render 'form', form: form
+= form_for @book, method: :patch, html: { class: 'form' } do |form|
+  = render 'form', form: form

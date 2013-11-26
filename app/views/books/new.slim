@@ -1,6 +1,4 @@
-section.form
-  h1 = t('books.new')
+h1 = t('books.new')
 
-  .form__body
-    = form_for @book do |form|
-      = render 'form', form: form
+= form_for @book, html: { class: 'form' } do |form|
+  = render 'form', form: form

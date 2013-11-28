@@ -7,9 +7,7 @@ class Loan < ActiveRecord::Base
   validates_presence_of :book, :borrower
 
   def start!
-    starts_at = Time.now
-    ends_at = 30.days.from_now
-    save!
+    update! started_at: Time.now, ends_at: 30.days.from_now
   end
 
   def closed?

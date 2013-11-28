@@ -2,6 +2,7 @@ en:
   books:
     actions:
       borrow: Borrow
+      return: Return
     all: All Books
     by: by
     edit: Edit book
@@ -33,3 +34,6 @@ en:
         summary: Summary
         title: Title
         url: URL
+
+  menu:
+    close: Close menu

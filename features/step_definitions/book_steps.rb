@@ -14,7 +14,7 @@ Given(/^I've borrowed a book$/) do
 end
 
 When(/^I borrow an available book$/) do
-  first("#books .available .borrow").click
+  first('.borrow').click
 end
 
 When(/^I change the book's title$/) do

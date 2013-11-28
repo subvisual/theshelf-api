@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Side content
+   * Logo
+   * Menu
+   ========================================================================== */
+
+.side-content
+  height: $header-height
+  background-color: $side-content-bg
+
+.logo-wrap
+  height: inherit
+
+.menu-toggle-wrap
+  display: inline-block
+  width: $menu-toggle-width
+
+.menu-wrap
+  background-color: $menu-primary-bg
+  overflow-y: hidden
+  max-height: $desk-start
+  +transition-property(all)
+  +transition-duration(0.5s)
+  +transition-timing-function(cubic-bezier(0, 1, 0.5, 1))
+
+.menu-wrap.collapsed
+  max-height: 0
+
+.menu-wrap #close-menu
+  padding-top: 15px
+  padding-bottom: 15px
+  text-align: center
+  a
+    text-decoration: none
+    color: $btn-positive-color

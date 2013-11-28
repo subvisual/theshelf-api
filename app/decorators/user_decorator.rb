@@ -3,6 +3,10 @@ class UserDecorator < Draper::Decorator
     object.first_name
   end
 
+  def currently_borrowed_books
+    object.currently_borrowed_books.decorate
+  end
+
   def ==(other)
     object == other.object
   end

@@ -18,7 +18,7 @@ $milli-size: 13px
 $base-font-family: Source Sans Pro, HelveticaNeue, Georgia, serif
 $secondary-font-family: Futura LT, Arial, sans-serif
 
-$base-line-height: 1.5
+$base-line-height: 1
 //vertical spacing
 $base-spacing: $base-line-height+em
 
@@ -45,17 +45,38 @@ $form-field-border: 0
 
 /* Button
    ========================================================================== */
-$btn-positive-color: $green
 $btn-positive-bg: $white
+$btn-positive-color: $green
 $btn-positive-border: $green
-$btn-negative-color: $white
+$btn-positive-hover-bg: $green
+$btn-positive-hover-color: $white
+$btn-positive-hover-border: $white
+
 $btn-negative-bg: $grey
+$btn-negative-color: $white
 $btn-negative-border: $grey
+$btn-negative-hover-bg: darken($grey, 5%)
+$btn-negative-hover-border: darken($grey, 5%)
+
+$menu-toggle-width: 85px
+$menu-toggle-icon-max-width: 35px
+$menu-toggle-icon-height: 5px
+
+/* Breakpoints
+   ========================================================================== */
+$lap-start: 481px
+$desk-start: 1024px
+$desk-wide-start: 1200px
 
 /* Template
    ========================================================================== */
 $body-bg: $white
-$logo-bg: $grey
-$topbar-bg: $soft-grey
-$sidebar-primary-bg: $soft-grey
-$sidebar-secondary-bg: $soft-blue
+$side-content-bg: $grey
+$menu-primary-bg: $soft-grey
+$menu-secondary-bg: $soft-blue
+$top-bar-bg: $soft-grey
+
+$header-height: 70px
+$user-profile-menu-height: 130px
+$user-pic-max-size: 65px
+$menu-horizontal-padding: 20px

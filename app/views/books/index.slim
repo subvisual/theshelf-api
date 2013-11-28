@@ -1,5 +1,7 @@
-section#books
-  h1 = t('books.header')
+header.top-bar
+  .search-bar
+  .add-book
+section.books
   - if @books.empty?
     p = t('books.empty')
   - else

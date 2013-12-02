@@ -49,7 +49,7 @@ Then(/^I should see a list of all books$/) do
 end
 
 Then(/^I should see that there are no books$/) do
-  page.should have_content I18n.t('books.empty')
+  page.should_not have_css '.book-gallery .book'
 end
 
 Then(/^I should see that the title has changed$/) do
@@ -65,7 +65,7 @@ Then(/^I see that the book was borrowed by me$/) do
 end
 
 Then(/^I see that the book is available for borrowing$/) do
-  page.should have_css ".available"
+  page.should have_css ".borrow"
 end
 
 Then(/^I can't see a return button$/) do

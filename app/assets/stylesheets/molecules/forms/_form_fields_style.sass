@@ -4,7 +4,6 @@
 
 %form-field-style
   padding: 15px
-  margin-bottom: 10px
   border: $form-field-border
   background-color: $form-field-bg
   color: $base-text-color
@@ -18,3 +17,13 @@
     -webkit-text-fill-color: $base-text-color
     &:focus
       +box-shadow(0 0 0 50px $body-bg inset, 0 0 5px 0 $base-text-color)
+
+%search-field-style
+  height: $search-bar-height
+  padding-left: 1rem
+  padding-right: 3rem
+  background-color: $body-bg
+  border: $side-content-bg 1px solid
+  font-weight: bold
+  color: $base-text-color
+  outline: 0

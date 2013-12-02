@@ -2,29 +2,29 @@
    Headings
    ========================================================================== */
 
-h1, .nano,
-h2, .micro,
-h3, .milli,
-h4, .kilo
-  @extend %base-spacing
+h1, .kilo,
+h2, .milli,
+h3, .micro,
+h4, .nano
   font-style: normal
   font-weight: bold
 
 h1,
-.nano
-  +font-size($nano-size)
+.kilo
+  +font-size($kilo-size)
 
 h2,
-.micro
-  +font-size($micro-size)
+.milli
+  +font-size($milli-size)
+  margin-bottom: 0.4rem
   font-family: $secondary-font-family
 
 h3,
-.milli
-  +font-size($milli-size)
+.micro
+  +font-size($micro-size)
   color: $soft-blue
 
 h4,
-.kilo
-  +font-size($kilo-size)
+.nano
+  +font-size($nano-size)
   font-family: $secondary-font-family

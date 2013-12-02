@@ -9,14 +9,17 @@ header.side-content.fixed-top
         .icon-bar.icon-bar--half
         .icon-bar
   .menu-wrap.collapsed
-    .user-profile-menu.media
+    .media.user-profile-menu
       .media-image
-      .media-body.micro = presented_current_user.name
-    ul.list-striped
+      .media-body.milli = presented_current_user.name
+    ul.list-striped.borrowed-books
       - presented_current_user.currently_borrowed_books.each do | book|
-        li.split
-          .split-left.micro.truncate = book.title
-          .btn.btn--negative = book.action
+        li.media
+          .media-image
+          .media-body.book-item
+            .book
+              .title.milli.truncate = book.title
+            .action = book.action
     #close-menu 
       a href='#'
         = t('menu.close')

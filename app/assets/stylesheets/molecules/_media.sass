@@ -1,38 +1,27 @@
 /* ==========================================================================
-   Media/Flag
-    * Displays image and text-like content side-by-side. Has the ability to
-    * vertically align the image and text to the tops, middles or bottoms of
-    * each other
-    * source: http://csswizardry.com/2013/05/the-flag-object/
+   Media
+    * Displays image and text-like content side-by-side.
    ========================================================================== */
 .media
-  display: table
-  width: 100%
-
-.media-image,
-.media-body
-  display: table-cell
-  vertical-align: middle
-
-.media--top
-  .media-image,
-  .media-body
-    vertical-align: top
-
-.media--bottom
-  .media-image,
-  .media-body
-    vertical-align: bottom
+  display: block
+  @extend .clearfix
 
 .media-image
-  padding-right: 20px
-  > img
-    display: block
-    max-width: none
+  float: left
+  margin-right: $base-spacing
 
-.media--rev .media-image
-  padding-right: 0
-  padding-left: 20px
+/* Reversed image location (right instead of left). */
+.media-image--rev
+  float: right
+  margin-left: $base-spacing
+
+.media-image img,
+.media-image--rev img
+  display: block
 
 .media-body
-  width: 100%
+  overflow: hidden
+
+.media-body,
+.media-body > :last-child
+  margin-bottom: 0

@@ -1,7 +1,7 @@
 section.book-info
   header
-    h1.micro = @book.title
-    h2.kilo = @book.subtitle
+    h1.milli = @book.title
+    h2.nano = @book.subtitle
     = "#{t('books.by')} #{@book.authors}"
   section.details
     .summary = @book.summary
@@ -17,7 +17,4 @@ section.book-info
     .detail
       .label = "#{t('helpers.label.book.readings')}: "
       = @book.readings
-    .detail
-      .label = "#{t('helpers.label.book.availability')}: "
-      = @book.availability
   .book_info__availability = @book.action

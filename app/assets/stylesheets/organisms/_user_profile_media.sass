@@ -1,5 +1,12 @@
+$vertical-padding: ($user-profile-menu-height - $user-pic-max-size)/2
+
 .user-profile-menu
-  padding: 0 $menu-horizontal-padding
+  padding: $vertical-padding $mobile-horizontal-padding
   height: $user-profile-menu-height
-  .image > img
+
+  .media-image
     max-width: $user-pic-max-size
+
+  .media-body
+    padding-top: calc(#{$user-pic-max-size}/2 - 0.5rem)
+    overflow: visible

@@ -3,10 +3,6 @@ class BookDecorator < Draper::Decorator
     :state, :subtitle, :summary, :title, :url, :available?, :lent?,
     :unavailable?, :to_model
 
-  def availability
-    h.t("books.state.#{state}")
-  end
-
   def action
     if object.available?
       borrow_link
@@ -46,10 +42,14 @@ class BookDecorator < Draper::Decorator
   end
 
   def borrow_link
-    h.link_to h.t('books.actions.borrow'), borrow_path, class: 'borrow'
+    h.content_tag :div, class: 'btn btn--positive' do
+      h.link_to h.t('books.actions.borrow'), borrow_path, class: 'borrow'
+    end
   end
 
   def return_link
-    h.link_to h.t('books.actions.return'), return_path, class: 'return'
+    h.content_tag :div, class: 'btn btn--negative' do
+      h.link_to h.t('books.actions.return'), return_path, class: 'return'
+    end
   end
 end

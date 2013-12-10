@@ -1,20 +1,21 @@
-section.book-info
-  header
+section.book-page
+  .book-image
+  .book-stats
+    .book-readings
+      = "#{@book.readings} #{t('helpers.label.book.readings')}"
+    .rating-stars
+      = fa_icon 'star'
+      = fa_icon 'star'
+      = fa_icon 'star'
+      = fa_icon 'star'
+      = fa_icon 'star-o'
+  .book-info
     h1.milli = @book.title
     h2.nano = @book.subtitle
-    = "#{t('books.by')} #{@book.authors}"
-  section.details
-    .summary = @book.summary
-    .detail
-      .label = "#{t('helpers.label.book.published_on')}: "
-      = @book.published_on
-    .detail
-      .label = "#{t('helpers.label.book.url')}: "
-      = @book.url
-    .detail
-      .label = "#{t('helpers.label.book.pages')}: "
-      = @book.pages
-    .detail
-      .label = "#{t('helpers.label.book.readings')}: "
-      = @book.readings
-  .book_info__availability = @book.action
+    p.secondary = @book.authors
+    p.secondary = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
+    p.secondary = "#{@book.pages} #{t('helpers.label.book.pages')}"
+
+    h2.micro = t('helpers.label.book.summary')
+    = @book.summary
+  .book-action = @book.action

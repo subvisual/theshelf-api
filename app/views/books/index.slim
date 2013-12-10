@@ -7,17 +7,18 @@ header.top-bar
         = fa_icon 'search', class: 'fa-flip-horizontal'
 
 section.books
-  ul.book-gallery
-    - @books.each do |book|
-      li.media
-        .media-image
-        .media-body.book-item
-          .book
-            .title.milli.truncate = book.title
-            span
-              = fa_icon 'star'
-              = fa_icon 'star'
-              = fa_icon 'star'
-              = fa_icon 'star'
-              = fa_icon 'star-o'
-          .action = book.action
+  ul
+    .book-gallery
+      - @books.each do |book|
+        li.media
+          .media-image
+          .media-body
+            .book-item
+              .book-title.milli.truncate = book.title
+              span
+                = fa_icon 'star'
+                = fa_icon 'star'
+                = fa_icon 'star'
+                = fa_icon 'star'
+                = fa_icon 'star-o'
+            .book-action = book.action

@@ -28,8 +28,8 @@ en:
         availability: Availability
         average_rating: Average Rating
         pages: Pages
-        published_on: Published
-        readings: No. of readings
+        published_on: Published on
+        readings: people read it
         subtitle: Subtitle
         summary: Summary
         title: Title

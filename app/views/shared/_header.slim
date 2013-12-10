@@ -12,14 +12,15 @@ header.side-content.fixed-top
     .media.user-profile-menu
       .media-image
       .media-body.milli = presented_current_user.name
-    ul.list-striped.borrowed-books
-      - presented_current_user.currently_borrowed_books.each do | book|
-        li.media
-          .media-image
-          .media-body.book-item
-            .book
-              .title.milli.truncate = book.title
-            .action = book.action
+    ul.list-striped
+      .borrowed-books
+        - presented_current_user.currently_borrowed_books.each do | book|
+          li.media
+            .media-image
+            .media-body
+              .book-item
+                .book-title.milli.truncate = book.title
+              .book-action = book.action
     #close-menu 
       a href='#'
         = t('menu.close')

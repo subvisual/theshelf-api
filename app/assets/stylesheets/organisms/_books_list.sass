@@ -5,21 +5,21 @@
   .media-image
     padding: 0
 
-  .book-item
-    .book,
-    .action
-      display: inline-block
+  .book-item,
+  .book-action
+    display: inline-block
 
-    .book
-      width: calc(100% - #{$btn-width-mobile})
-      vertical-align: top
+  .book-item
+    width: calc(100% - #{$btn-width-mobile})
+    vertical-align: top
 
 .book-gallery > li
-  padding: 10px 0
+  padding: $base-spacing 0
 
 .borrowed-books
-  .book
+  > li
+    padding: $base-spacing
+  .book-item
     line-height: $btn-height
-
-    .title
+    .book-title
       margin: 0

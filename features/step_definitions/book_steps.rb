@@ -14,7 +14,7 @@ Given(/^I've borrowed a book$/) do
 end
 
 When(/^I borrow an available book$/) do
-  first('.borrow').click
+  first('.btn-positive').click
 end
 
 When(/^I change the book's title$/) do
@@ -35,11 +35,11 @@ When(/^I fill the new book form$/) do
 end
 
 When(/^I borrow the book$/) do
-  find(".book-info .borrow").click
+  find(".book-page .btn-positive").click
 end
 
 When(/^I return the book$/) do
-  first(".return").click
+  first(".btn-negative").click
 end
 
 Then(/^I should see a list of all books$/) do
@@ -61,13 +61,13 @@ Then(/^I should see the book's details$/) do
 end
 
 Then(/^I see that the book was borrowed by me$/) do
-  page.should have_css ".return"
+  page.should have_css ".btn-negative"
 end
 
 Then(/^I see that the book is available for borrowing$/) do
-  page.should have_css ".borrow"
+  page.should have_css ".btn-positive"
 end
 
 Then(/^I can't see a return button$/) do
-  page.should_not have_css ".return"
+  page.should_not have_css ".btn-negative"
 end

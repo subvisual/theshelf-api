@@ -3,8 +3,10 @@
 $white: #fff
 $soft-grey: #f3f6f7
 $grey: #83929a
+$dark-grey: darken($grey, 5%)
 $soft-blue: #b8cfdb
 $green: #31bf76
+$dark-green: darken($green, 5%)
 
 /* Typography
    ========================================================================== */
@@ -24,8 +26,8 @@ $base-text-color: $grey
 
 /* Link
    ========================================================================== */
-$link-color: $base-text-color
-$link-hover-color: darken($base-text-color, 5%)
+$link-color: $grey
+$link-hover-color: $dark-grey
 
 /* Form
    ========================================================================== */
@@ -34,18 +36,13 @@ $form-field-border: 0
 
 /* Button
    ========================================================================== */
-$btn-positive-bg: $white
-$btn-positive-color: $green
-$btn-positive-border: $green
-$btn-positive-hover-bg: $green
-$btn-positive-hover-color: $white
-$btn-positive-hover-border: $white
+$positive-primary-color: $green
+$positive-secondary-color: $white
+$positive-hover-color: $dark-green
 
-$btn-negative-bg: $grey
-$btn-negative-color: $white
-$btn-negative-border: $grey
-$btn-negative-hover-bg: darken($grey, 5%)
-$btn-negative-hover-border: darken($grey, 5%)
+$negative-primary-color: $grey
+$negative-secondary-color: $white
+$negative-hover-color: $dark-grey
 
 $menu-toggle-width: 85px
 $menu-toggle-icon-max-width: 35px
@@ -55,10 +52,15 @@ $btn-width-mobile: 4.3rem
 $btn-width: 7.5rem
 $btn-height: 2.5rem
 
-
 /* Images
    ========================================================================== */
-$image-width: 6rem
+$signout-picture-size: 1.5625rem
+$small-profile-picture-size: 1.5625rem
+$large-profile-picture-size: 3.125rem
+$small-cover-width: 3.125rem
+$small-cover-height: $small-cover-width * 1.25
+$large-cover-width: 6.25rem
+$large-cover-height: $large-cover-width * 1.25
 
 /* Breakpoints
    ========================================================================== */
@@ -75,7 +77,8 @@ $menu-secondary-bg: $soft-blue
 $top-bar-bg: $soft-grey
 
 $header-height: 4.3rem
+$laptop-header-height: 6.25rem
 $user-profile-menu-height: 8.1rem
-$user-picture-max-size: 4rem
-
 $search-bar-height: 3.75rem
+$main-content-padding: 3.125rem
+$side-content-width: 15.5rem

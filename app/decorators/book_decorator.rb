@@ -42,14 +42,10 @@ class BookDecorator < Draper::Decorator
   end
 
   def borrow_link
-    h.content_tag :div, class: 'btn btn--positive' do
-      h.link_to h.t('books.actions.borrow'), borrow_path, class: 'borrow'
-    end
+    h.link_to h.t('books.actions.borrow'), borrow_path, class: 'btn-positive'
   end
 
   def return_link
-    h.content_tag :div, class: 'btn btn--negative' do
-      h.link_to h.t('books.actions.return'), return_path, class: 'return'
-    end
+    h.link_to h.t('books.actions.return'), return_path, class: 'btn-negative'
   end
 end

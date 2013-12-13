@@ -1,8 +1,7 @@
 header.side-content.fixed-top
   .logo-wrap
     .logo
-      span.helper
-      = link_to image_tag('logo.png'), root_path, class: 'logo-link'
+      = link_to '', root_path, class: 'logo-link'
     #menu-toggle.menu-toggle-wrap
       .menu-toggle.collapsed
         .icon-bar
@@ -11,7 +10,9 @@ header.side-content.fixed-top
   .menu-wrap.collapsed
     .media.user-profile-menu
       .media-image
-      .media-body.milli = presented_current_user.name
+      .media-body
+        .milli.truncate = presented_current_user.name
+        = link_to image_tag('signout.png'), sign_out_path, class: 'user-profile-menu-signout'
     ul.list-striped
       .borrowed-books
         - presented_current_user.currently_borrowed_books.each do | book|
@@ -21,6 +22,6 @@ header.side-content.fixed-top
               .book-item
                 .book-title.milli.truncate = book.title
               .book-action = book.action
-    #close-menu 
+    #close-menu.close-menu
       a href='#'
         = t('menu.close')

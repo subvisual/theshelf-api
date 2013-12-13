@@ -3,7 +3,10 @@
   max-width: 100%
 
   .media-image
-    padding: 0
+    display: none
+    > img
+      width: $large-cover-width
+      height: $large-cover-height
 
   .book-item,
   .book-action
@@ -11,15 +14,30 @@
 
   .book-item
     width: calc(100% - #{$btn-width-mobile})
+    padding-right: $base-spacing
+    vertical-align: middle
+
+.book-gallery
+  li
+    padding: $base-spacing 0
+  .book-item
+    height: $btn-height
     vertical-align: top
 
-.book-gallery > li
-  padding: $base-spacing 0
-
 .borrowed-books
-  > li
+  li
     padding: $base-spacing
-  .book-item
-    line-height: $btn-height
-    .book-title
-      margin: 0
+
+@media screen and (min-width: $lap-start)
+  .borrowed-books,
+  .book-gallery
+    .media-image,
+    .book-item,
+    .book-action
+      display: block
+    .book-item
+      width: 100%
+      padding-right: 0
+  .borrowed-books
+    .book-action [class^="btn"]
+      +linkify

@@ -1,2 +1,26 @@
 body
   margin-top: $header-height
+
+@media screen and (min-width: $lap-start)
+  body
+    margin-top: 0
+  .side-content
+    width: $side-content-width
+    height: $laptop-header-height
+  .menu-toggle-wrap
+    +hide-visually
+  .menu-wrap,
+  .menu-wrap.collapsed
+    position: fixed
+    width: $side-content-width
+    height: 100%
+    max-height: none
+    .close-menu
+      display: none
+  .main-content
+    position: absolute
+    top: 0
+    right: 0
+    width: calc(100% - #{$side-content-width})
+    height: 100%
+    padding: 0 $main-content-padding $main-content-padding

@@ -13,15 +13,15 @@ header.side-content.fixed-top
       .media-body
         .milli.truncate = presented_current_user.name
         = link_to image_tag('signout.png'), sign_out_path, class: 'user-profile-menu-signout'
-    ul.list-striped
-      .borrowed-books
-        - presented_current_user.currently_borrowed_books.each do | book|
-          li.media
-            .media-image
-            .media-body
-              .book-item
-                .book-title.milli.truncate = book.title
-              .book-action = book.action
+    ul.list-striped.borrowed-books
+      - presented_current_user.currently_borrowed_books.each do | book|
+        li.media
+          .media-image
+            = link_to image_tag(''), book.path
+          .media-body
+            .book-item
+              .book-title.milli.truncate = link_to book.title, book.path
+            .book-action = book.action
     #close-menu.close-menu
       a href='#'
         = t('menu.close')

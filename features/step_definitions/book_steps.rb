@@ -14,7 +14,9 @@ Given(/^I've borrowed a book$/) do
 end
 
 When(/^I borrow an available book$/) do
-  first('.btn-positive').click
+  within '.books' do
+    first('.btn-positive').click
+  end
 end
 
 When(/^I change the book's title$/) do
@@ -49,7 +51,7 @@ Then(/^I should see a list of all books$/) do
 end
 
 Then(/^I should see that there are no books$/) do
-  page.should_not have_css '.book-gallery .book'
+  page.should_not have_css '.gallery .book'
 end
 
 Then(/^I should see that the title has changed$/) do

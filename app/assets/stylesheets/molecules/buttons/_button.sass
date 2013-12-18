@@ -1,6 +1,30 @@
 /* ==========================================================================
    Base Button
    ========================================================================== */
+=alternative-button-skin
+  &[class='btn-positive']
+    background-color: $positive-secondary-alt-color
+    &:hover,
+    &:active
+      background-color: $positive-primary-color
+
+=linkify
+  display: inline
+  border: none
+  background-color: transparent
+  text-decoration: underline
+
+  &[class='btn-positive']
+    color: $positive-primary-color
+    &:hover,
+    &:active
+      color: $positive-hover-color
+
+  &[class='btn-negative']
+    color: $negative-primary-color
+    &:hover,
+    &:active
+      color: $negative-hover-color
 
 %btn
   display: inline-block
@@ -12,24 +36,8 @@
   line-height: $btn-height
   cursor: pointer
   outline: 0
-
-=linkify
-  &
-    display: inline
-    border: none
-    background-color: transparent
-    text-decoration: underline
-  &[class='btn-positive']
-    color: $positive-primary-color
-    &:hover,
-    &:active
-      color: $positive-hover-color
-  &[class='btn-negative']
-    color: $negative-primary-color
-    &:hover,
-    &:active
-      color: $negative-hover-color
-
+  @media screen and (min-width: $lap-start)
+    width: $btn-width
 
 .btn-positive
   @extend %btn

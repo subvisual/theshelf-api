@@ -1,3 +1,24 @@
 .top-bar,
 .books
   padding: $base-spacing
+
+.top-bar-actions
+  display: none
+
+@media screen and (min-width: $lap-start)
+  .top-bar
+    height: $laptop-header-height
+    $vertical-padding: ($laptop-header-height - $search-bar-height)/2
+    padding: $vertical-padding $main-content-padding
+    background: $menu-primary-bg
+    > *
+      display: inline-block
+    .search-form
+      min-width: $search-bar-min-width
+      width: calc(100% - #{$btn-width})
+      padding-right: 10%
+  .top-bar-actions [class^='btn']
+    +alternative-button-skin
+  .books
+    padding: $main-content-padding
+    

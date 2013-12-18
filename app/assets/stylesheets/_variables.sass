@@ -14,13 +14,14 @@ $nano-size: 13px
 $micro-size: 14px
 $milli-size: 16px
 $base-font-size: 16px
-$kilo-size: 24px
+$kilo-size: 22px
 
-$base-font-family: Source Sans Pro, HelveticaNeue, Georgia, serif
-$secondary-font-family: Futura LT, Arial, sans-serif
+$base-font-family: "source-sans-pro", "HelveticaNeue", Georgia, serif
+$secondary-font-family: "futura-PT", Arial, sans-serif
 
 $base-line-height: 1
-$base-spacing: $base-line-height+em
+$base-spacing: $base-line-height+rem
+$base-spacing-px: $base-font-size
 
 $base-text-color: $grey
 
@@ -31,7 +32,7 @@ $link-hover-color: $dark-grey
 
 /* Form
    ========================================================================== */
-$form-field-bg: $soft-grey
+$field-background: $soft-grey
 $form-field-border: 0
 
 /* Button
@@ -39,6 +40,7 @@ $form-field-border: 0
 $positive-primary-color: $green
 $positive-secondary-color: $white
 $positive-hover-color: $dark-green
+$positive-secondary-alt-color: $soft-grey
 
 $negative-primary-color: $grey
 $negative-secondary-color: $white
@@ -62,12 +64,6 @@ $small-cover-height: $small-cover-width * 1.25
 $large-cover-width: 6.25rem
 $large-cover-height: $large-cover-width * 1.25
 
-/* Breakpoints
-   ========================================================================== */
-$lap-start: 481px
-$desk-start: 1024px
-$desk-wide-start: 1200px
-
 /* Template
    ========================================================================== */
 $body-bg: $white
@@ -79,6 +75,14 @@ $top-bar-bg: $soft-grey
 $header-height: 4.3rem
 $laptop-header-height: 6.25rem
 $user-profile-menu-height: 8.1rem
+$search-bar-min-width: 15rem
 $search-bar-height: 3.75rem
-$main-content-padding: 3.125rem
-$side-content-width: 15.5rem
+$side-content-width: 248px
+$main-content-padding: 48px
+$gallery-item-width: 375px
+$gallery-max-columns: 4
+$gallery-max-width: ($gallery-item-width + $base-spacing-px) * ($gallery-max-columns - 1) + $gallery-item-width
+
+/* Breakpoints
+   ========================================================================== */
+$lap-start: ($side-content-width + $main-content-padding*2 + $gallery-item-width) - 1

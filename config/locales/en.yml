@@ -1,18 +1,15 @@
 en:
   books:
     actions:
+      add: Add new book
       borrow: Borrow
       return: Return
-    all: All Books
     by: by
     edit: Edit book
     empty: No books yet
     header: Books
     new: New Book
-    state:
-      available: Available
-      lent: Lent
-      unavailable: Unavailable
+    search: Search Book
     submit: Submit Book
 
   flash:

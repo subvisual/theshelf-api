@@ -2,23 +2,27 @@ header.top-bar
   = form_tag '#', method: 'post', class: 'inline-form search-form'
     fieldset
       label.hide-visually for='search-field'
-      input.search-field placeholder='Search' type='search' autofocus='true'
+      input.search-field.kilo placeholder=t('books.search') type='search' autofocus='true'
       button.search-submit
         = fa_icon 'search', class: 'fa-flip-horizontal'
+  .top-bar-actions
+    = link_to t('books.actions.add'), new_book_path, class: 'btn-positive'
 
 section.books
-  ul
-    .book-gallery
-      - @books.each do |book|
-        li.media
-          .media-image
-          .media-body
-            .book-item
-              .book-title.milli.truncate = book.title
-              span
+  ul.gallery
+    - @books.each do |book|
+      li.media
+        .media-image
+          = link_to image_tag(''), book.path
+        .media-body
+          = link_to book.path, class: 'book-item'
+            .book-title.milli.truncate = book.title
+            .book-subtitle.nano.truncate = book.subtitle
+            .book-stats
+              .rating-stars
                 = fa_icon 'star'
                 = fa_icon 'star'
                 = fa_icon 'star'
                 = fa_icon 'star'
                 = fa_icon 'star-o'
-            .book-action = book.action
+          .book-action = book.action

@@ -48,7 +48,7 @@ GEM
     capistrano-rvm (0.1.0)
       capistrano (~> 3.0)
       sshkit (~> 1.2.0)
-    capistrano3-puma (0.1.0)
+    capistrano3-puma (0.1.2)
       capistrano (~> 3.0.0)
     capybara (2.2.0)
       mime-types (>= 1.16)
@@ -82,7 +82,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (1.1.2)
+    compass-rails (1.1.3)
       compass (>= 0.12.2)
     cucumber (1.3.10)
       builder (>= 2.1.2)
@@ -229,9 +229,6 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
-    susy (1.0.9)
-      compass (>= 0.12.2)
-      sass (>= 3.2.0)
     temple (0.6.7)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
@@ -290,6 +287,5 @@ DEPENDENCIES
   selenium-webdriver
   slim-rails
   sqlite3
-  susy
   turbolinks
   uglifier (>= 1.3.0)

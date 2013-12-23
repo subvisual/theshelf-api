@@ -15,10 +15,9 @@ gem 'rails', '4.0.0'
 gem 'rvm-capistrano'
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
+gem 'sqlite3'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'susy'
-gem 'sqlite3'
 
 group :development, :test do
   gem 'pry-rails'

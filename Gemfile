@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'cancan'
-gem 'capistrano'
 gem 'clearance'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 1.1.2'
 gem 'dotenv-rails'
 gem 'draper', '~> 1.3'
 gem 'font-awesome-rails'
@@ -34,6 +33,11 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'capistrano',         '~> 3.0.1'
+  gem 'capistrano-rails',   '~> 1.1.0'
+  gem 'capistrano-rvm',     '~> 0.1.0'
+  gem 'capistrano-bundler', '~> 1.1.0'
+  gem 'capistrano3-puma'
 end
 
 group :test do

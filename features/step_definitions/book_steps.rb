@@ -1,37 +1,22 @@
-Given(/^I am a registered user$/) do
-  user = create :user
-  visit sign_in_path
-  fill_in 'session_email', with: user.email
-  fill_in 'session_password', with: user.password
-  click_on I18n.t('helpers.submit.session.submit')
+Given(/^there are(?: available)? books$/) do
+  @books = BookDecorator.decorate_collection(create_list(:available_book, 2))
 end
 
-Given(/^I am a visitor$/) do
-end
-
-Given(/^there are books$/) do
-  @books = BookDecorator.decorate_collection create_list(:book, 2)
-end
-
-Then(/^I should see a list of all books$/) do
-  @books.each do |book|
-    page.should have_content book.title
-  end
+Given(/^there are no books borrowed by me$/) do
+  @books = [create(:lent_book, borrower: create(:user))]
 end
 
 Given(/^there are no books$/) do
 end
 
-Then(/^I should see that there are no books$/) do
-  page.should have_content I18n.t('books.empty')
+Given(/^I've borrowed a book$/) do
+  @book = create(:lent_book, borrower: @user).decorate
 end
 
-Given(/^there is a book$/) do
-  @book = BookDecorator.decorate create(:book)
-end
-
-Then(/^I should see the book's details$/) do
-  page.should have_content @book.title
+When(/^I borrow an available book$/) do
+  within '.books' do
+    first('.btn-positive').click
+  end
 end
 
 When(/^I change the book's title$/) do
@@ -43,14 +28,48 @@ When(/^I submit the book$/) do
   click_on I18n.t('books.submit')
 end
 
+When(/^I fill the new book form$/) do
+  @book ||= build(:book)
+  within(".form") do
+    fill_in 'book_title', with: @book.title
+    fill_in 'book_authors', with: @book.authors
+  end
+end
+
+When(/^I borrow the book$/) do
+  find(".book-page .btn-positive").click
+end
+
+When(/^I return the book$/) do
+  first(".btn-negative").click
+end
+
+Then(/^I should see a list of all books$/) do
+  @books.each do |book|
+    page.should have_content book.title
+  end
+end
+
+Then(/^I should see that there are no books$/) do
+  page.should_not have_css '.gallery .book'
+end
+
 Then(/^I should see that the title has changed$/) do
   page.should have_content @new_title
 end
 
-When(/^I fill the new book form$/) do
-  @book ||= build(:book)
-  within(".form__body") do
-    fill_in 'book_title', with: @book.title
-    fill_in 'book_authors', with: @book.authors
-  end
+Then(/^I should see the book's details$/) do
+  page.should have_content @book.title
+end
+
+Then(/^I see that the book was borrowed by me$/) do
+  page.should have_css ".btn-negative"
+end
+
+Then(/^I see that the book is available for borrowing$/) do
+  page.should have_css ".btn-positive"
+end
+
+Then(/^I can't see a return button$/) do
+  page.should_not have_css ".btn-negative"
 end

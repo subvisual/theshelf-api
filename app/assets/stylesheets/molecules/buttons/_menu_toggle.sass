@@ -1,0 +1,22 @@
+$vertical-padding: calc((#{$header-height} - (#{$menu-toggle-icon-height}*5))/2)
+$horizontal-padding: ($menu-toggle-width - $menu-toggle-icon-max-width)/2
+
+.menu-toggle
+  padding: $vertical-padding $horizontal-padding
+  border: 0
+  background-color: $body-bg
+  outline: 0
+  .icon-bar
+    +border-radius(3px)
+    width: 100%
+    height: $menu-toggle-icon-height
+    background-color: $side-content-bg
+  .icon-bar:not(:last-child)
+    margin-bottom: $menu-toggle-icon-height
+  .icon-bar--half
+    width: 50%
+
+.menu-toggle.collapsed
+  background-color: $menu-primary-bg
+  .icon-bar
+    background-color: $positive-primary-color

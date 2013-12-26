@@ -3,6 +3,11 @@ TheShelf::Application.routes.draw do
   root 'books#index'
 
   resources :users, controller: :users, only: [:create]
-  resources :books
+  resources :books do
+    member do
+      get 'borrow'
+      get 'return'
+    end
+  end
 
 end

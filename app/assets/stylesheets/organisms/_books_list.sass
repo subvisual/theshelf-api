@@ -1,0 +1,70 @@
+.borrowed-books,
+.gallery
+  max-width: 100%
+  .media-image
+    display: none
+    > img
+      width: $large-cover-width
+      height: $large-cover-height
+  .book-item,
+  .book-action
+    display: inline-block
+  .book-item
+    width: calc(100% - #{$btn-width-mobile})
+    padding-right: $base-spacing
+    vertical-align: middle
+    .book-subtitle
+      display: none
+  a
+    text-decoration: none
+
+.gallery
+  li
+    margin-bottom: $main-content-padding
+  .book-item
+    height: $btn-height
+    vertical-align: top
+    *:not(:last-child)
+      margin-bottom: calc(#{$base-spacing} / 2)
+
+.borrowed-books
+  li
+    padding: $base-spacing
+
+@media screen and (min-width: $lap-start)
+  .borrowed-books,
+  .gallery
+    .media-image,
+    .book-item,
+    .book-action
+      display: block
+    .book-item
+      width: 100%
+      padding-right: 0
+
+  .gallery
+    max-width: $gallery-max-width
+    li
+      display: inline-block
+      width: $gallery-item-width
+    .media-image,
+    .media-body
+      height: $large-cover-height
+    .book-item
+      height: calc(100% - #{$btn-height})
+      .book-subtitle
+        display: block
+
+  .borrowed-books
+    .book-action [class^="btn"]
+      +linkify
+
+@for $gallery-columns from 2 through $gallery-max-columns
+  @if $gallery-columns < $gallery-max-columns
+    +between(gallery-breakpoint($gallery-columns), gallery-breakpoint($gallery-columns + 1))
+      .gallery li:not(:nth-child(#{$gallery-columns}n+#{$gallery-columns}))
+        margin-right: $base-spacing
+  @else
+    +at-least(gallery-breakpoint($gallery-columns))
+      .gallery li:not(:nth-child(#{$gallery-columns}n+#{$gallery-columns}))
+        margin-right: $base-spacing

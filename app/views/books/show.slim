@@ -1,22 +1,23 @@
-section.book-info
-  header
-    h2 = book.title
-    h3 = book.subtitle
-    = "#{t('books.by')} #{book.authors}"
-  section.book-info__details
-    .book-info__summary = book.summary
-    .book-info__detail
-      .label = "#{t('helpers.label.book.published_on')}: "
-      = book.published_on
-    .book-info__detail
-      .label = "#{t('helpers.label.book.url')}: "
-      = book.url
-    .book-info__detail
-      .label = "#{t('helpers.label.book.pages')}: "
-      = book.pages
-    .book-info__detail
-      .label = "#{t('helpers.label.book.readings')}: "
-      = book.readings
-    .book-info__detail
-      .label = "#{t('helpers.label.book.availability')}: "
-      = book.availability
+section.book-page
+  .book-cover-wrap
+    .book-image
+      = image_tag ''
+    .book-stats
+      .book-readings
+        .small = "#{@book.readings} #{t('helpers.label.book.readings')}"
+      .rating-stars
+        = fa_icon 'star'
+        = fa_icon 'star'
+        = fa_icon 'star'
+        = fa_icon 'star'
+        = fa_icon 'star-o'
+  .book-info
+    h1.milli = @book.title
+    h2.nano = @book.subtitle
+    p.small = @book.authors
+    p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
+    p.small = "#{@book.pages} #{t('helpers.label.book.pages')}"
+
+    h2.micro = t('helpers.label.book.summary')
+    = @book.summary
+  .book-action = @book.action

@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Form fields' style
+   ========================================================================== */
+
+%form-field-style
+  padding: $base-spacing
+  border: $form-field-border
+  background-color: $field-background
+  color: $base-text-color
+  outline: 0
+  &:focus
+    +single-box-shadow($base-text-color, 0, 0, 5px)
+    background-color: $body-bg
+  // Override browser's autofill highlighting
+  &:-webkit-autofill
+    +single-box-shadow($field-background, 0, 0, 0, 50px, inset)
+    -webkit-text-fill-color: $base-text-color
+    &:focus
+      +box-shadow(0 0 0 50px $body-bg inset, 0 0 5px 0 $base-text-color)
+
+%search-field-style
+  height: $search-bar-height
+  padding-left: 1rem
+  padding-right: 3rem
+  background-color: $body-bg
+  border: $field-background 1px solid
+  font-weight: bold
+  color: $base-text-color
+  outline: 0

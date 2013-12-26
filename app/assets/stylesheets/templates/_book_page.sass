@@ -1,0 +1,43 @@
+.book-page
+  position: relative
+  padding: $base-spacing
+
+  .book-image,
+  .book-stats
+    display: inline-block
+    vertical-align: top
+
+  .book-image
+    margin-right: $base-spacing
+    margin-bottom: calc(#{$base-spacing}/2)
+    &,
+    > img
+      width: $small-cover-width
+      height: $small-cover-height
+
+  .book-action
+    position: absolute
+    top: $base-spacing
+    right: $base-spacing
+
+@media screen and (min-width: $lap-start)
+  .book-page
+    padding: $main-content-padding
+    .book-cover-wrap,
+    .book-info
+      display: inline-block
+      vertical-align: top
+    .book-image,
+    .book-stats
+      width: $large-cover-width
+    .book-image
+      display: block
+      height: $large-cover-height
+      > img
+        width: inherit
+        height: inherit
+    .book-stats
+      text-align: center
+    .book-action
+      top: $main-content-padding
+      right: $main-content-padding

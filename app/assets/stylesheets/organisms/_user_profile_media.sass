@@ -1,0 +1,21 @@
+$vertical-padding: ($user-profile-menu-height - $large-profile-picture-size) / 2
+
+.user-profile-menu
+  height: $user-profile-menu-height
+  padding: $vertical-padding $base-spacing
+
+  .media-image > img
+    width: $large-profile-picture-size
+    height: $large-profile-picture-size
+
+  .media-body
+    height: $large-profile-picture-size
+    > *
+      display: inline-block
+      line-height: $large-profile-picture-size
+    > :first-child
+      width: calc(100% - #{$signout-picture-size})
+    > :last-child
+      width: $signout-picture-size
+      text-align: center
+      vertical-align: text-bottom

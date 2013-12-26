@@ -1,15 +1,15 @@
 en:
   books:
-    all: All Books
+    actions:
+      add: Add new book
+      borrow: Borrow
+      return: Return
     by: by
     edit: Edit book
     empty: No books yet
     header: Books
     new: New Book
-    state:
-      available: Available
-      lent: Lent
-      unavailable: Unavailable
+    search: Search Book
     submit: Submit Book
 
   flash:
@@ -25,7 +25,12 @@ en:
         availability: Availability
         average_rating: Average Rating
         pages: Pages
-        published_on: Published
-        readings: No. of readings
+        published_on: Published on
+        readings: people read it
+        subtitle: Subtitle
+        summary: Summary
         title: Title
         url: URL
+
+  menu:
+    close: Close menu

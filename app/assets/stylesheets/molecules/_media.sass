@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Media
+    * Displays image and text-like content side-by-side.
+   ========================================================================== */
+.media
+  display: block
+  @extend .clearfix
+
+.media-image
+  float: left
+  margin-right: $base-spacing
+
+/* Reversed image location (right instead of left). */
+.media-image--rev
+  float: right
+  margin-left: $base-spacing
+
+.media-image img,
+.media-image--rev img
+  display: block
+
+.media-body
+  overflow: hidden
+
+.media-body,
+.media-body > :last-child
+  margin-bottom: 0

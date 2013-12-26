@@ -1,0 +1,16 @@
+.logo
+  height: inherit
+  display: inline-block
+  width: calc(100% - #{$menu-toggle-width})
+  vertical-align: top
+  .logo-link
+    display: inline-block
+    width: 100%
+    height: 100%
+    background: image-url('logo.png') $base-spacing no-repeat
+
+@media screen and (min-width: $lap-start)
+  .logo
+    width: 100%
+    .logo-link
+      background: image-url('logo.png') center no-repeat

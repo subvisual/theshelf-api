@@ -1,19 +1,28 @@
+header.top-bar
+  = form_tag '#', method: 'post', class: 'inline-form search-form'
+    fieldset
+      label.hide-visually for='search-field'
+      input.search-field.kilo placeholder=t('books.search') type='search' autofocus='true'
+      button.search-submit
+        = fa_icon 'search', class: 'fa-flip-horizontal'
+  .top-bar-actions
+    = link_to t('books.actions.add'), new_book_path, class: 'btn-positive'
+
 section.books
-  h1 = t('books.header')
-  - if @books.empty?
-    p = t('books.empty')
-  - else
-    table
-      thead
-        tr
-          td = t('label.book.title')
-          td = t('label.book.authors')
-          td = t('label.book.average_rating')
-          td = t('label.book.availability')
-      tbody
-        - @books.each do |book|
-          tr
-            td = link_to book.title, book.path
-            td = book.authors
-            td = book.average_rating
-            td = book.availability
+  ul.gallery
+    - @books.each do |book|
+      li.media
+        .media-image
+          = link_to image_tag(''), book.path
+        .media-body
+          = link_to book.path, class: 'book-item'
+            .book-title.milli.truncate = book.title
+            .book-subtitle.nano.truncate = book.subtitle
+            .book-stats
+              .rating-stars
+                = fa_icon 'star'
+                = fa_icon 'star'
+                = fa_icon 'star'
+                = fa_icon 'star'
+                = fa_icon 'star-o'
+          .book-action = book.action

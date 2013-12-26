@@ -17,7 +17,8 @@ module Lendable
   def self.define_state_methods(state_names)
     state_names.each do |state_name|
       define_method("make_#{state_name}") do
-        update_attributes state: state_name
+        update_attributes! state: state_name
+        self
       end
 
       define_method("#{state_name}?") do

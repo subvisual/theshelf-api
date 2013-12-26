@@ -148,7 +148,6 @@ GEM
       mime-types
     paranoia (2.0.1)
       activerecord (~> 4.0)
-    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -280,7 +279,6 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 3.0)
   paranoia (~> 2.0)
-  pg
   pry-rails
   puma
   quiet_assets

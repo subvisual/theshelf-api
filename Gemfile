@@ -18,15 +18,11 @@ gem 'slim-rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'susy'
-
-group :production do
-  gem 'pg'
-end
+gem 'sqlite3'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.13'
-  gem 'sqlite3'
 end
 
 group :development do

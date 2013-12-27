@@ -3,9 +3,6 @@
   max-width: 100%
   .media-image
     display: none
-    > img
-      width: $large-cover-width
-      height: $large-cover-height
   .book-item,
   .book-action
     display: inline-block
@@ -50,12 +47,16 @@
     .media-image,
     .media-body
       height: $large-cover-height
+    .media-image img
+      +large-cover
     .book-item
       height: calc(100% - #{$btn-height})
       .book-subtitle
         display: block
 
   .borrowed-books
+    .media-image img
+      +small-cover
     .book-action [class^="btn"]
       +linkify
 

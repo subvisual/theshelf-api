@@ -4,4 +4,5 @@
 /log/*.log
 /tmp
 /bin
+/public/uploads
 .ruby-gemset

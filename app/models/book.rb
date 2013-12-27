@@ -8,6 +8,8 @@ class Book < ActiveRecord::Base
   validates :title, :state, :authors, presence: true
   validates :state, inclusion: { in: LoanStates.all }
 
+  mount_uploader :cover, CoverUploader
+
   def current_borrower
     current_loan.borrower
   end

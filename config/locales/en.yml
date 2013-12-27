@@ -18,11 +18,14 @@ en:
       deleted: Book successfully deleted
       updated: Book successfully updated
 
+  forms:
+    books:
+      upload_cover: Upload cover
+
   helpers:
     label:
       book:
         authors: Authors
-        availability: Availability
         average_rating: Average Rating
         pages: Pages
         published_on: Published on

@@ -1,7 +1,7 @@
 section.default-page.book-page
   .book-cover-wrap
     .book-image
-      = image_tag ''
+      = image_tag @book.cover
     .book-stats
       .book-readings
         .small = "#{@book.readings} #{t('helpers.label.book.readings')}"

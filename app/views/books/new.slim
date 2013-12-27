@@ -1,5 +1,5 @@
-section.default-page
+section.default-page.new-book
   h1.kilo = t('books.new')
 
   = form_for @book do |form|
-    = render 'form', form: form
+    = render 'form', form: form, book: @book

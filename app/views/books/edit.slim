@@ -1,4 +1,4 @@
 h1 = t('books.edit')
 
 = form_for @book, method: :patch, html: { class: 'form' } do |form|
-  = render 'form', form: form
+  = render 'form', form: form, book: @book

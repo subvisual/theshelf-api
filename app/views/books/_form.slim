@@ -13,6 +13,10 @@ fieldset
   .text = form.url_field :url, placeholder: t('helpers.label.book.url')
   = form.label :pages, class: 'hide-visually'
   .text = form.text_field :pages, placeholder: t('helpers.label.book.pages')
+  = form.label :cover, class: 'hide-visually'
+  .image-upload-with-preview.required style="background-image:url(#{book.cover})"
+    = form.file_field :cover
+  = form.hidden_field :cover_cache
 
   .form-actions
     = form.submit t('books.submit'), class: 'btn-positive'
@@ -23,3 +27,4 @@ coffee:
       rules:
         "book[pages]": "number"
     })
+    window.theshelf.fileUploadStyling()

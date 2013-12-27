@@ -17,7 +17,7 @@ header.side-content.fixed-top
       - presented_current_user.currently_borrowed_books.each do | book|
         li.media
           .media-image
-            = link_to image_tag(''), book.path
+            = link_to image_tag(book.cover.small), book.path
           .media-body
             .book-item
               .book-title.milli.truncate = link_to book.title, book.path

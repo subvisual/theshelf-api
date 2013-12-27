@@ -6,18 +6,23 @@
 .text textarea,
 .select select
   @extend %form-field-style
-  width: 100%
+  width: calc(100% - #{$required-field-asterisk-width})
 
 fieldset
   padding: 0
   margin: 0
   border: 0
   > label + .text
-    margin-bottom: $base-spacing
+    margin-bottom: calc(#{$base-spacing}/2)
   input.error
     padding-left: $base-spacing
     margin-bottom: calc(#{$base-spacing}/2)
 
 .required:after
-  content: ' *'
+  content: " *"
   color: $positive-primary-color
+  font-size: $kilo-size
+
+.form-actions
+  padding-right: $required-field-asterisk-width
+  text-align: right

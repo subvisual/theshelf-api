@@ -4,13 +4,9 @@ en:
       add: Add new book
       borrow: Borrow
       return: Return
-    by: by
-    edit: Edit book
-    empty: No books yet
-    header: Books
-    new: New Book
+    new: Add new book
     search: Search Book
-    submit: Submit Book
+    submit: Submit
 
   flash:
     book:

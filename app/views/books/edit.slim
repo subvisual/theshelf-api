@@ -1,4 +1,5 @@
-h1 = t('books.edit')
+section.default-page
+  h1.kilo = t('books.edit')
 
-= form_for @book, method: :patch, html: { class: 'form' } do |form|
-  = render 'form', form: form, book: @book
+  = form_for @book, method: :patch do |form|
+    .image-and-fields = render 'form', form: form, book: @book

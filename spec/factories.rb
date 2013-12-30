@@ -26,4 +26,10 @@ FactoryGirl.define do
       end
     end
   end
+
+  factory :review do
+    body 'Nice one!'
+    association :book
+    association :user
+  end
 end

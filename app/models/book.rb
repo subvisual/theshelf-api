@@ -1,7 +1,10 @@
 require_relative 'lendable'
+require_relative 'reviewable'
 
 class Book < ActiveRecord::Base
   include Lendable
+  include Reviewable
+
   has_many :borrowers, through: :loans
   has_many :loans
 

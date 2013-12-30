@@ -8,6 +8,7 @@ TheShelf::Application.routes.draw do
     member do
       get 'borrow'
       get 'return'
+      post 'review'
     end
   end
 

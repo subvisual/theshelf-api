@@ -10,8 +10,9 @@
     width: calc(100% - #{$btn-width-mobile})
     padding-right: $base-spacing
     vertical-align: middle
-    .book-subtitle
-      display: none
+  .book-subtitle,
+  .book-total-reviews
+    display: none
   a
     text-decoration: none
 
@@ -19,10 +20,10 @@
   li
     margin-bottom: $main-content-padding
   .book-item
+    display: inline-flex
+    align-items: center
     height: $btn-height
     vertical-align: top
-    *:not(:last-child)
-      margin-bottom: $spacing-half
 
 .borrowed-books
   li
@@ -51,8 +52,11 @@
       +large-cover
     .book-item
       height: calc(100% - #{$btn-height})
-      .book-subtitle
-        display: block
+      > *:not(:last-child)
+        margin-bottom: calc(#{$base-spacing})
+    .book-subtitle,
+    .book-total-reviews
+      display: block
 
   .borrowed-books
     .media-image img

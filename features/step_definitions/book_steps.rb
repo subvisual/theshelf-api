@@ -37,11 +37,25 @@ When(/^I fill the new book form$/) do
 end
 
 When(/^I borrow the book$/) do
-  find(".book-page .btn-positive").click
+  first(".book-action .btn-positive").click
 end
 
 When(/^I return the book$/) do
   first(".btn-negative").click
+end
+
+When(/^I fill the review form$/) do
+  within('.new-review form') do
+    fill_in 'review_body', with: 'Nice!'
+  end
+end
+
+When(/^I submit the review$/) do
+  find(".new-review .btn-positive").click
+end
+
+Then(/^I should see my new review$/) do
+  page.should have_content @book.last_review_by(@user).body
 end
 
 Then(/^I should see a list of all books$/) do

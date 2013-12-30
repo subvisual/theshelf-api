@@ -18,9 +18,23 @@
     top: $base-spacing
     right: $base-spacing
 
+  .reviews-wrap
+    margin-top: calc(2 * #{$base-spacing})
+
+  .review
+    margin-bottom: calc(2 * #{$base-spacing})
+
+  .review-header,
+  .review-body
+    margin-bottom: $base-spacing
+
+  .review-header
+    display: flex
+    justify-content: space-between 
+
 +at-least($lap-start)
   .book-page
-    .book-cover-wrap,
+    .book-cover,
     .book-info
       display: inline-block
       vertical-align: top
@@ -39,3 +53,11 @@
       text-align: center
     .book-action
       right: $main-content-padding
+    .review-header
+      display: block
+      .media
+        margin-bottom: $base-spacing
+      .rating-stars
+        margin-left: $small-profile-picture-size
+    .review-body
+      margin-left: $small-profile-picture-size

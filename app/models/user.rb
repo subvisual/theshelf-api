@@ -3,6 +3,7 @@ require_relative 'authorizable'
 class User < ActiveRecord::Base
   include Clearance::User
   include Authorizable
+
   has_many :borrowed_books, through: :loans, source: :book
   has_many :loans
 

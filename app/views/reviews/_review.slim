@@ -1,0 +1,14 @@
+.review
+  header.review-header
+    .media
+      .media-image
+      .media-body
+        .milli = review.reviewer.name
+    .rating-stars.hide-visually
+      = fa_icon 'star'
+      = fa_icon 'star'
+      = fa_icon 'star'
+      = fa_icon 'star'
+      = fa_icon 'star-o'
+  section.review-body
+    = review.body

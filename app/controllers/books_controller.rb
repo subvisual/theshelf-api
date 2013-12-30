@@ -52,6 +52,12 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def review
+    ReviewBook.new(book: book, reviewer: current_user, content: review_params).review!
+
+    redirect_to book_path(book.id)
+  end
+
   private
 
   def book
@@ -60,5 +66,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:authors, :pages, :published_on, :subtitle, :summary, :title, :url, :cover, :cover_cache)
+  end
+
+  def review_params
+    params.require(:review).permit(:body)
   end
 end

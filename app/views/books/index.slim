@@ -19,10 +19,11 @@ section.books
             .book-title.milli.truncate = book.title
             .book-subtitle.nano.truncate = book.subtitle
             .book-stats
-              .rating-stars
+              .rating-stars.hide-visually
                 = fa_icon 'star'
                 = fa_icon 'star'
                 = fa_icon 'star'
                 = fa_icon 'star'
                 = fa_icon 'star-o'
+              .micro.book-total-reviews = t('reviews.total_reviews', count: book.total_reviews)
           .book-action = book.action

@@ -1,7 +1,9 @@
 class BookDecorator < Draper::Decorator
-  delegate :average_rating, :authors, :cover, :cover_cache, :id, :pages,
-    :published_on, :readings, :state, :subtitle, :summary, :title, :url,
-    :available?, :lent?, :unavailable?, :to_model
+  delegate :authors, :cover, :cover_cache, :id,
+    :last_review_by, :pages, :published_on, :readings, :reviews_by, :state,
+    :subtitle, :summary, :title, :total_reviews, :url, :available?, :lent?,
+    :unavailable?, :to_model
+  decorates_association :reviews
 
   def action
     if object.available?
@@ -29,7 +31,7 @@ class BookDecorator < Draper::Decorator
     if borrowed_by_me?
       return_link
     else
-      h.content_tag :span, current_borrower.name, class: 'borrowed'
+      h.content_tag :span, current_borrower.name, class: 'milli borrowed'
     end
   end
 

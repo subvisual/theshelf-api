@@ -36,7 +36,7 @@
   line-height: $btn-height
   cursor: pointer
   outline: 0
-  @media screen and (min-width: $lap-start)
+  +at-least($lap-start)
     width: $btn-width
 
 .btn-positive
@@ -60,3 +60,6 @@
     border-color: $negative-hover-color
     background-color: $negative-hover-color
     color: $negative-secondary-color
+
+.bold-link
+  font-weight: bold

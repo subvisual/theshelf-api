@@ -5,4 +5,7 @@
 /tmp
 /bin
 /public/uploads
+/public/assets
 .ruby-gemset
+custom_plan.rb
+zeus.json

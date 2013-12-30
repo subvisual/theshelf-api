@@ -1,7 +1,7 @@
 header.side-content.fixed-top
   .logo-wrap
     .logo
-      = link_to '', root_path, class: 'logo-link'
+      = link_to '', root_path, class: 'logo-background'
     #menu-toggle.menu-toggle-wrap
       .menu-toggle.collapsed
         .icon-bar
@@ -12,7 +12,7 @@ header.side-content.fixed-top
       .media-image
       .media-body
         .milli.truncate = presented_current_user.name
-        = link_to image_tag('signout.png'), sign_out_path, class: 'user-profile-menu-signout'
+        = link_to image_tag('signout.png'), log_out_path, method: 'delete', class: 'user-profile-menu-signout'
     ul.list-striped.borrowed-books
       - presented_current_user.currently_borrowed_books.each do | book|
         li.media

@@ -8,7 +8,7 @@
 
   .book-image
     margin-right: $base-spacing
-    margin-bottom: calc(#{$base-spacing}/2)
+    margin-bottom: $spacing-half
     &,
     img
       +small-cover
@@ -18,7 +18,7 @@
     top: $base-spacing
     right: $base-spacing
 
-@media screen and (min-width: $lap-start)
++at-least($lap-start)
   .book-page
     .book-cover-wrap,
     .book-info

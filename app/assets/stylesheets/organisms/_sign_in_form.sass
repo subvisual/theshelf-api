@@ -1,0 +1,24 @@
+.sign-in-header-wrap
+  width: 100%
+  height: $header-height
+  .logo
+    width: 100%
+
+.sign-in-body-wrap
+  padding: $spacing-double
+
+.sign-in-contact
+  margin-top: $spacing-double
+  margin-bottom: $spacing-triple
+
++at-least($lap-start)
+  .sign-in-header-wrap
+    height: $laptop-header-height
+
+  .sign-in-body-wrap
+    > *
+      max-width: $laptop-sign-in-content-width
+      margin: 0 auto
+
+  .sign-in-copy
+    +font-size($kilo-size)

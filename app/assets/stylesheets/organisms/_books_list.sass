@@ -22,13 +22,13 @@
     height: $btn-height
     vertical-align: top
     *:not(:last-child)
-      margin-bottom: calc(#{$base-spacing} / 2)
+      margin-bottom: $spacing-half
 
 .borrowed-books
   li
     padding: $base-spacing
 
-@media screen and (min-width: $lap-start)
++at-least($lap-start)
   .borrowed-books,
   .gallery
     .media-image,

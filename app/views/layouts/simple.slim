@@ -1,0 +1,13 @@
+= render 'layouts/doctype'
+
+= render 'layouts/head', stylesheet: 'simple'
+
+body
+  #sticky-root.simple-container
+    = yield
+    #sticky-root-footer
+
+#sticky-footer.footer-wrap
+  footer.simple-footer
+    | #{t('sign_in.designed_by')} 
+    = link_to "GroupBuddies", "www.groupbuddies.com", class: 'bold-link'

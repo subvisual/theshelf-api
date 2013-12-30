@@ -14,14 +14,17 @@ $nano-size: 13px
 $micro-size: 14px
 $milli-size: 16px
 $base-font-size: 16px
-$kilo-size: 22px
+$kilo-size: 18px
+$mega-size: 22px
 
 $base-font-family: "source-sans-pro", "HelveticaNeue", Georgia, serif
 $secondary-font-family: "futura-PT", Arial, sans-serif
 
 $base-line-height: 1
-$base-spacing: $base-line-height+rem
-$base-spacing-px: $base-font-size
+$base-spacing: 1rem
+$spacing-double: $base-spacing * 2
+$spacing-triple: $base-spacing * 3
+$spacing-half: $base-spacing / 2
 
 $base-text-color: $grey
 
@@ -74,7 +77,11 @@ $menu-secondary-bg: $soft-blue
 $top-bar-bg: $soft-grey
 
 $header-height: 4.3rem
+$footer-height: 3.4rem
 $laptop-header-height: 6.25rem
+$logo-size: 5rem
+$laptop-logo-size: 8rem
+$laptop-sign-in-content-width: 28rem
 $user-profile-menu-height: 8.1rem
 $search-bar-min-width: 15rem
 $search-bar-height: 3.75rem
@@ -82,7 +89,7 @@ $side-content-width: 248px
 $main-content-padding: 48px
 $gallery-item-width: 375px
 $gallery-max-columns: 4
-$gallery-max-width: ($gallery-item-width + $base-spacing-px) * ($gallery-max-columns - 1) + $gallery-item-width
+$gallery-max-width: ($gallery-item-width + $base-font-size) * ($gallery-max-columns - 1) + $gallery-item-width
 
 /* Breakpoints
    ========================================================================== */

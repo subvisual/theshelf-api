@@ -20,4 +20,12 @@ class Book < ActiveRecord::Base
   def current_loan
     loans.by_most_recent.first
   end
+
+  def self.search(query)
+    if query
+      where('title LIKE ? or authors LIKE ?', "%#{query}%", "%#{query}%")
+    else
+      all
+    end
+  end
 end

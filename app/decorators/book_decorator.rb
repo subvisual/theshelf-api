@@ -25,6 +25,17 @@ class BookDecorator < Draper::Decorator
     h.return_book_path(object)
   end
 
+  def as_json
+    {
+      path: path,
+      cover_path: cover.url,
+      title: title,
+      subtitle: subtitle,
+      total_reviews: h.t('reviews.total_reviews', count: total_reviews),
+      action: action
+    }.to_json
+  end
+
   private
 
   def lent_actions

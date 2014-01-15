@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   before_action :authorize
 
+  respond_to :json, only: [:search]
+
   def index
     @books = Book.all.decorate
   end
@@ -60,6 +62,12 @@ class BooksController < ApplicationController
     ReviewBook.new(book: book, reviewer: current_user, content: review_params).review!
 
     redirect_to book_path(book.id)
+  end
+
+  def search
+    books = Book.search(params.permit(:search)[:search]).decorate
+
+    respond_with books.map(&:as_json)
   end
 
   private

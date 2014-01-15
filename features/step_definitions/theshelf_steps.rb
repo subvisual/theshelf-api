@@ -1,6 +1,6 @@
 Given(/^I have an account on the system$/) do
   @user ||= create :user
-  visit root_path(as: @user)
+  visit root_path as: @user
 end
 
 Given(/^I am a visitor$/) do

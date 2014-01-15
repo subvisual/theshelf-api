@@ -13,8 +13,13 @@ Given(/^I've borrowed a book$/) do
   @book = create(:lent_book, borrower: @user).decorate
 end
 
+Given(/^there isn't a book with title (\w+)/) do |title|
+  @title = title
+  page.should_not have_content title
+end
+
 When(/^I borrow an available book$/) do
-  within '.books' do
+  within '#book-list' do
     first('.btn-positive').click
   end
 end
@@ -58,6 +63,30 @@ Then(/^I should see my new review$/) do
   page.should have_content @book.last_review_by(@user).body
 end
 
+When(/^I search a book by its title$/) do
+  @book = @books.last
+  within '.search-form' do
+    fill_in 'search-box', with: @books.last.title
+  end
+end
+
+When(/^I search a book by its author$/) do
+  @book = @books.last
+  within '.search-form' do
+    fill_in 'search-box', with: @book.authors
+  end
+end
+
+When(/^I search for that word/) do
+  within '.search-form' do
+    fill_in 'search-box', with: @title
+  end
+end
+
+Then(/^I should see the book listed$/) do
+  page.should have_content @book.title
+end
+
 Then(/^I should see a list of all books$/) do
   @books.each do |book|
     page.should have_content book.title
@@ -86,4 +115,8 @@ end
 
 Then(/^I can't see a return button$/) do
   page.should_not have_css ".btn-negative"
+end
+
+Then(/^I should see an empty search results message$/) do
+  page.should_not have_css ".gallery li"
 end

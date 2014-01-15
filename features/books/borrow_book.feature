@@ -7,6 +7,7 @@ Feature: Borrow book
     Given I have an account on the system
     And there are available books
 
+  @javascript @selenium
   Scenario: I borrow a book from the shelf page
     Given I am on the shelf page
     When I borrow an available book

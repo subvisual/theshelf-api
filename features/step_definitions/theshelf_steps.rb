@@ -1,9 +1,6 @@
 Given(/^I have an account on the system$/) do
   @user ||= create :user
-  visit root_path
-  fill_in 'session_email', with: @user.email
-  fill_in 'session_password', with: @user.password
-  click_on I18n.t('forms.users.new.sign_in')
+  visit root_path(as: @user)
 end
 
 Given(/^I am a visitor$/) do

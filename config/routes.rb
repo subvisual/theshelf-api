@@ -8,7 +8,8 @@ TheShelf::Application.routes.draw do
     member do
       get 'borrow'
       get 'return'
-      post 'review'
+      get 'review' => 'books#new_review', as: 'new_review'
+      post 'review' => 'books#create_review', as: 'create_review'
     end
   end
 

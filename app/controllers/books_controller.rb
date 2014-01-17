@@ -49,10 +49,14 @@ class BooksController < ApplicationController
   def return
     BookKeeper.new(book: book).return_by!(borrower: current_user)
 
-    redirect_to books_path
+    redirect_to new_review_book_path
   end
 
-  def review
+  def new_review
+    @book = book.decorate
+  end
+
+  def create_review
     ReviewBook.new(book: book, reviewer: current_user, content: review_params).review!
 
     redirect_to book_path(book.id)

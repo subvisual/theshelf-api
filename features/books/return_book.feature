@@ -14,7 +14,7 @@ Feature: Return book
 
   Scenario: I return a book from its page
     Given I've borrowed a book
-    And I am on the shelf page
+    And I am on a borrowed book's page
     When I return the book
     Then I see that the book is available for borrowing
 
@@ -22,3 +22,11 @@ Feature: Return book
     Given there are no books borrowed by me
     When I go to the shelf page
     Then I can't see a return button
+
+  Scenario: I review a book when I return it
+    Given I've borrowed a book
+    And I am on the shelf page
+    And I return the book
+    And I fill the review form
+    And I submit the review
+    Then I see that the book is available for borrowing

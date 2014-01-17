@@ -23,12 +23,4 @@ section.default-page.book-page
   .book-action = @book.action
 
   aside.reviews-wrap
-    .reviews
-      h1.micro = t('reviews.total_reviews', count: @book.total_reviews)
-      = render @book.reviews
-    .new-review
-      = form_tag review_book_path, method: 'post'
-        fieldset
-          label.hide-visually :review_body
-          .text = text_area :review, :body, placeholder: t('forms.reviews.comment')
-        .form-actions = submit_tag t('forms.reviews.submit'), class: 'btn-positive'
+    = render 'reviews/reviews', book: @book

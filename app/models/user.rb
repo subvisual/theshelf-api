@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   include Clearance::User
   include Authorizable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :borrowed_books, through: :loans, source: :book
   has_many :loans
 

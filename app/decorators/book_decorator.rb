@@ -42,7 +42,10 @@ class BookDecorator < Draper::Decorator
     if borrowed_by_me?
       return_link
     else
-      h.content_tag :span, current_borrower.name, class: 'milli borrowed'
+      h.content_tag(:div, class: 'borrowed-by-someone adaptive') do
+        h.content_tag(:div, h.image_tag(current_borrower.avatar.thumb)) +
+        h.content_tag(:div, current_borrower.name, class: 'milli')
+      end
     end
   end
 

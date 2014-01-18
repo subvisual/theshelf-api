@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class CoverUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
@@ -11,13 +11,13 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "no_cover.jpg"].compact.join('_'))
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "no_avatar.png"].compact.join('_'))
   end
 
-  process :resize_to_fill => [100, 125]
+  process :resize_to_fill => [50, 50]
 
-  version :small do
-    process resize_to_fill: [50, 63]
+  version :thumb do
+    process resize_to_fill: [25, 25]
   end
 
   def extension_white_list

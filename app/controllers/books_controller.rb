@@ -41,7 +41,7 @@ class BooksController < ApplicationController
   end
 
   def borrow
-    BookKeeper.new(book: book).lend_to(user: current_user)
+    BookKeeper.new(book: book).lend_to!(borrower: current_user)
 
     redirect_to books_path
   end

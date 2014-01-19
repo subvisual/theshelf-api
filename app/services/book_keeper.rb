@@ -3,10 +3,12 @@ class BookKeeper
     @book = book
   end
 
-  def lend_to(user: nil)
+  def lend_to!(borrower: nil)
     return false unless book.available?
 
-    book.lend_to! borrower: user
+    ActiveRecord::Base.transaction do
+      Loan.new(borrower: borrower, book: book.make_lent).start!
+    end
   end
 
   def return_by!(borrower: nil)

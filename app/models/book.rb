@@ -20,10 +20,4 @@ class Book < ActiveRecord::Base
   def current_loan
     loans.by_most_recent.first
   end
-
-  def lend_to!(borrower: nil)
-    transaction do
-      Loan.new(borrower: borrower, book: self.make_lent).start!
-    end
-  end
 end

@@ -30,7 +30,10 @@ en:
         authors: Authors
         pages: Pages
         published_on: Published on
-        readings: people read it
+        readings:
+          zero: No one read it
+          one: 1 person read it
+          other: "%{count}) people read it"
         subtitle: Subtitle
         summary: Summary
         title: Title

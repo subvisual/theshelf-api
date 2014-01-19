@@ -1,0 +1,18 @@
+.book-cover
+  .book-image
+    = image_tag @book.cover
+  .book-stats
+    .book-readings
+      .small = t('helpers.label.book.readings', count: @book.readings)
+    = render 'rating_stars'
+.book-info
+  h1.milli = @book.title
+  h2.nano = @book.subtitle
+  p.small = @book.authors
+  - if @book.published_on
+    p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
+  - if @book.pages
+    p.small = "#{@book.pages} #{t('helpers.label.book.pages')}"
+  - if @book.summary.present?
+    h2.micro = t('helpers.label.book.summary')
+    = @book.summary

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230170443) do
+ActiveRecord::Schema.define(version: 20140119174324) do
 
   create_table "books", force: true do |t|
     t.string   "title",                                                null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20131230170443) do
     t.string   "url"
     t.string   "authors",                                              null: false
     t.date     "published_on"
-    t.integer  "readings"
+    t.integer  "readings",                               default: 0
     t.decimal  "average_rating", precision: 6, scale: 2, default: 0.0
     t.string   "state",                                                null: false
     t.datetime "created_at"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20131230170443) do
     t.string   "first_name",                     null: false
     t.string   "last_name",                      null: false
     t.string   "role",                           null: false
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

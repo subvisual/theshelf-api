@@ -4,11 +4,6 @@
       .media-image
       .media-body
         .milli = review.reviewer.name
-    .rating-stars.hide-visually
-      = fa_icon 'star'
-      = fa_icon 'star'
-      = fa_icon 'star'
-      = fa_icon 'star'
-      = fa_icon 'star-o'
+    = render 'rating_stars'
   section.review-body
     = review.body

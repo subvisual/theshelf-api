@@ -4,11 +4,13 @@
   .book-stats
     .book-readings
       .small = t('helpers.label.book.readings', count: @book.readings)
-    = render 'rating_stars'
+    = render 'rating_form'
+
 .book-info
   h1.milli = @book.title
   h2.nano = @book.subtitle
   p.small = @book.authors
+  = render 'rating_show', rating_label: @book.average_rating.to_s
   - if @book.published_on
     p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
   - if @book.pages

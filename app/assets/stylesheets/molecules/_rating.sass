@@ -1,0 +1,31 @@
+$star-width: 16px
+$star-height: 15px
+
+%full-star
+  background-position: 0px -1px
+
+.rating,
+.rating-form
+  float: left
+
+  input
+    display: none
+    &:checked ~ .rating-label
+      @extend %full-star
+
+.rating-form:hover
+  label.rating-label
+    background-position: left bottom
+  .rating-label:hover
+    @extend %full-star
+    ~ .rating-label
+      @extend %full-star
+
+.rating-label
+  float: right
+  width: $star-width
+  height: $star-height
+  background: image-url('stars_sprite.png') no-repeat left bottom
+
+.rating-label.full
+  @extend %full-star

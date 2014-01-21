@@ -17,6 +17,12 @@ en:
   forms:
     books:
       upload_cover: Upload cover
+    rating:
+      star1: did not like it
+      star2: it was ok
+      star3: liked it
+      star4: really liked it
+      star5: it was amazing
     reviews:
       submit: Submit
       comment: Make your review
@@ -28,7 +34,7 @@ en:
     label:
       book:
         authors: Authors
-        pages: Pages
+        pages: pages
         published_on: Published on
         readings:
           zero: No one read it

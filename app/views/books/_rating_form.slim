@@ -1,4 +1,4 @@
-= form_tag rate_book_path, method: 'get', class: 'rating-form'
+#rating-form.rating-form data-bookid="#{book.id}" data-rating="#{book.rating_by(current_user).value}"
   = radio_button_tag :rating, "5"
   = label_tag :rating_5, "", title: t('forms.rating.star5'), class: 'rating-label'
   = radio_button_tag :rating, "4"
@@ -9,3 +9,7 @@
   = label_tag :rating_2, "", title: t('forms.rating.star2'), class: 'rating-label'
   = radio_button_tag :rating, "1"
   = label_tag :rating_1, "", title: t('forms.rating.star1'), class: 'rating-label'
+
+coffee:
+  $ ->
+    $('#rating-form').rating()

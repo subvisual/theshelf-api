@@ -7,7 +7,7 @@ TheShelf::Application.routes.draw do
   resources :books do
     member do
       get 'borrow'
-      get 'rate'
+      patch 'rate'
       get 'return'
       get 'review' => 'books#new_review', as: 'new_review'
       post 'review' => 'books#create_review', as: 'create_review'

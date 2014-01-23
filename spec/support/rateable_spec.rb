@@ -12,4 +12,13 @@ shared_examples 'a rateable resource' do
       expect(resource.average_rating).to eq 2.5
     end
   end
+
+  context '#rating_by' do
+    it 'returns the rating given by the user' do
+      user = build_stubbed :user
+      rating = create(:rating, book: resource, rater: user, value: 2)
+
+      expect(resource.rating_by(user)).to eq rating
+    end
+  end
 end

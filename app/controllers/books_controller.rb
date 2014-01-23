@@ -64,6 +64,14 @@ class BooksController < ApplicationController
     redirect_to book_path(book.id)
   end
 
+  def rate
+    RateBook.new(book: book, rater: current_user, rating: params.require(:rating)).rate!
+
+    respond_to do |format|
+      format.json { head :ok }
+    end
+  end
+
   def search
     books = Book.search(params.permit(:search)[:search]).decorate
 

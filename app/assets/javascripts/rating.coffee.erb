@@ -1,0 +1,24 @@
+class Rating
+  constructor: (el) ->
+    @$el = $(el)
+    @setCurrentRating()
+    @bindElements()
+
+  setCurrentRating: ->
+    rating = @$el.data('rating')
+    @$el.find("#rating_#{rating}").prop('checked', true)
+
+  # setAverageRating: ->
+  #   rating =
+
+  bindElements: ->
+    $('input[name="rating"]').change (event) =>
+      id = @$el.data('bookid')
+      $.ajax "/books/" + id + "/rate",
+        type: "PATCH"
+        data:
+          rating: $(event.currentTarget).val()
+
+
+$.fn.rating = ->
+  new Rating(this)

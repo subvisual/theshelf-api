@@ -1,6 +1,4 @@
 .rating
-  label.rating-label title="#{rating_label}"
-  label.rating-label title="#{rating_label}"
-  label.rating-label title="#{rating_label}"
-  label.rating-label title="#{rating_label}"
-  label.rating-label.full title="#{rating_label}"
+  /TODO usar os valores do rating (value) e o step (0.5) a partir do VAlueObject
+  - 5.downto(1).each do |value|
+    = book.star_tag(value)

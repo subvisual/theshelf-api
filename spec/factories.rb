@@ -32,4 +32,10 @@ FactoryGirl.define do
     association :book
     association :user
   end
+
+  factory :rating do
+    value 3
+    association :book
+    association :rater, factory: :user
+  end
 end

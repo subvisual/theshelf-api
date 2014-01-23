@@ -8,11 +8,22 @@ class RateBook
   def rate!
     return false unless book && rater && rating_value
 
+    ActiveRecord::Base.transaction do
+      save_rating
+      update_average_rating
+    end
+  end
+
+  private
+  attr_reader :book, :rater, :rating_value
+
+  def save_rating
     rating = Rating.where(book: book, rater: rater).first_or_initialize
     rating.value = rating_value
     rating.save
   end
 
-  private
-  attr_reader :book, :rater, :rating_value
+  def update_average_rating
+    book.update_average_rating!
+  end
 end

@@ -31,7 +31,7 @@ describe RateBook do
     it "updates the book's average rating" do
       rating = 3
 
-      book.shoud_receive(:update_average_rating).with(average_rating: rating)
+      book.should_receive(:update_average_rating!)
 
       RateBook.new(book: book, rater: user, rating: rating).rate!
     end

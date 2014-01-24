@@ -67,9 +67,14 @@ class BooksController < ApplicationController
   def rate
     RateBook.new(book: book, rater: current_user, rating: params.require(:rating)).rate!
 
+    # render :json => "we good!", :status => :ok
     respond_to do |format|
-      format.json { head :ok }
+      format.json { head :no_content }
     end
+  end
+
+  def average
+    render json: { attachmentPartial: render_to_string('books/_rating_show', layout: false, locals: { book: book.decorate }) }
   end
 
   def search

@@ -8,9 +8,6 @@ class Rating
     rating = @$el.data('rating')
     @$el.find("#rating_#{rating}").prop('checked', true)
 
-  # setAverageRating: ->
-  #   rating =
-
   bindElements: ->
     $('input[name="rating"]').change (event) =>
       id = @$el.data('bookid')
@@ -18,7 +15,19 @@ class Rating
         type: "PATCH"
         data:
           rating: $(event.currentTarget).val()
+        success: =>
+          new UpdateAverage('#avg-rating', id).update()
 
+class UpdateAverage
+    constructor: (el, bookId) ->
+      @$el = $(el)
+      @$bookId = bookId
+
+    update: ->
+      $.ajax "/books/" + @$bookId + "/average",
+        type: "GET"
+        success: (data) =>
+          @$el.html(data.attachmentPartial)
 
 $.fn.rating = ->
   new Rating(this)

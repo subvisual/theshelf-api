@@ -1,3 +1,4 @@
+@javascript @selenium
 Feature: Rate a book
   As a user
   I want to rate a book
@@ -8,8 +9,7 @@ Feature: Rate a book
     And there are books
     When I go to a book's page
     And I rate the book with 5 stars
-    Then I see my rating
-    And I see that the book's average rating was updated
+    Then I see that the book's average rating was updated
 
   Scenario: I clear my rating
     Given I have an account on the system

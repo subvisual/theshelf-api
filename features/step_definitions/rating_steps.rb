@@ -1,12 +1,6 @@
 When(/^I rate the book with (\d) stars$/) do |value|
   @rating = value
-  choose("rating_#{value}")
-end
-
-Then(/^I see my rating$/) do
-  within('.rating-form') do
-    find_field("rating_#{@rating}").should be_checked
-  end
+  find(:xpath, "//label[@for='rating_#{value}']").click
 end
 
 Then(/^I see that the book's average rating was updated$/) do

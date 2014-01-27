@@ -9,3 +9,4 @@
 .ruby-gemset
 custom_plan.rb
 zeus.json
+.envrc

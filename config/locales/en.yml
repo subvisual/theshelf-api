@@ -48,13 +48,22 @@ en:
   menu:
     close: Close menu
 
-  sign_in:
-    designed_by: Designed by
-    more: If you'd like to know more about it, I'd be glad to have a chat with you.
-    contact: "You can reach me here:"
-    what: The Shelf is an online library for startups to keep track of their books and to create discussion around knowledge.
+  rating:
+    actions:
+      clear_rating: Clear rating
+    messages:
+      my_rating: "My rating:"
+      rate_book: Rate this book
+      saving: Saving...
+      thanks: Thanks for rating
 
   reviews:
     total_reviews:
       one: "(1) Review"
       other: "(%{count}) Reviews"
+
+  sign_in:
+    designed_by: Designed by
+    more: If you'd like to know more about it, I'd be glad to have a chat with you.
+    contact: "You can reach me here:"
+    what: The Shelf is an online library for startups to keep track of their books and to create discussion around knowledge.

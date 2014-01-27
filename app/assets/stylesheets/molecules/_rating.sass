@@ -1,13 +1,25 @@
-$star-width: 16px
+$star-width: 15px
 $star-height: 15px
 
 %full-star
-  background-position: 0px -1px
+  background-position: 0px -50px
+
+%half-star
+  background-position: 0px -25px
+
+%empty-star
+  background-position: 0px 0px
+
+.rating
+  float: left
+
+.rating-form
+  display: inline-block
+  .rating-label
+    cursor: pointer
 
 .rating,
 .rating-form
-  float: left
-
   input
     display: none
     &:checked ~ .rating-label
@@ -15,7 +27,7 @@ $star-height: 15px
 
 .rating-form:hover
   label.rating-label
-    background-position: left bottom
+    @extend %empty-star
   .rating-label:hover
     @extend %full-star
     ~ .rating-label
@@ -25,7 +37,14 @@ $star-height: 15px
   float: right
   width: $star-width
   height: $star-height
-  background: image-url('stars_sprite.png') no-repeat left bottom
+  background: image-url('stars_sprite.png')
+
+.rating-label.half
+  @extend %half-star
 
 .rating-label.full
   @extend %full-star
+
+.my-rating
+  height: $star-height
+  cursor: pointer

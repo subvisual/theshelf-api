@@ -25,6 +25,10 @@ class BookDecorator < Draper::Decorator
     end
   end
 
+  def rating_values
+    RatingValues.all.reverse
+  end
+
   def path
     h.book_path(object)
   end

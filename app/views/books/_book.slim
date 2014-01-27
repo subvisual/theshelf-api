@@ -4,7 +4,7 @@
   .book-stats
     .book-readings
       .small = t('helpers.label.book.readings', count: @book.readings)
-    = render 'rating_form', book: @book
+    = render 'my_rating', book: @book
 
 .book-info
   h1.milli = @book.title

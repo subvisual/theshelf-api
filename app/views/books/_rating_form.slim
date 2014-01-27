@@ -1,4 +1,4 @@
-#rating-form.rating-form data-bookid="#{book.id}" data-rating="#{book.rating_by(current_user).value}"
+#rating-form data-bookid="#{book.id}" data-rating="#{book.rating_by(current_user).value}"
   = radio_button_tag :rating, "5"
   = label_tag :rating_5, "", title: t('forms.rating.star5'), class: 'rating-label'
   = radio_button_tag :rating, "4"

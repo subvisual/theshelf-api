@@ -65,9 +65,8 @@ class BooksController < ApplicationController
   end
 
   def rate
-    RateBook.new(book: book, rater: current_user, rating: params.require(:rating)).rate!
+    RateBook.new(book: book, rater: current_user, rating: params.require(:rating).to_i).rate!
 
-    # render :json => "we good!", :status => :ok
     respond_to do |format|
       format.json { head :no_content }
     end

@@ -16,11 +16,11 @@ Feature: Rate a book
     And there are books rated by me
     When I go to a book's page
     And I clear my rating
-    Then I should not see my rating
+    Then I see that the book's average rating was updated
 
   Scenario: I edit my rating
     Given I have an account on the system
     And there are books rated by me
     When I go to a book's page
-    And I edit my rating
-    Then I should see my rating
+    And I rate the book with 5 stars
+    Then I see that the book's average rating was updated

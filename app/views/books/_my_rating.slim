@@ -1,0 +1,7 @@
+#my-rating.my-rating
+  #my-rating-message
+    .small = t('rating.messages.my_rating')
+    #clear-rating.small.link.hide-visually = t('rating.actions.clear_rating')
+  #my-rating-form.rating-form
+    .small.hide-visually = t('rating.messages.saving')
+    = render 'rating_form', book: book

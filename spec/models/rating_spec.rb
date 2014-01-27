@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Rating do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should ensure_inclusion_of(:value).in_array([1,2,3,4,5]) }
 end

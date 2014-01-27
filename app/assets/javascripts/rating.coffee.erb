@@ -8,26 +8,48 @@ class Rating
     rating = @$el.data('rating')
     @$el.find("#rating_#{rating}").prop('checked', true)
 
-  bindElements: ->
-    $('input[name="rating"]').change (event) =>
+  toggleLoading: ->
+    $('#my-rating-form').children().toggleClass('hide-visually')
+
+  rate: ->
+    $('input[name="rating"]').on 'change', (event) =>
+      @toggleLoading()
       id = @$el.data('bookid')
+      rating = if event.currentTarget.checked is true then event.currentTarget.value else "0"
+      debugger
       $.ajax "/books/" + id + "/rate",
         type: "PATCH"
         data:
-          rating: $(event.currentTarget).val()
+          rating: rating
         success: =>
           new UpdateAverage('#avg-rating', id).update()
+          @toggleLoading()
+
+  bindElements: ->
+    @rate()
+    new ClearRating('#my-rating').bind()
 
 class UpdateAverage
-    constructor: (el, bookId) ->
-      @$el = $(el)
-      @$bookId = bookId
+  constructor: (el, bookId) ->
+    @$el = $(el)
+    @$bookId = bookId
 
-    update: ->
-      $.ajax "/books/" + @$bookId + "/average",
-        type: "GET"
-        success: (data) =>
-          @$el.html(data.attachmentPartial)
+  update: ->
+    $.ajax "/books/" + @$bookId + "/average",
+      type: "GET"
+      success: (data) =>
+        @$el.html(data.attachmentPartial)
+
+class ClearRating
+  constructor: (el) ->
+    @$el = $(el)
+
+  bind: ->
+    @$el.hover =>
+      $('#my-rating-message').children().toggleClass('hide-visually')
+    $('#clear-rating').click ->
+      $('input[name="rating"]:checked').prop('checked', false).change()
+
 
 $.fn.rating = ->
   new Rating(this)

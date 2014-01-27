@@ -19,8 +19,12 @@ class RateBook
 
   def save_rating
     rating = Rating.where(book: book, rater: rater).first_or_initialize
-    rating.value = rating_value
-    rating.save
+
+    if RatingValues.valid?(rating_value)
+      rating.update value: rating_value
+    else
+      rating.delete
+    end
   end
 
   def update_average_rating

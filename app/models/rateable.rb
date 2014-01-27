@@ -6,7 +6,7 @@ module Rateable
   end
 
   def update_average_rating!
-    average_rating = Rating.where(book_id: self.id).where.not(value: 0).average(:value)
+    average_rating = Rating.where(book_id: self.id).where.not(value: 0).average(:value) || NullRating.new.value
     self.update average_rating: average_rating
   end
 

@@ -22,6 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.13'
+  gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'

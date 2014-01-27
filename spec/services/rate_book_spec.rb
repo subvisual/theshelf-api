@@ -18,14 +18,26 @@ describe RateBook do
       }.to change { Rating.all.size }.by(1)
     end
 
-    it "updates a book's rating for a user" do
-      old_rating = 3
-      new_rating = 2
-      RateBook.new(book: book, rater: user, rating: old_rating).rate!
+    context "updates a book's rating for a user" do
+      it "updates the rating when the given rating valid" do
+        old_rating = 3
+        RateBook.new(book: book, rater: user, rating: old_rating).rate!
+        new_rating = 2
 
-      expect {
-        RateBook.new(book: book, rater: user, rating: new_rating).rate!
-      }.to change { Rating.all.size }.by(0)
+        expect {
+          RateBook.new(book: book, rater: user, rating: new_rating).rate!
+        }.to change { Rating.all.size }.by(0)
+      end
+
+      it "deletes the rating when the given rating is invalid" do
+        old_rating = 3
+        RateBook.new(book: book, rater: user, rating: old_rating).rate!
+        new_rating = 0
+
+        expect {
+          RateBook.new(book: book, rater: user, rating: 0).rate!
+        }.to change { Rating.all.size }.by(-1)
+      end
     end
 
     it "updates the book's average rating" do

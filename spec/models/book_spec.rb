@@ -2,23 +2,28 @@ require 'spec_helper'
 
 describe Book do
   it_behaves_like 'a lendable resource'
+  it_behaves_like 'a reviewable resource'
 
-  let(:book) { create(:book) }
-  let(:user) { create(:user) }
+  context '.search' do
+    it 'returns all books' do
+      create(:book)
+      query = ""
 
-  context '#lend_to!' do
-    it "changes the book's state to lent" do
-      book = build(:book)
-
-      book.lend_to! borrower: user
-
-      book.should be_lent 
+      expect( Book.search(query) ).not_to be_empty
     end
 
-    it "saves the book's borrower" do
-      book.lend_to! borrower: user
+    it 'returns the matched books' do
+      book = create(:book)
+      query = book.title
 
-      book.current_borrower.should eq user
+      expect( Book.search(query).first.title ).to eq query
+    end
+
+    it 'returns nothing' do
+      create(:book, title: "some title")
+      query = "nothing"
+
+      expect( Book.search(query) ).to be_empty
     end
   end
 end

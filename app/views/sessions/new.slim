@@ -1,0 +1,13 @@
+header.sign-in-header-wrap
+  .logo
+    = link_to '', root_path, class: 'logo-background'
+
+.sign-in-body-wrap
+  .sign-in-copy
+    p = t('sign_in.what')
+    p = t('sign_in.more')
+    p.sign-in-contact
+      | #{t('sign_in.contact')} 
+      span.bold-link = mail_to 'roberto@groupbuddies.com'
+
+  = render '/sessions/form'

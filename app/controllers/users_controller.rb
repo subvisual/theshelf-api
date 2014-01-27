@@ -5,6 +5,6 @@ class UsersController < Clearance::UsersController
   end
 
   def handle_disabled_signup
-    redirect_to sign_in_path, notice: t('flashes.signup_disabled')
+    redirect_to log_in_path, notice: t('flashes.signup_disabled')
   end
 end

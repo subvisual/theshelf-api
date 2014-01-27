@@ -1,6 +1,5 @@
 .book-page
   position: relative
-  padding: $base-spacing
 
   .book-image,
   .book-stats
@@ -9,35 +8,37 @@
 
   .book-image
     margin-right: $base-spacing
-    margin-bottom: calc(#{$base-spacing}/2)
+    margin-bottom: $spacing-half
     &,
-    > img
-      width: $small-cover-width
-      height: $small-cover-height
+    img
+      +small-cover
 
   .book-action
     position: absolute
     top: $base-spacing
     right: $base-spacing
 
-@media screen and (min-width: $lap-start)
+  .reviews-wrap
+    margin-top: $spacing-double
+
++at-least($lap-start)
   .book-page
-    padding: $main-content-padding
-    .book-cover-wrap,
+    .book-cover,
     .book-info
       display: inline-block
       vertical-align: top
-    .book-image,
-    .book-stats
-      width: $large-cover-width
+    .book-info
+      width: calc(100% - #{$large-cover-width})
+      padding-left: $base-spacing
     .book-image
+      +large-cover
       display: block
-      height: $large-cover-height
-      > img
+      margin-right: 0
+      img
         width: inherit
         height: inherit
     .book-stats
+      width: 100%
       text-align: center
     .book-action
-      top: $main-content-padding
       right: $main-content-padding

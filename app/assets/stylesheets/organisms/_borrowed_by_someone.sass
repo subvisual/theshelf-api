@@ -1,0 +1,28 @@
+=inline-style
+  display: table
+  height: $btn-height
+  > div
+    display: table-cell
+    vertical-align: middle
+  > :last-child
+    width: inherit
+    padding-left: $spacing-half
+
+=block-style
+  display: inline-block
+  text-align: center
+  > div
+    display: block
+  > :last-child
+    width: $btn-width-mobile
+    padding-left: 0
+
+.borrowed-by-someone
+  +inline-style
+
+.borrowed-by-someone.adaptive
+  +block-style
+
++at-least($lap-start)
+  .borrowed-by-someone.adaptive
+    +inline-style

@@ -6,10 +6,11 @@
 
 .side-content
   height: $header-height
-  background-color: $side-content-bg
 
 .logo-wrap
   height: inherit
+  .logo
+    width: calc(100% - #{$menu-toggle-width})
 
 .menu-toggle-wrap
   display: inline-block
@@ -33,3 +34,8 @@
   a
     text-decoration: none
     color: $positive-primary-color
+
++at-least($lap-start)
+  .logo-wrap
+    .logo
+      width: 100%

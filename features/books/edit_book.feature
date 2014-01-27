@@ -3,6 +3,7 @@ Feature: Edit book
   I want to edit a book
   In order to correct its details
 
+@javascript @selenium
   Scenario: I can edit a book
     Given I have an account on the system
     And there are books

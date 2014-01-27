@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122144510) do
+ActiveRecord::Schema.define(version: 20140119174324) do
 
   create_table "books", force: true do |t|
     t.string   "title",                                                null: false
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20131122144510) do
     t.string   "url"
     t.string   "authors",                                              null: false
     t.date     "published_on"
-    t.integer  "readings"
+    t.integer  "readings",                               default: 0
     t.decimal  "average_rating", precision: 6, scale: 2, default: 0.0
     t.string   "state",                                                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover"
   end
 
   add_index "books", ["state"], name: "index_books_on_state"
@@ -41,6 +42,17 @@ ActiveRecord::Schema.define(version: 20131122144510) do
   add_index "loans", ["book_id"], name: "index_loans_on_book_id"
   add_index "loans", ["user_id"], name: "index_loans_on_user_id"
 
+  create_table "reviews", force: true do |t|
+    t.text     "body",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "book_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "users", force: true do |t|
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -51,6 +63,7 @@ ActiveRecord::Schema.define(version: 20131122144510) do
     t.string   "first_name",                     null: false
     t.string   "last_name",                      null: false
     t.string   "role",                           null: false
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

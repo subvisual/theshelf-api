@@ -3,9 +3,6 @@
   max-width: 100%
   .media-image
     display: none
-    > img
-      width: $large-cover-width
-      height: $large-cover-height
   .book-item,
   .book-action
     display: inline-block
@@ -13,8 +10,9 @@
     width: calc(100% - #{$btn-width-mobile})
     padding-right: $base-spacing
     vertical-align: middle
-    .book-subtitle
-      display: none
+  .book-subtitle,
+  .book-total-reviews
+    display: none
   a
     text-decoration: none
 
@@ -22,16 +20,16 @@
   li
     margin-bottom: $main-content-padding
   .book-item
+    display: inline-flex
+    align-items: center
     height: $btn-height
     vertical-align: top
-    *:not(:last-child)
-      margin-bottom: calc(#{$base-spacing} / 2)
 
 .borrowed-books
   li
     padding: $base-spacing
 
-@media screen and (min-width: $lap-start)
++at-least($lap-start)
   .borrowed-books,
   .gallery
     .media-image,
@@ -50,12 +48,19 @@
     .media-image,
     .media-body
       height: $large-cover-height
+    .media-image img
+      +large-cover
     .book-item
       height: calc(100% - #{$btn-height})
-      .book-subtitle
-        display: block
+      > *:not(:last-child)
+        margin-bottom: $base-spacing
+    .book-subtitle,
+    .book-total-reviews
+      display: block
 
   .borrowed-books
+    .media-image img
+      +small-cover
     .book-action [class^="btn"]
       +linkify
 

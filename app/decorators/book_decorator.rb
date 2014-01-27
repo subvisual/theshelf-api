@@ -1,7 +1,9 @@
 class BookDecorator < Draper::Decorator
-  delegate :average_rating, :authors, :id, :pages, :published_on, :readings,
-    :state, :subtitle, :summary, :title, :url, :available?, :lent?,
+  delegate :authors, :cover, :cover_cache, :id,
+    :last_review_by, :pages, :published_on, :readings, :reviews_by, :state,
+    :subtitle, :summary, :title, :total_reviews, :url, :available?, :lent?,
     :unavailable?, :to_model
+  decorates_association :reviews
 
   def action
     if object.available?
@@ -23,13 +25,27 @@ class BookDecorator < Draper::Decorator
     h.return_book_path(object)
   end
 
+  def as_json
+    {
+      path: path,
+      cover_path: cover.url,
+      title: title,
+      subtitle: subtitle,
+      total_reviews: h.t('reviews.total_reviews', count: total_reviews),
+      action: action
+    }.to_json
+  end
+
   private
 
   def lent_actions
     if borrowed_by_me?
       return_link
     else
-      h.content_tag :span, current_borrower.name, class: 'borrowed'
+      h.content_tag(:div, class: 'borrowed-by-someone adaptive') do
+        h.content_tag(:div, h.image_tag(current_borrower.avatar.thumb)) +
+        h.content_tag(:div, current_borrower.name, class: 'milli')
+      end
     end
   end
 

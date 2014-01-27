@@ -1,27 +1,33 @@
-.field
+fieldset
+  .image-upload-with-preview.required style="background-image:url(#{book.cover})"
+    = form.file_field :cover
+  = form.hidden_field :cover_cache
+
+fieldset.fields
   = form.label :title, class: 'hide-visually'
-  .text = form.text_field :title, required: true, placeholder: t('helpers.label.book.title')
-.field
+  .text.required = form.text_field :title, required: true, placeholder: t('helpers.label.book.title')
+
   = form.label :subtitle, class: 'hide-visually'
   .text = form.text_field :subtitle, placeholder: t('helpers.label.book.subtitle')
-.field
+
   = form.label :authors, class: 'hide-visually'
-  .text = form.text_field :authors, required: true, placeholder: t('helpers.label.book.authors')
-.field
+  .text.required = form.text_field :authors, required: true, placeholder: t('helpers.label.book.authors')
+
   = form.label :summary, class: 'hide-visually'
   .text = form.text_area :summary, placeholder: t('helpers.label.book.summary')
-.field
+
   = form.label :published_on, class: 'hide-visually'
   .text = form.date_field :published_on
-.field
+
   = form.label :url, class: 'hide-visually'
   .text = form.url_field :url, placeholder: t('helpers.label.book.url')
-.field
+
   = form.label :pages, class: 'hide-visually'
   .text = form.text_field :pages, placeholder: t('helpers.label.book.pages')
+  = form.label :cover, class: 'hide-visually'
 
-.actions
-  = form.submit t('books.submit')
+  .form-actions
+    = form.submit t('books.submit'), class: 'btn-positive'
 
 coffee:
   $ ->
@@ -29,3 +35,4 @@ coffee:
       rules:
         "book[pages]": "number"
     })
+    window.theshelf.fileUploadStyling()

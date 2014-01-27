@@ -1,9 +1,6 @@
 Given(/^I have an account on the system$/) do
   @user ||= create :user
-  visit sign_in_path
-  fill_in 'session_email', with: @user.email
-  fill_in 'session_password', with: @user.password
-  click_on I18n.t('helpers.submit.session.submit')
+  visit root_path as: @user
 end
 
 Given(/^I am a visitor$/) do
@@ -31,5 +28,5 @@ When(/^I go to a book's edit page$/) do
 end
 
 Then(/^I should be redirected to the sign in page$/) do
-  current_path.should eq sign_in_path
+  current_path.should eq log_in_path
 end

@@ -1,0 +1,26 @@
+<li class="media">
+  <div class="media-image">
+    <a href="<%%= path %>">
+      <img src="<%%= cover_path %>">
+    </a>
+  </div>
+  <div class="media-body">
+    <a class="book-item" href="<%%= path %>">
+      <div class="book-title milli truncate"><%%= title %></div>
+      <div class="book-subtitle nano truncate"><%%= subtitle %></div>
+      <div class="book-stats">
+        <div class="rating-stars hide-visually">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+        <div class="link book-total-reviews"><%%= total_reviews %></div>
+      </div>
+    </a>
+    <div class="book-action">
+      <%%= action %>
+    </div>
+  </div>
+</li>

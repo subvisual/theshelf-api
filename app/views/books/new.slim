@@ -1,4 +1,5 @@
-h1 = t('books.new')
+section.default-page
+  h1.kilo = t('books.new')
 
-= form_for @book, html: { class: 'form' } do |form|
-  = render 'form', form: form
+  = form_for @book do |form|
+    .image-and-fields = render 'form', form: form, book: @book

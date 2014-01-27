@@ -1,24 +1,43 @@
 require 'services/book_keeper'
 
 describe BookKeeper do
-  context "#lend_to" do
-    it "lends the book to a user" do
-      user = double("User")
-      book = double("Book", available?: true)
+
+  context '#lend_to!' do
+    it "changes the book's state to lent" do
+      user = build_stubbed(:user)
+      book = build_stubbed(:book)
       book_keeper = BookKeeper.new(book: book)
 
-      book.should_receive(:lend_to!).with(borrower: user)
+      book_keeper.lend_to!(borrower: user)
 
-      book_keeper.lend_to user: user
+      book.should be_lent
     end
 
-    context "book is borrowed" do
-      it 'returns false' do
-        book = double("Book", available?: false)
-        book_keeper = BookKeeper.new(book: book)
+    it "saves the book's borrower" do
+      user = build(:user)
+      book = build(:book)
+      book_keeper = BookKeeper.new(book: book)
 
-        book_keeper.lend_to.should be_false
-      end
+      book_keeper.lend_to!(borrower: user)
+
+      book.current_borrower.should eq user
+    end
+
+    it 'starts the loan' do
+      user = build_stubbed :user
+      book = build_stubbed(:book)
+      book_keeper = BookKeeper.new(book: book)
+
+      book_keeper.lend_to!(borrower: user)
+
+      book.current_loan.should_not be_closed
+    end
+
+    it 'returns false if the book is already borrowed' do
+      book = double("Book", available?: false)
+      book_keeper = BookKeeper.new(book: book)
+
+      book_keeper.lend_to!.should be_false
     end
   end
 

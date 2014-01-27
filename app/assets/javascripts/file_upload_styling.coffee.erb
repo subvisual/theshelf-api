@@ -1,0 +1,43 @@
+$ ->
+  class FileUploadStyling
+    constructor: (item) ->
+      @$el = $(item)
+      @$proxy = $('<a class="image-upload-link" href="#"><%= I18n.t('forms.books.upload_cover') %></a>')
+      @hideInput()
+      @createProxy()
+
+    hideInput: ->
+      @$el.hide()
+
+    createProxy: ->
+      @$el.after(@$proxy)
+      @$proxy.on 'click', (event) =>
+        event.preventDefault()
+        @clickCallback()
+
+    clickCallback: ->
+      @$el.trigger 'click'
+
+
+  class FileUploadStylingPreview extends FileUploadStyling
+    clickCallback: ->
+      @$el.trigger 'click'
+      @$el.on 'change', =>
+        @reloadPreview()
+
+    reloadPreview: ->
+      if @$el[0].files && @$el[0].files[0]
+        reader = new FileReader()
+        reader.onload = (elem) =>
+          @$el.parent().css("background-image", 'url('+elem.target.result+')')
+        reader.readAsDataURL(@$el[0].files[0])
+
+  initialize = ->
+    $('input[type="file"]').each (index, item) ->
+      if $(item).parent().hasClass('image-upload-with-preview')
+        new FileUploadStylingPreview(item)
+      else
+        new FileUploadStyling(item)
+
+  window.theshelf ||= {}
+  window.theshelf.fileUploadStyling = initialize

@@ -1,0 +1,17 @@
+.image-upload-with-preview
+  position: relative
+  width: $large-cover-width
+  height: calc(#{$large-cover-height} + $spacing-triple)
+  background-repeat: no-repeat
+  background-position-y: $base-spacing
+  background-size: $large-cover-width $large-cover-height
+  text-align: right
+
+  input[type="file"],
+  .image-upload-link
+    position: absolute
+    right: 50%
+    bottom: 0
+    left: 50%
+    margin: 0 -50%
+    text-align: center

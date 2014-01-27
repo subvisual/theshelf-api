@@ -1,4 +1,6 @@
 class UserDecorator < Draper::Decorator
+  delegate :avatar
+
   def name
     object.first_name
   end

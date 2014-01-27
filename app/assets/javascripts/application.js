@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.validate.min
-//= require turbolinks
 //= require menu_toggle
-//= require_tree .
+//= require file_upload_styling
+//= require underscore-min
+//= require search
+//= require_tree ../templates

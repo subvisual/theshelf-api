@@ -22,8 +22,14 @@ FactoryGirl.define do
       end
 
       after(:create) do |book, evaluator|
-        book.lend_to! borrower: evaluator.borrower
+        BookKeeper.new(book: book).lend_to! borrower: evaluator.borrower
       end
     end
+  end
+
+  factory :review do
+    body 'Nice one!'
+    association :book
+    association :user
   end
 end

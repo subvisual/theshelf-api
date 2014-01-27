@@ -1,0 +1,41 @@
+$ ->
+  search =
+    $search_box: $("#search-box")
+    $search_results: $("#book-list")
+    search_url: "<%= Rails.application.routes.url_helpers.search_books_path %>"
+
+    init: ->
+      @startSearch()
+      @$search_box.keyup =>
+        @startSearch()
+
+    startSearch: ->
+      @lazySearch()
+
+    lazySearch: ->
+      @searchBooks(@$search_box.val())
+
+    searchBooks: (val) ->
+      $.ajax @search_url,
+        dataType: "json"
+        type: "GET"
+        data:
+          search: val
+        success: (data) =>
+          @generateBooks data.map (item)->
+            JSON.parse item
+
+    generateBooks: (data) ->
+      @clearSearchResults()
+      @displayResults(data)
+
+    clearSearchResults: ->
+      @$search_results.empty()
+
+    displayResults: (items) ->
+      _.each items, (item) =>
+        template = JST["book"]
+        @$search_results.append(_.template(template(item)))
+
+  window.theshelf ||= {}
+  window.theshelf.search = search

@@ -1,23 +1,6 @@
-section.book-page
-  .book-cover-wrap
-    .book-image
-      = image_tag ''
-    .book-stats
-      .book-readings
-        .small = "#{@book.readings} #{t('helpers.label.book.readings')}"
-      .rating-stars
-        = fa_icon 'star'
-        = fa_icon 'star'
-        = fa_icon 'star'
-        = fa_icon 'star'
-        = fa_icon 'star-o'
-  .book-info
-    h1.milli = @book.title
-    h2.nano = @book.subtitle
-    p.small = @book.authors
-    p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
-    p.small = "#{@book.pages} #{t('helpers.label.book.pages')}"
-
-    h2.micro = t('helpers.label.book.summary')
-    = @book.summary
+section.default-page.book-page
+  = render 'book'
   .book-action = @book.action
+
+  aside.reviews-wrap
+    = render 'reviews/reviews', book: @book

@@ -1,28 +1,15 @@
 header.top-bar
-  = form_tag '#', method: 'post', class: 'inline-form search-form'
+  = form_tag search_books_path, method: 'get', class: 'inline-form search-form'
     fieldset
-      label.hide-visually for='search-field'
-      input.search-field.kilo placeholder=t('books.search') type='search' autofocus='true'
-      button.search-submit
+      = search_field_tag "search-box", nil, placeholder: t('books.search'), autofocus: true, class: 'search-field kilo'
+      .search-submit
         = fa_icon 'search', class: 'fa-flip-horizontal'
   .top-bar-actions
     = link_to t('books.actions.add'), new_book_path, class: 'btn-positive'
 
 section.books
-  ul.gallery
-    - @books.each do |book|
-      li.media
-        .media-image
-          = link_to image_tag(''), book.path
-        .media-body
-          = link_to book.path, class: 'book-item'
-            .book-title.milli.truncate = book.title
-            .book-subtitle.nano.truncate = book.subtitle
-            .book-stats
-              .rating-stars
-                = fa_icon 'star'
-                = fa_icon 'star'
-                = fa_icon 'star'
-                = fa_icon 'star'
-                = fa_icon 'star-o'
-          .book-action = book.action
+  ul#book-list.gallery
+
+coffee:
+  $ ->
+    theshelf.search.init()

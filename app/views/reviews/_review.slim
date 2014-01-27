@@ -1,0 +1,8 @@
+.review
+  header.review-header
+    .borrowed-by-someone
+      div = image_tag review.reviewer.avatar.thumb
+      .milli = review.reviewer.name
+    = render 'rating_stars'
+  section.review-body
+    = review.body

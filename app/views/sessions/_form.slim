@@ -1,9 +1,9 @@
-= form_for :session, :url => session_path, html: { class: 'form' } do |form|
-  .field
+= form_for :session, :url => session_index_path do |form|
+  fieldset
     = form.label :email, class: 'hide-visually'
     .text = form.text_field :email, :type => 'email'
-  .field
     = form.label :password, class: 'hide-visually'
     .text = form.password_field :password
-  .field
-    = form.submit
+
+    .form-actions
+      = form.submit t('forms.users.new.sign_in'), class: 'btn-positive'

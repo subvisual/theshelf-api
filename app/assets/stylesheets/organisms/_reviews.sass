@@ -1,0 +1,22 @@
+.review
+  margin-bottom: $spacing-double
+
+.review-header,
+.review-body
+  margin-bottom: $base-spacing
+
+.review-header
+  display: flex
+  justify-content: space-between
+
++at-least($lap-start)
+
+  .review-header
+    display: block
+    .media
+      margin-bottom: $base-spacing
+    .rating-stars
+      margin-left: $small-avatar-size
+
+  .review-body
+    margin-left: calc(#{$small-avatar-size} + #{$spacing-half})

@@ -1,6 +1,6 @@
 = render 'layouts/doctype'
 
-= render 'layouts/head', stylesheet: 'simple'
+= render 'layouts/head'
 
 body
   #sticky-root.simple-container
@@ -9,5 +9,5 @@ body
 
 #sticky-footer.footer-wrap
   footer.simple-footer
-    | #{t('sign_in.designed_by')} 
+    | #{t('sign_in.designed_by')}
     = link_to "GroupBuddies", "www.groupbuddies.com", class: 'bold-link'

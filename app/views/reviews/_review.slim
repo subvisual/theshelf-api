@@ -3,6 +3,5 @@
     .borrowed-by-someone
       div = image_tag review.reviewer.avatar.thumb
       .milli = review.reviewer.name
-      /= render 'rating_show', rating_label: t("forms.rating.star#{}")
   section.review-body
     = review.body

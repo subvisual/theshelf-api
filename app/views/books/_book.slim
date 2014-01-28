@@ -10,7 +10,7 @@
   h1.milli = @book.title
   h2.nano = @book.subtitle
   p.small = @book.authors
-  #avg-rating = render 'rating_show', book: @book
+  #avg-rating = render 'rating_show', book: @book, rating_value: @book.rating_by(current_user).value
   - if @book.published_on
     p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
   - if @book.pages

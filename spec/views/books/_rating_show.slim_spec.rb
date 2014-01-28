@@ -1,26 +1,28 @@
 require 'spec_helper'
 
 describe 'books/_rating_show.slim' do
-  it 'renders a label with the average rating as title' do
-    book = build_stubbed(:book, average_rating: BigDecimal(2.0, 2))
+  let(:user) { create(:user) }
 
-    render 'books/rating_show', book: book.decorate
+  it 'renders a label with the average rating as title' do
+    book = Book.new
+
+    render 'books/rating_show', book: book.decorate, rating_value: 2
 
     expect(rendered).to match /title="2\.0"/
   end
 
   it 'renders two full stars for an average rating of 2.0' do
-    book = build_stubbed(:book, average_rating: BigDecimal(2.0, 2))
+    book = Book.new
 
-    render 'books/rating_show', book: book.decorate
+    render 'books/rating_show', book: book.decorate, rating_value: 2
 
     expect(rendered.scan(/rating-label full/)).to have(2).items
   end
 
   it 'renders one full star and one half star for an average rating between 1.1 and 2.0' do
-    book = build_stubbed(:book, average_rating: BigDecimal(1.4, 2))
+    book = Book.new
 
-    render 'books/rating_show', book: book.decorate
+    render 'books/rating_show', book: book.decorate, rating_value: 1.5
 
     expect(rendered.scan(/rating-label (?:full|half)/)).to have(2).items
   end

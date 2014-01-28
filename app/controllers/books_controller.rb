@@ -73,7 +73,7 @@ class BooksController < ApplicationController
   end
 
   def average
-    render json: { attachmentPartial: render_to_string('books/_rating_show', layout: false, locals: { book: book.decorate }) }
+    render json: { attachmentPartial: render_to_string('books/_rating_show', layout: false, locals: { book: book.decorate, rating_value: book.decorate.average_rating }) }
   end
 
   def search

@@ -17,11 +17,11 @@ class BookDecorator < Draper::Decorator
     object.average_rating.round(1).to_s
   end
 
-  def star_tag(value)
-    if average_rating.to_f > value - 1
-      painted_star_tag(value)
+  def star_tag(rating_value: nil, star_value: nil)
+    if rating_value.to_f > star_value - 1
+      painted_star_tag(rating_value: rating_value, star_value: star_value)
     else
-      empty_star_tag
+      empty_star_tag(rating_value: rating_value)
     end
   end
 
@@ -48,31 +48,31 @@ class BookDecorator < Draper::Decorator
       title: title,
       authors: authors,
       total_reviews: h.t('reviews.total_reviews', count: total_reviews),
-      rating_show: h.render('rating_show', book: self),
+      rating_show: h.render('rating_show', book: self, rating_value: average_rating),
       action: action
     }.to_json
   end
 
   private
 
-  def painted_star_tag(value)
-    if average_rating.to_f >= value
-      full_star_tag
+  def painted_star_tag(rating_value: nil, star_value: nil)
+    if rating_value.to_f >= star_value
+      full_star_tag(rating_value: rating_value)
     else
-      half_star_tag
+      half_star_tag(rating_value: rating_value)
     end
   end
 
-  def full_star_tag
-    h.content_tag(:label, "", { class: 'rating-label full', title: average_rating })
+  def full_star_tag(rating_value: nil)
+    h.content_tag(:label, "", { class: 'rating-label full', title: rating_value.to_f })
   end
 
-  def half_star_tag
-    h.content_tag(:label, "", { class: 'rating-label half', title: average_rating })
+  def half_star_tag(rating_value: nil)
+    h.content_tag(:label, "", { class: 'rating-label half', title: rating_value.to_f })
   end
 
-  def empty_star_tag
-    h.content_tag(:label, "", { class: 'rating-label', title: average_rating })
+  def empty_star_tag(rating_value: nil)
+    h.content_tag(:label, "", { class: 'rating-label', title: rating_value.to_f })
   end
 
   def lent_actions

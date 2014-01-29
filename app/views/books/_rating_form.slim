@@ -1,14 +1,7 @@
 #rating-form data-bookid="#{book.id}" data-rating="#{book.rating_by(current_user).value}"
-  = radio_button_tag :rating, "5"
-  = label_tag :rating_5, "", title: t('forms.rating.star5'), class: 'rating-label'
-  = radio_button_tag :rating, "4"
-  = label_tag :rating_4, "", title: t('forms.rating.star4'), class: 'rating-label'
-  = radio_button_tag :rating, "3"
-  = label_tag :rating_3, "", title: t('forms.rating.star3'), class: 'rating-label'
-  = radio_button_tag :rating, "2"
-  = label_tag :rating_2, "", title: t('forms.rating.star2'), class: 'rating-label'
-  = radio_button_tag :rating, "1"
-  = label_tag :rating_1, "", title: t('forms.rating.star1'), class: 'rating-label'
+  - book.rating_values.each do |value|
+    = radio_button_tag :rating, "#{value}"
+    = label_tag "rating_#{value}", "", title: t("forms.rating.star#{value}"), class: 'rating-label'
 
 coffee:
   $ ->

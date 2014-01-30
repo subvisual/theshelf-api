@@ -1,7 +1,9 @@
 .review
   margin-bottom: $spacing-double
 
-.review-header,
+.review-header
+  margin-bottom: $spacing-half
+
 .review-body
   margin-bottom: $base-spacing
 
@@ -10,13 +12,14 @@
   justify-content: space-between
 
 +at-least($lap-start)
-
+  $left-margin: calc(#{$small-avatar-size} + #{$spacing-half})
   .review-header
+    +clearfix
     display: block
     .media
-      margin-bottom: $base-spacing
-    .rating-stars
-      margin-left: $small-avatar-size
+      margin-bottom: $spacing-half
+    .rating
+      margin-left: $left-margin
 
   .review-body
-    margin-left: calc(#{$small-avatar-size} + #{$spacing-half})
+    margin-left: $left-margin

@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Book do
   it_behaves_like 'a lendable resource'
   it_behaves_like 'a reviewable resource'
+  it_behaves_like 'a rateable resource'
 
   context '.search' do
     it 'returns all books' do

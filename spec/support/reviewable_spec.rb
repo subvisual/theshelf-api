@@ -5,7 +5,7 @@ shared_examples 'a reviewable resource' do
     it "returns the total number of reviews for the resource" do
       user = build :user
       Review.create(book: resource, reviewer: user, body: 'Nice')
-      
+
       resource.reload.total_reviews.should eq 1
     end
   end

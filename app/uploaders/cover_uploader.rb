@@ -11,7 +11,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "no_cover.jpg"].compact.join('_'))
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "no_book_cover.png"].compact.join('_'))
   end
 
   process :resize_to_fill => [100, 125]

@@ -1,0 +1,8 @@
+#rating-form data-bookid="#{book.id}" data-rating="#{book.rating_by(current_user).value}"
+  - book.rating_values.reverse.each do |value|
+    = radio_button_tag :rating, "#{value}"
+    = label_tag "rating_#{value}", "", title: t("forms.rating.star#{value}"), class: 'rating-label'
+
+coffee:
+  $ ->
+    $('#rating-form').rating()

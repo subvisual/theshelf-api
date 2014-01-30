@@ -22,7 +22,7 @@ After('@selenium') do
 end
 
 Capybara.always_include_port = true
-Capybara.default_wait_time = 8
+Capybara.default_wait_time = 10
 
 include FactoryGirl::Syntax::Methods
 

@@ -5,4 +5,5 @@
 //= require file_upload_styling
 //= require underscore-min
 //= require search
+//= require rating
 //= require_tree ../templates

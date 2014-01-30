@@ -16,6 +16,16 @@ FactoryGirl.define do
     sequence(:title) { |n| "#{n}Book" }
     authors 'John Doe'
 
+    factory :rated_book do
+      ignore do
+        rater nil
+      end
+
+      after(:create) do |book, evaluator|
+        RateBook.new(book: book, rater: evaluator.rater, rating: 3).rate!
+      end
+    end
+
     factory :lent_book do
       ignore do
         borrower nil
@@ -31,5 +41,11 @@ FactoryGirl.define do
     body 'Nice one!'
     association :book
     association :user
+  end
+
+  factory :rating do
+    value 3
+    association :book
+    association :rater, factory: :user
   end
 end

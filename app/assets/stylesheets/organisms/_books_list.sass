@@ -7,10 +7,10 @@
   .book-action
     display: inline-block
   .book-item
-    width: calc(100% - #{$btn-width-mobile})
+    width: calc(100% - #{$btn-width-mobile} - #{$base-spacing})
     padding-right: $base-spacing
     vertical-align: middle
-  .book-subtitle,
+  .book-authors,
   .book-total-reviews
     display: none
   a
@@ -20,10 +20,15 @@
   li
     margin-bottom: $main-content-padding
   .book-item
-    display: inline-flex
-    align-items: center
     height: $btn-height
     vertical-align: top
+  .book-title,
+  .book-stats
+    width: 100%
+    .rating
+      display: inline-block
+  .book-title
+    height: calc(#{$btn-height} - #{$rating-star-height})
 
 .borrowed-books
   li
@@ -33,7 +38,6 @@
   .borrowed-books,
   .gallery
     .media-image,
-    .book-item,
     .book-action
       display: block
     .book-item
@@ -51,12 +55,17 @@
     .media-image img
       +large-cover
     .book-item
+      padding-bottom: $spacing-half
       height: calc(100% - #{$btn-height})
       > *:not(:last-child)
         margin-bottom: $base-spacing
-    .book-subtitle,
-    .book-total-reviews
+    .book-title
+      height: initial
+    .book-authors
       display: block
+    .book-total-reviews
+      display: inline-block
+      margin-left: $base-spacing
 
   .borrowed-books
     .media-image img

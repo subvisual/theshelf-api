@@ -7,15 +7,9 @@
   <div class="media-body">
     <a class="book-item" href="<%%= path %>">
       <div class="book-title milli truncate"><%%= title %></div>
-      <div class="book-subtitle nano truncate"><%%= subtitle %></div>
+      <div class="book-authors small truncate"><%%= authors %></div>
       <div class="book-stats">
-        <div class="rating-stars hide-visually">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star-o"></i>
-        </div>
+        <%%= rating_show %>
         <div class="link book-total-reviews"><%%= total_reviews %></div>
       </div>
     </a>

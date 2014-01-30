@@ -64,6 +64,20 @@ class BooksController < ApplicationController
     redirect_to book_path(book.id)
   end
 
+  def rate
+    RateBook.new(book: book, rater: current_user, rating: params.require(:rating).to_i).rate!
+
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
+  def average
+    local_variables = { book: book.decorate, rating_value: book.decorate.average_rating }
+    partial = render_to_string('books/_rating_show', layout: false, locals: local_variables)
+    render json: { attachmentPartial: partial }
+  end
+
   def search
     books = Book.search(params.permit(:search)[:search]).decorate
 

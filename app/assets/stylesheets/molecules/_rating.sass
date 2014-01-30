@@ -1,0 +1,45 @@
+%full-star
+  background-position: 0px -50px
+
+%half-star
+  background-position: 0px -25px
+
+%empty-star
+  background-position: 0px 0px
+
+.rating-form
+  display: inline-block
+  .rating-label
+    float: right
+    cursor: pointer
+
+.rating,
+.rating-form
+  input
+    display: none
+    &:checked ~ .rating-label
+      @extend %full-star
+
+.rating-form:hover
+  label.rating-label
+    @extend %empty-star
+  .rating-label:hover
+    @extend %full-star
+    ~ .rating-label
+      @extend %full-star
+
+.rating-label
+  display: inline-block
+  width: $rating-star-width
+  height: $rating-star-height
+  background: image-url('stars_sprite.png')
+
+.rating-label.half
+  @extend %half-star
+
+.rating-label.full
+  @extend %full-star
+
+.my-rating
+  height: $rating-star-height
+  cursor: pointer

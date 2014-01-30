@@ -1,7 +1,7 @@
 class BookDecorator < Draper::Decorator
-  delegate :authors, :cover, :cover_cache, :id,
-    :last_review_by, :pages, :published_on, :readings, :reviews_by, :state,
-    :subtitle, :summary, :title, :total_reviews, :url, :available?, :lent?,
+  delegate :authors, :cover, :cover_cache, :id, :last_review_by, :pages,
+    :published_on, :rating_by, :readings, :reviews_by, :state, :subtitle, :summary,
+    :title, :total_reviews, :url, :average_rating, :available?, :lent?,
     :unavailable?, :to_model
   decorates_association :reviews
 
@@ -11,6 +11,14 @@ class BookDecorator < Draper::Decorator
     elsif object.lent?
       lent_actions
     end
+  end
+
+  def average_rating
+    object.average_rating.round(1).to_s
+  end
+
+  def rating_values
+    RatingValues.all
   end
 
   def path
@@ -30,8 +38,9 @@ class BookDecorator < Draper::Decorator
       path: path,
       cover_path: cover.url,
       title: title,
-      subtitle: subtitle,
+      authors: authors,
       total_reviews: h.t('reviews.total_reviews', count: total_reviews),
+      rating_show: h.render('rating_show', book: self, rating_value: average_rating),
       action: action
     }.to_json
   end

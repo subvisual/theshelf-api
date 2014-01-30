@@ -1,6 +1,3 @@
-$star-width: 15px
-$star-height: 15px
-
 %full-star
   background-position: 0px -50px
 
@@ -35,8 +32,8 @@ $star-height: 15px
 
 .rating-label
   float: right
-  width: $star-width
-  height: $star-height
+  width: $rating-star-width
+  height: $rating-star-height
   background: image-url('stars_sprite.png')
 
 .rating-label.half
@@ -46,5 +43,5 @@ $star-height: 15px
   @extend %full-star
 
 .my-rating
-  height: $star-height
+  height: $rating-star-height
   cursor: pointer

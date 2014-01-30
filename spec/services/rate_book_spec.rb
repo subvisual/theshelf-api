@@ -18,7 +18,7 @@ describe RateBook do
       }.to change { Rating.all.size }.by(1)
     end
 
-    context "updates a book's rating for a user" do
+    context "the book is already rated by the user" do
       it "updates the rating when the given rating valid" do
         old_rating = 3
         RateBook.new(book: book, rater: user, rating: old_rating).rate!

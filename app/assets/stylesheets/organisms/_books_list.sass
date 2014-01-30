@@ -20,14 +20,13 @@
   li
     margin-bottom: $main-content-padding
   .book-item
-    display: inline-flex
-    align-content: space-between
-    flex-wrap: wrap
     height: $btn-height
     vertical-align: top
   .book-title,
   .book-stats
     width: 100%
+  .book-title
+    height: calc(#{$btn-height} - #{$rating-star-height})
 
 .borrowed-books
   li
@@ -58,6 +57,8 @@
       height: calc(100% - #{$btn-height})
       > *:not(:last-child)
         margin-bottom: $base-spacing
+    .book-title
+      height: initial
     .book-authors
       display: block
     .book-total-reviews

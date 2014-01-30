@@ -7,12 +7,10 @@
 %empty-star
   background-position: 0px 0px
 
-.rating
-  float: left
-
 .rating-form
   display: inline-block
   .rating-label
+    float: right
     cursor: pointer
 
 .rating,
@@ -31,7 +29,7 @@
       @extend %full-star
 
 .rating-label
-  float: right
+  display: inline-block
   width: $rating-star-width
   height: $rating-star-height
   background: image-url('stars_sprite.png')

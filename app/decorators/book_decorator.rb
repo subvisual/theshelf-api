@@ -18,7 +18,7 @@ class BookDecorator < Draper::Decorator
   end
 
   def rating_values
-    RatingValues.all.reverse
+    RatingValues.all
   end
 
   def path

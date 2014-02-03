@@ -87,7 +87,7 @@ class BooksController < ApplicationController
   private
 
   def book
-    @_book ||= Book.find(params[:id])
+    @_book ||= Book.includes({reviews: :reviewer}).find(params[:id])
   end
 
   def book_params

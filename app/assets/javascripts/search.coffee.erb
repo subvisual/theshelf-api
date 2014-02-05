@@ -35,7 +35,8 @@ $ ->
     displayResults: (items) ->
       _.each items, (item) =>
         template = JST["book"]
-        @$search_results.append(_.template(template(item)))
+        trimmedTemplate = $.trim(template(item))
+        @$search_results.append(_.template(trimmedTemplate))
 
   window.theshelf ||= {}
   window.theshelf.search = search

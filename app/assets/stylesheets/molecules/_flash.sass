@@ -1,0 +1,22 @@
+=flash($color)
+  position: fixed
+  width: 100%
+  padding: $base-spacing
+  background-color: $color
+  color: darken($color, 60)
+  font-weight: bold
+  text-align: center
+  z-index: 5
+  a
+    color: darken($color, 70)
+    &:hover
+      color: darken($color, 90)
+
+.flash-error
+  +flash($error-color)
+
+.flash-notice
+  +flash($notice-color)
+
+.flash-success
+  +flash($success-color)

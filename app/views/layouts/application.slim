@@ -3,9 +3,10 @@
 = render 'layouts/head'
 
 body
-  .container
-    - if presented_current_user
-      = render 'shared/header'
+  - if presented_current_user
+    = render 'shared/header'
 
-    section.main-content
-      = yield
+  = render 'layouts/flash'
+
+  section.main-content
+    = yield

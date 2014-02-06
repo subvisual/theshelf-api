@@ -19,7 +19,8 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to book_path(@book), notice: t('flash.book.created')
+      flash[:success] = t('flash.book.created')
+      redirect_to book_path(@book)
     else
       render :new
     end
@@ -31,7 +32,8 @@ class BooksController < ApplicationController
 
   def update
     if book.update(book_params)
-      redirect_to book_path(@book), notice: t('flash.book.updated')
+      flash[:success] = t('flash.book.updated')
+      redirect_to book_path(@book)
     else
       render :edit
     end
@@ -39,18 +41,21 @@ class BooksController < ApplicationController
 
   def destroy
     book.destroy
-    redirect_to books_path, notice: t('flash.book.deleted')
+    flash[:success] = t('flash.book.deleted')
+    redirect_to books_path
   end
 
   def borrow
     BookKeeper.new(book: book).lend_to!(borrower: current_user)
 
+    flash[:success] = t('flash.book.borrowed')
     redirect_to books_path
   end
 
   def return
     BookKeeper.new(book: book).return_by!(borrower: current_user)
 
+    flash[:success] = t('flash.book.returned')
     redirect_to new_review_book_path
   end
 
@@ -61,6 +66,7 @@ class BooksController < ApplicationController
   def create_review
     ReviewBook.new(book: book, reviewer: current_user, content: review_params).review!
 
+    flash[:success] = t('flash.book.reviewed')
     redirect_to book_path(book.id)
   end
 

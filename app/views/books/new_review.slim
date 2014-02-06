@@ -16,3 +16,4 @@ section.default-page.book-page
   .new-section
     h2.milli = t('reviews.new.comment_title')
     = render 'reviews/form'
+    .form-actions = link_to t('reviews.new.skip_review'), book_path(@book), class: 'btn-negative'

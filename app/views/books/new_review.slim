@@ -1,2 +1,18 @@
-section.default-page
-  = render 'reviews/reviews', book: @book
+section.default-page.book-page
+  h1.mega = t('reviews.new.title')
+
+  .book-cover
+    .book-image
+      = image_tag @book.cover
+  .book-info
+    .milli = @book.title
+    .nano = @book.subtitle
+    p.small = @book.authors
+
+  .new-section
+    h2.milli = t('reviews.new.rating_title')
+    = render 'my_rating', book: @book
+
+  .new-section
+    h2.milli = t('reviews.new.comment_title')
+    = render 'reviews/form'

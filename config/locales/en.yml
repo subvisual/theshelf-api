@@ -25,7 +25,7 @@ en:
       star5: it was amazing
     reviews:
       submit: Submit
-      comment: Make your review
+      comment: Make your comment
     users:
       new:
         sign_in: Sign in
@@ -58,6 +58,10 @@ en:
       thanks: Thanks for rating
 
   reviews:
+    new:
+      comment_title: What did you think?
+      rating_title: Want to rate it?
+      title: Review this book
     total_reviews:
       one: "(1) Review"
       other: "(%{count}) Reviews"

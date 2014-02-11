@@ -1,42 +1,38 @@
-$ ->
-  search =
-    $search_box: $("#search-box")
-    $search_results: $("#book-list")
-    search_url: "<%= Rails.application.routes.url_helpers.search_books_path %>"
+class Search
+  constructor: (el) ->
+    @$el = $(el)
+    @searchBooks()
+    @bindSearch()
 
-    init: ->
-      @startSearch()
-      @$search_box.keyup =>
-        @startSearch()
+  bindSearch: ->
+    @$el.keyup =>
+      @searchBooks()
 
-    startSearch: ->
-      @lazySearch()
+  searchBooks: ->
+    search_url = "<%= Rails.application.routes.url_helpers.search_books_path %>"
+    $.ajax search_url,
+      dataType: "json"
+      type: "GET"
+      data:
+        search_box: @$el.val()
+      success: (data) =>
+        dataJson = data.map (item) ->
+          JSON.parse item
+        new UpdatesBookGallery($('#book-list'), dataJson).update()
 
-    lazySearch: ->
-      @searchBooks(@$search_box.val())
+class UpdatesBookGallery
+  constructor: (el, data) ->
+    @$el = $(el)
+    @$data = data
+    @clearSearchResults()
 
-    searchBooks: (val) ->
-      $.ajax @search_url,
-        dataType: "json"
-        type: "GET"
-        data:
-          search: val
-        success: (data) =>
-          @generateBooks data.map (item)->
-            JSON.parse item
+  clearSearchResults: ->
+    @$el.empty()
 
-    generateBooks: (data) ->
-      @clearSearchResults()
-      @displayResults(data)
+  update: ->
+    _.each @$data, (item) =>
+      template = JST["book"]
+      @$el.append(_.template(template(item)))
 
-    clearSearchResults: ->
-      @$search_results.empty()
-
-    displayResults: (items) ->
-      _.each items, (item) =>
-        template = JST["book"]
-        trimmedTemplate = $.trim(template(item))
-        @$search_results.append(_.template(trimmedTemplate))
-
-  window.theshelf ||= {}
-  window.theshelf.search = search
+$.fn.search = ->
+  new Search(this)

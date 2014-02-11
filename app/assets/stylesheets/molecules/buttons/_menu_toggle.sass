@@ -4,19 +4,19 @@ $horizontal-padding: ($menu-toggle-width - $menu-toggle-icon-max-width)/2
 .menu-toggle
   padding: $vertical-padding $horizontal-padding
   border: 0
-  background-color: $body-bg
+  background-color: $body-background-color
   outline: 0
   .icon-bar
     +border-radius(3px)
     width: 100%
     height: $menu-toggle-icon-height
-    background-color: $side-content-bg
+    background-color: $side-content-background-color
   .icon-bar:not(:last-child)
     margin-bottom: $menu-toggle-icon-height
   .icon-bar--half
     width: 50%
 
 .menu-toggle.collapsed
-  background-color: $menu-primary-bg
+  background-color: $menu-primary-background-color
   .icon-bar
     background-color: $positive-primary-color

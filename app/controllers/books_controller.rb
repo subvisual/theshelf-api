@@ -79,7 +79,7 @@ class BooksController < ApplicationController
   end
 
   def search
-    books = Book.search(params.permit(:search)[:search]).decorate
+    books = Book.search(search_params).decorate
 
     respond_with books.map(&:as_json)
   end
@@ -96,5 +96,9 @@ class BooksController < ApplicationController
 
   def review_params
     params.require(:review).permit(:body)
+  end
+
+  def search_params
+    params.permit(:search_box)[:search_box]
   end
 end

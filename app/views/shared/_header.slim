@@ -12,7 +12,8 @@ header.side-content.fixed-top
       .media-image
         = image_tag(presented_current_user.avatar)
       .media-body
-        .milli.truncate = presented_current_user.name
+        .milli.truncate title="#{presented_current_user.name}"
+          = presented_current_user.name
         = link_to image_tag('signout.png'), log_out_path, method: 'delete', class: 'user-profile-menu-signout'
     ul.list-striped.borrowed-books
       - presented_current_user.currently_borrowed_books.each do | book|
@@ -21,7 +22,8 @@ header.side-content.fixed-top
             = link_to image_tag(book.cover.small), book.path
           .media-body
             .book-item
-              .book-title.milli.truncate = link_to book.title, book.path
+              .book-title.milli.truncate title="#{book.title}"
+                = link_to book.title, book.path
             .book-action = book.action
     #close-menu.close-menu
       a href='#'

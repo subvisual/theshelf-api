@@ -66,20 +66,20 @@ end
 When(/^I search a book by its title$/) do
   @book = @books.last
   within '.search-form' do
-    fill_in 'search-box', with: @books.last.title
+    fill_in 'search_box', with: @books.last.title
   end
 end
 
 When(/^I search a book by its author$/) do
   @book = @books.last
   within '.search-form' do
-    fill_in 'search-box', with: @book.authors
+    fill_in 'search_box', with: @book.authors
   end
 end
 
 When(/^I search for that word/) do
   within '.search-form' do
-    fill_in 'search-box', with: @title
+    fill_in 'search_box', with: @title
   end
 end
 

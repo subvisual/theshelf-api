@@ -1,9 +1,10 @@
 header.top-bar
-  = form_tag search_books_path, method: 'get', class: 'inline-form search-form'
+  .inline-form.search-form
     fieldset
-      = search_field_tag "search-box", nil, placeholder: t('books.search'), autofocus: true, class: 'search-field kilo'
+      = search_field_tag "search_box", nil, placeholder: t('books.search'), autofocus: true, class: 'search-field kilo'
       .search-submit
         = fa_icon 'search', class: 'fa-flip-horizontal'
+
   .top-bar-actions
     = link_to t('books.actions.add'), new_book_path, class: 'btn-positive'
 
@@ -12,4 +13,4 @@ section.books
 
 coffee:
   $ ->
-    theshelf.search.init()
+    $('#search_box').search()

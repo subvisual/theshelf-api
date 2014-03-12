@@ -2,12 +2,3 @@
   - flash.each do |key, value|
     div class="flash-#{key}"
       = value
-
-coffee:
-  $('#flash').on 'click', (event) ->
-    $(event.target).stop(true).slideUp ->
-      $("#flash").remove()
-
-  $ ->
-    $('#flash .flash-success').delay(3000).slideUp ->
-      $("#flash").remove()

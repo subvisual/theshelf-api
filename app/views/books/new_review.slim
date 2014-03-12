@@ -15,5 +15,11 @@ section.default-page.book-page
 
   .new-section
     h2.milli = t('reviews.new.comment_title')
-    = render 'reviews/form'
-    .form-actions = link_to t('reviews.new.skip_review'), book_path(@book), class: 'btn-negative'
+    .new-review
+      = form_tag create_review_book_path, method: 'post'
+        fieldset
+          label.hide-visually :review_body
+          .text = text_area :review, :body, placeholder: t('forms.reviews.comment')
+        .form-actions
+          = link_to t('reviews.new.skip_review'), book_path(@book), class: 'btn-negative'
+          = submit_tag t('forms.reviews.submit'), class: 'btn-positive'

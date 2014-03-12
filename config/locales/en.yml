@@ -42,7 +42,7 @@ en:
         readings:
           zero: No one read it
           one: 1 person read it
-          other: "%{count}) people read it"
+          other: "%{count} people read it"
         subtitle: Subtitle
         summary: Summary
         title: Title

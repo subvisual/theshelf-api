@@ -1,16 +1,15 @@
 =flash($color)
   position: fixed
+  display: none
   width: 100%
   padding: $base-spacing
   background-color: $color
-  color: darken($color, 60)
+  color: darken($color, 30)
   font-weight: bold
   text-align: center
-  z-index: 5
-  a
-    color: darken($color, 70)
-    &:hover
-      color: darken($color, 90)
+  z-index: 1
+  +at-least($lap-start)
+    padding-left: calc(#{$base-spacing} + #{$side-content-width})
 
 .flash-error
   +flash($error-color)

@@ -2,7 +2,7 @@ class UserDecorator < Draper::Decorator
   delegate :avatar
 
   def name
-    object.first_name
+    "#{object.first_name} #{object.last_name}"
   end
 
   def currently_borrowed_books

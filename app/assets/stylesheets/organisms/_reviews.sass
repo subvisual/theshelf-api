@@ -1,26 +1,38 @@
-.review
-  margin-bottom: $spacing-double
+.reviews-wrap
+  .review-form
+    margin-top: $spacing-double
 
-.review-header
+.review + .review
+  margin-top: $spacing-double
+
+.reviewer
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: $btn-height
   margin-bottom: $spacing-half
+
+.reviewer-profile
+  display: flex
+  align-items: center
+
+.reviewer-name
+  margin-left: $spacing-half
+
+.reviewer-rating
+  height: 1em
+  text-align: right
 
 .review-body
   margin-bottom: $base-spacing
   word-wrap: break-word
 
-.review-header
-  display: flex
-  justify-content: space-between
-
 +at-least($lap-start)
   $left-margin: calc(#{$small-avatar-size} + #{$spacing-half})
-  .review-header
-    +clearfix
+  .reviewer
     display: block
-    .media
-      margin-bottom: $spacing-half
-    .rating
-      margin-left: $left-margin
-
+  .reviewer-rating
+    margin-left: $left-margin
+    text-align: left
   .review-body
     margin-left: $left-margin

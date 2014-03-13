@@ -1,6 +1,6 @@
 class BookDecorator < Draper::Decorator
   delegate :authors, :cover, :cover_cache, :id, :last_review_by, :pages,
-    :published_on, :rating_by, :readings, :reviews_by, :state, :subtitle, :summary,
+    :published_on, :readings, :reviews_by, :state, :subtitle, :summary,
     :title, :total_reviews, :url, :average_rating, :available?, :lent?,
     :unavailable?, :to_model
   decorates_association :reviews
@@ -19,6 +19,10 @@ class BookDecorator < Draper::Decorator
 
   def rating_values
     RatingValues.all
+  end
+
+  def rating_by(rater)
+    object.rating_by(rater.model).value
   end
 
   def path
@@ -51,7 +55,7 @@ class BookDecorator < Draper::Decorator
     if borrowed_by_me?
       return_link
     else
-      h.content_tag(:div, class: 'borrowed-by-someone adaptive') do
+      h.content_tag(:div, class: 'borrower') do
         h.content_tag(:div, h.image_tag(current_borrower.avatar.thumb)) +
         h.content_tag(:div, current_borrower.name, class: 'milli')
       end

@@ -1,6 +1,9 @@
 fieldset
   .image-upload-with-preview style="background-image:url(#{user.avatar})"
-    = form.file_field :avatar
+    = form.file_field :avatar, data: { text: t('forms.users.edit.upload_avatar'), fallbackimage: user.avatar.default_url }
+    = form.hidden_field :remove_avatar, class: 'remove-image' , value: '0'
+    = link_to t('helpers.label.user.remove_avatar'), '#', class: 'danger-link remove-link'
+    = link_to t('helpers.label.user.undo'), '#', class: 'danger-link undo-link'
   = form.hidden_field :avatar_cache
 
 fieldset.fields
@@ -18,9 +21,8 @@ fieldset.fields
 
 coffee:
   $ ->
-    $("form").validate({
+    $("form").validate
       rules:
         "user[first_name]": "required",
         "user[last_name]": "required"
-    })
-    window.theshelf.fileUploadStyling()
+    theshelf.fileUploadStyling()

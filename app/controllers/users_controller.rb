@@ -4,9 +4,6 @@ class UsersController < Clearance::UsersController
   def create
   end
 
-  def edit
-  end
-
   def update
     if current_user.update(user_params)
       redirect_to root_path
@@ -18,7 +15,7 @@ class UsersController < Clearance::UsersController
   private
 
   def user_params
-    params.require(:user).permit(:password, :first_name, :last_name, :avatar, :avatar_cache)
+    params.require(:user).permit(:password, :first_name, :last_name, :avatar, :avatar_cache, :remove_avatar)
   end
 
   def handle_disabled_signup

@@ -10,8 +10,11 @@ en:
 
   flash:
     book:
+      borrowed: Book successfully borrowed
       created: Book successfully created
       deleted: Book successfully deleted
+      returned: Book successfully returned
+      reviewed: Book successfully reviewed
       updated: Book successfully updated
 
   forms:
@@ -25,7 +28,7 @@ en:
       star5: it was amazing
     reviews:
       submit: Submit
-      comment: Make your review
+      comment: Make your comment
     users:
       new:
         sign_in: Sign in
@@ -39,7 +42,7 @@ en:
         readings:
           zero: No one read it
           one: 1 person read it
-          other: "%{count}) people read it"
+          other: "%{count} people read it"
         subtitle: Subtitle
         summary: Summary
         title: Title
@@ -58,6 +61,11 @@ en:
       thanks: Thanks for rating
 
   reviews:
+    new:
+      comment_title: What did you think?
+      rating_title: Want to rate it?
+      skip_review: Skip review
+      title: Review this book
     total_reviews:
       one: "(1) Review"
       other: "(%{count}) Reviews"

@@ -16,6 +16,7 @@ class BookKeeper
 
     ActiveRecord::Base.transaction do
       book.make_available
+      book.increment!(:readings)
       book.current_loan.update closed_at: Time.now
     end
   end

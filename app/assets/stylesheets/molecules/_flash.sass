@@ -1,0 +1,21 @@
+=flash($color)
+  position: fixed
+  display: none
+  width: 100%
+  padding: $base-spacing
+  background-color: $color
+  color: darken($color, 30)
+  font-weight: bold
+  text-align: center
+  z-index: 1
+  +at-least($lap-start)
+    padding-left: calc(#{$base-spacing} + #{$side-content-width})
+
+.flash-error
+  +flash($error-color)
+
+.flash-notice
+  +flash($notice-color)
+
+.flash-success
+  +flash($success-color)

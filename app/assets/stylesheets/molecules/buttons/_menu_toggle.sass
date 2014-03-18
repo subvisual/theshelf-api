@@ -1,22 +1,54 @@
-$vertical-padding: calc((#{$header-height} - (#{$menu-toggle-icon-height}*5))/2)
-$horizontal-padding: ($menu-toggle-width - $menu-toggle-icon-max-width)/2
+$transition: .3s
+$line-width: 3rem
+$line-height: $line-width / 7
+$line-vertical-spacing: $line-width / 4
+$line-vertical-spacing-on-hover: $line-width / 3.5
 
-.menu-toggle
-  padding: $vertical-padding $horizontal-padding
-  border: 0
-  background-color: $body-background-color
-  outline: 0
-  .icon-bar
-    +border-radius(3px)
-    width: 100%
-    height: $menu-toggle-icon-height
-    background-color: $side-content-background-color
-  .icon-bar:not(:last-child)
-    margin-bottom: $menu-toggle-icon-height
-  .icon-bar--half
-    width: 50%
+.button-hamburger
+  width: 100%
+  height: $header-height
+  border: none
+  background: $menu-primary-background-color
+  outline: none
+  transition: .3s
 
-.menu-toggle.collapsed
-  background-color: $menu-primary-background-color
-  .icon-bar
-    background-color: $positive-primary-color
+=line
+  display: inline-block
+  width: $line-width
+  height: $line-height
+  background: $positive-primary-color
+  border-radius: $line-width / 14
+  transition: $transition
+
+.hamburger-lines
+  +line
+  position: relative
+  &:before,
+  &:after
+    +line
+    +transform-origin(center, center)
+    position: absolute
+    left: 0
+    content: ''
+  &:before
+    top: $line-vertical-spacing
+  &:after
+    top: -$line-vertical-spacing
+
+.button-hamburger:hover
+  .hamburger-lines
+    &:before
+      top: $line-vertical-spacing-on-hover
+    &:after
+      top: -$line-vertical-spacing-on-hover
+
+.button-hamburger.close
+  .hamburger-lines
+    background: transparent
+    &:before,
+    &:after
+      top: 0
+    &:before
+      +rotate3d(0, 0, 1, 45deg)
+    &:after
+      +rotate3d(0, 0, 1, -45deg)

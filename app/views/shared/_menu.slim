@@ -1,0 +1,24 @@
+.menu-wrap.closed
+  .media.user-profile-menu
+    .media-image
+      = image_tag(presented_current_user.avatar)
+    .media-body
+      .milli.truncate title="#{presented_current_user.name}"
+        = link_to my_account_path
+          = presented_current_user.name
+      = link_to log_out_path, method: 'delete', class: 'sign-out-icon positive-link'
+        = fa_icon 'power-off'
+
+  ul.list-striped.borrowed-books
+    - presented_current_user.currently_borrowed_books.each do | book|
+      li.media
+        .media-image
+          = link_to image_tag(book.cover.small), book.path
+        .media-body
+          .book-item
+            .book-title.milli.truncate title="#{book.title}"
+              = link_to book.title, book.path
+          .book-action = book.action
+
+  a#close-menu.positive-link.close-menu href='#'
+    = t('menu.close')

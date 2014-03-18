@@ -1,3 +1,5 @@
 $ ->
-  $('.side-content').on 'click', '#close-menu, #menu-toggle', ->
-    $('.menu-toggle, .menu-wrap').toggleClass("collapsed")
+  $('body').on 'click', '#menu-toggle, #close-menu', (event) ->
+    event.preventDefault()
+    $('.menu-wrap').toggleClass("closed")
+    $('#menu-toggle').toggleClass("close")

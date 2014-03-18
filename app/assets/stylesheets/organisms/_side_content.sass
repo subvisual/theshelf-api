@@ -6,36 +6,31 @@
 
 .side-content
   height: $header-height
-
-.logo-wrap
-  height: inherit
   .logo
     width: calc(100% - #{$menu-toggle-width})
-
-.menu-toggle-wrap
-  display: inline-block
-  width: $menu-toggle-width
+  .button-hamburger
+    display: inline-block
+    width: $menu-toggle-width
 
 .menu-wrap
+  +transition(transform .3s cubic-bezier(0, 1, 0.5, 1))
+  +transform(translateY(0))
+  position: fixed
+  z-index: 10
+  width: 100%
   background-color: $menu-primary-background-color
-  overflow-y: hidden
-  max-height: $lap-start
-  +transition-property(max-height)
-  +transition-duration(0.5s)
-  +transition-timing-function(cubic-bezier(0, 1, 0.5, 1))
 
-.menu-wrap.collapsed
-  max-height: 0
+.menu-wrap.closed
+  +transform(translateY(-100%))
 
-.menu-wrap .close-menu
+.close-menu
+  display: block
   padding-top: $base-spacing
   padding-bottom: $base-spacing
   text-align: center
-  a
-    text-decoration: none
-    color: $positive-primary-color
+  text-decoration: none
 
 +at-least($lap-start)
-  .logo-wrap
+  .side-content
     .logo
       width: 100%

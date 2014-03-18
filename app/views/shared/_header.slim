@@ -1,32 +1,6 @@
 header.side-content.fixed-top
-  .logo-wrap
-    .logo
-      = link_to '', root_path, class: 'logo-background'
-    #menu-toggle.menu-toggle-wrap
-      .menu-toggle.collapsed
-        .icon-bar
-        .icon-bar.icon-bar--half
-        .icon-bar
-  .menu-wrap.collapsed
-    .media.user-profile-menu
-      .media-image
-        = image_tag(presented_current_user.avatar)
-      .media-body
-        .milli.truncate title="#{presented_current_user.name}"
-          = link_to my_account_path
-            = presented_current_user.name
-        = link_to log_out_path, method: 'delete', class: 'sign-out-icon positive-link'
-          = fa_icon 'power-off'
-    ul.list-striped.borrowed-books
-      - presented_current_user.currently_borrowed_books.each do | book|
-        li.media
-          .media-image
-            = link_to image_tag(book.cover.small), book.path
-          .media-body
-            .book-item
-              .book-title.milli.truncate title="#{book.title}"
-                = link_to book.title, book.path
-            .book-action = book.action
-    #close-menu.close-menu
-      a href='#'
-        = t('menu.close')
+  .logo
+    = link_to '', root_path, class: 'logo-background'
+
+  button#menu-toggle.button-hamburger aria-label=("Toggle Menu") role="button" type="button"
+    span.hamburger-lines

@@ -15,6 +15,5 @@ When(/^I clear my rating$/) do
 end
 
 Then(/^I see that the book's average rating was updated$/) do
-  title = page.first('.book-info .rating .rating-label')[:title]
-  title.should_not match /#{@rating_value.to_f.to_s}/
+  page.first('.book-info .rating .rating-label')[:title].should_not match /#{@rating_value.to_f.to_s}/
 end

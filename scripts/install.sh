@@ -1,8 +1,10 @@
+DEFAULT_EMAIL="me@me.com"
+DEFAULT_PASSWORD="12345"
 FOLDER="theshelf"
 readonly FOLDER
 
 git clone git@github.com:groupbuddies/theshelf.git $FOLDER || {
-  echo "git not installed"
+  printf "git not installed\n"
   exit
 }
 
@@ -14,12 +16,4 @@ bundle install --quiet
 printf "Database setup...\n"
 bundle exec rake db:migrate VERBOSE=false
 
-printf "Creating first user...\n"
-read -p "Type the email: " email
-read -s -p "Type the password: " password
-
-printf "\nWaiting..."
-bundle exec rake create:user email=$email password=$password
-
-printf " done.\n"
-printf "You can now run the server to start using TheShelf.\n"
+printf "To create a first user run \"bundle exec rake create:user email=your-email password=your-password\" inside the folder\n"

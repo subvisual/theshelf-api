@@ -7,7 +7,7 @@
 
 To install paste the following:
 
-    curl https://raw.githubusercontent.com/groupbuddies/theshelf/master/scripts/install.sh | sh
+    curl -L https://raw.githubusercontent.com/groupbuddies/theshelf/master/scripts/install.sh | sh
 
 ### Create a user
 

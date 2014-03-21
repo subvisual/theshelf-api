@@ -15,4 +15,9 @@ There is a rake task to create a user using email and password.
 
     bundle exec rake create:user name=your-name password=your-password
 
-The scripts gives you a default name, you can then change it on the platform.
+The scripts gives you a default name, you can change it later on the web interface.
+
+
+## Going Live
+
+If you're going live the The Shelf on your company or book club then you should let us know!

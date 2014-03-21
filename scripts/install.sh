@@ -15,13 +15,11 @@ printf "Database setup...\n"
 bundle exec rake db:migrate VERBOSE=false
 
 printf "Creating first user...\n"
-printf "Type the email: "
-read email
-printf "Type the password: "
-read -s password
+read -p "Type the email: " email
+read -s -p "Type the password: " password
 
 printf "\nWaiting..."
 bundle exec rake create:user email=$email password=$password
 
 printf " done.\n"
-printf "You can now run the server to start using TheShelf."
+printf "You can now run the server to start using TheShelf.\n"

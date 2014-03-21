@@ -3,7 +3,6 @@
 /db/*.sqlite3-journal
 /log/*.log
 /tmp
-/bin
 /public/uploads
 /public/assets
 .ruby-gemset

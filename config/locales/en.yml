@@ -30,6 +30,9 @@ en:
       submit: Submit
       comment: Make your comment
     users:
+      edit:
+        submit: Submit
+        upload_avatar: Upload avatar
       new:
         sign_in: Sign in
 
@@ -47,6 +50,12 @@ en:
         summary: Summary
         title: Title
         url: URL
+      user:
+        first_name: First Name
+        last_name: Last Name
+        new_password: New password
+        remove_avatar: Remove Avatar
+        undo: Undo
 
   menu:
     close: Close menu
@@ -75,3 +84,6 @@ en:
     more: If you'd like to know more about it, I'd be glad to have a chat with you.
     contact: "You can reach me here:"
     what: The Shelf is an online library for small companies to keep track of their books and to create discussion around knowledge.
+
+  users:
+    edit: Edit my account

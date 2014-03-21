@@ -30,9 +30,11 @@ class UpdatesBookGallery
     @$el.empty()
 
   update: ->
+    template = JST["book"]
+    bookArray = []
     _.each @$data, (item) =>
-      template = JST["book"]
-      @$el.append(_.template(template(item)))
+      bookArray.push _.template(template(item))().trim()
+    @$el.html bookArray.join('')
 
 $.fn.search = ->
   new Search(this)

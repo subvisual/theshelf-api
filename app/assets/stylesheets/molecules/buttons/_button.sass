@@ -1,6 +1,12 @@
 /* ==========================================================================
    Base Button
    ========================================================================== */
+=link-color($base-color, $hover-color)
+  color: $base-color
+  &:hover,
+  &:active
+    color: $hover-color
+
 =alternative-button-skin
   &[class='btn-positive']
     background-color: $positive-secondary-alt-color
@@ -15,16 +21,10 @@
   text-decoration: underline
 
   &[class='btn-positive']
-    color: $positive-primary-color
-    &:hover,
-    &:active
-      color: $positive-hover-color
+    +link-color($positive-primary-color, $positive-hover-color)
 
   &[class='btn-negative']
-    color: $negative-primary-color
-    &:hover,
-    &:active
-      color: $negative-hover-color
+    +link-color($negative-primary-color, $negative-hover-color)
 
 %btn
   display: inline-block
@@ -40,8 +40,7 @@
   +at-least($lap-start)
     width: $btn-width
 
-.btn-positive
-  @extend %btn
+%positive-btn-skin
   border-color: $positive-primary-color
   background-color: $positive-secondary-color
   color: $positive-primary-color
@@ -51,8 +50,7 @@
     background-color: $positive-primary-color
     color: $positive-secondary-color
 
-.btn-negative
-  @extend %btn
+%negative-btn-skin
   border-color: $negative-primary-color
   background-color: $negative-primary-color
   color: $negative-secondary-color
@@ -62,8 +60,23 @@
     background-color: $negative-hover-color
     color: $negative-secondary-color
 
+.btn-positive
+  @extend %btn
+  @extend %positive-btn-skin
+
+.btn-negative
+  @extend %btn
+  @extend %negative-btn-skin
+
 .link
+  +link-color($negative-primary-color, $negative-hover-color)
   text-decoration: underline
+
+.positive-link
+  +link-color($positive-primary-color, $positive-hover-color)
+
+.danger-link
+  +link-color($danger-link-color, $danger-hover-link-color)
 
 .bold-link
   font-weight: bold

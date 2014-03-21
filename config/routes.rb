@@ -18,6 +18,11 @@ TheShelf::Application.routes.draw do
     end
   end
 
+  scope :my_account do
+    get '/' => 'users#edit', as: 'my_account'
+    patch '/' => 'users#update', as: 'update_my_account'
+  end
+
   get '/log_in' => 'sessions#new', :as => 'log_in'
   delete '/log_out' => 'sessions#destroy', :as => 'log_out'
 end

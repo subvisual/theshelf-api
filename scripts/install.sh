@@ -24,4 +24,4 @@ printf "\nWaiting..."
 bundle exec rake create:user email=$email password=$password
 
 printf " done.\n"
-printf "You can now run \'rails server\' to start using TheShelf."
+printf "You can now run the server to start using TheShelf."

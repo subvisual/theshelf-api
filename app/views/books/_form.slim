@@ -1,6 +1,6 @@
 fieldset
   .image-upload-with-preview.required style="background-image:url(#{book.cover})"
-    = form.file_field :cover
+    = form.file_field :cover, data: { text: t('forms.books.upload_cover') }
   = form.hidden_field :cover_cache
 
 fieldset.fields

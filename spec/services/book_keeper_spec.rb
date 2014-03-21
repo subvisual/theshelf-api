@@ -62,6 +62,14 @@ describe BookKeeper do
       book.current_loan.should be_closed
     end
 
+    it 'increments the number of readings' do
+      user = build :user
+      book = create(:lent_book, borrower: user)
+      book_keeper = BookKeeper.new(book: book)
+
+      expect { book_keeper.return_by!(borrower: user) }.to change{ book.readings }.by(1)
+    end
+
     it "returns false if the book wasn't borrowed by me" do
       current_borrower = double('User')
       another_user = double('User')

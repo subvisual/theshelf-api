@@ -1,6 +1,9 @@
 .book-page
   position: relative
 
+  .book-info
+    margin-top: $base-spacing
+
   .book-image,
   .book-stats
     display: inline-block
@@ -18,9 +21,6 @@
     top: $base-spacing
     right: $base-spacing
 
-  .reviews-wrap
-    margin-top: $spacing-triple
-
 +at-least($lap-start)
   .book-page
     .book-cover,
@@ -30,6 +30,9 @@
     .book-info
       width: calc(100% - #{$large-cover-width})
       padding-left: $base-spacing
+      margin-top: 0
+    .book-title
+      width: calc(100% - #{$btn-width} - #{$base-spacing})
     .book-image
       +large-cover
       display: block
@@ -41,4 +44,5 @@
       width: 100%
       text-align: center
     .book-action
+      top: $main-content-padding
       right: $main-content-padding

@@ -1,7 +1,9 @@
 .review
-  header.review-header
-    .borrowed-by-someone
-      div = image_tag review.reviewer.avatar.thumb
-      .milli = review.reviewer.name
-  section.review-body
+  .reviewer
+    .reviewer-profile
+      .reviewer-avatar = image_tag review.reviewer.avatar.thumb
+      .reviewer-name.milli = review.reviewer.name
+    .reviewer-rating
+      = render 'books/small_rating_show', book: book, rating_value: book.rating_by(review.reviewer)
+  .review-body
     = review.body

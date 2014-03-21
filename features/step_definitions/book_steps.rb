@@ -50,13 +50,13 @@ When(/^I return the book$/) do
 end
 
 When(/^I fill the review form$/) do
-  within('.new-review form') do
+  within('.review-form') do
     fill_in 'review_body', with: 'Nice!'
   end
 end
 
 When(/^I submit the review$/) do
-  find(".new-review .btn-positive").click
+  find(".review-form .btn-positive").click
 end
 
 Then(/^I should see my new review$/) do

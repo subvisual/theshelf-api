@@ -6,4 +6,5 @@
 //= require underscore-min
 //= require search
 //= require rating
+//= require flashes
 //= require_tree ../templates

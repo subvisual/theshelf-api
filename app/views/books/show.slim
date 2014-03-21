@@ -2,5 +2,9 @@ section.default-page.book-page
   = render 'book'
   .book-action = @book.action
 
-  aside.reviews-wrap
-    = render 'reviews/reviews', book: @book
+  aside.new-section
+    .reviews
+      h1.micro = t('reviews.total_reviews', count: @book.total_reviews)
+      = render @book.reviews, book: @book
+
+    = render 'reviews/form'

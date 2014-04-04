@@ -26,7 +26,7 @@ Feature: Return book
   Scenario: I review a book when I return it
     Given I've borrowed a book
     And I am on the shelf page
-    And I return the book
+    When I return the book
     And I fill the review form
     And I submit the review
     Then I see that the book is available for borrowing

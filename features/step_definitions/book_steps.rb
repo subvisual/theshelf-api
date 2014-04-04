@@ -41,6 +41,13 @@ When(/^I fill the new book form$/) do
   end
 end
 
+When(/^add myself as the book's owner$/) do
+  @book.owner = "King Arthur"
+  within("form") do
+    fill_in 'book_owner', with: @book.owner
+  end
+end
+
 When(/^I borrow the book$/) do
   first(".book-action .btn-positive").click
 end
@@ -103,6 +110,10 @@ end
 
 Then(/^I should see the book's details$/) do
   page.should have_content @book.title
+end
+
+Then(/^that I am the book's owner$/) do
+  page.should have_content @book.owner
 end
 
 Then(/^I see that the book was borrowed by me$/) do

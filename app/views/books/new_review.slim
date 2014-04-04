@@ -15,7 +15,7 @@ section.default-page.book-page
 
   .new-section
     h2.milli = t('reviews.new.comment_title')
-    = form_tag create_review_book_path, method: 'post'
+    = form_tag create_review_book_path, method: 'post', class: 'review-form'
       fieldset
         label.hide-visually :review_body
         .text = text_area :review, :body, placeholder: t('forms.reviews.comment')

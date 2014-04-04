@@ -3,10 +3,12 @@ en:
     actions:
       add: Add new book
       borrow: Borrow
+      edit: Edit
       return: Return
     new: Add new book
     search: Search Book
     submit: Submit
+    owner: "belongs to %{name}"
 
   flash:
     book:
@@ -40,6 +42,7 @@ en:
     label:
       book:
         authors: Authors
+        owner: Owner (leave blank if it is the company)
         pages: pages
         published_on: Published on
         readings:

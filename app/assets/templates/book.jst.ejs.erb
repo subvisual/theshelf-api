@@ -6,7 +6,12 @@
   </div>
   <div class="media-body">
     <a class="book-item" href="<%%= path %>">
-      <div class="book-title milli truncate" title="<%%= title %>"><%%= title %></div>
+      <div class="book-title milli truncate" title="<%%= title %>">
+         <%%= title %>
+         <%% if(owner) { %>
+           (<%%= owner %>)
+         <%% } %>
+      </div>
       <div class="book-authors small truncate" title="<%%= authors %>"><%%= authors %></div>
       <div class="book-stats">
         <%%= rating_show %>

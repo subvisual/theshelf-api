@@ -8,8 +8,9 @@
 
 .book-info
   h1.book-title.milli = @book.title
-  .small = t('books.owner', name: @book.owner)
   h2.nano = @book.subtitle
+  - if @book.owner.present?
+    .small = t('books.owner', name: @book.owner)
   p.small = @book.authors
   #avg-rating
     = render 'rating_show', book: @book, rating_value: @book.average_rating

@@ -9,7 +9,7 @@
 .book-info
   h1.book-title.milli = @book.title
   h2.nano = @book.subtitle
-  - if @book.owner.present?
+  - if @book.owner
     .small = t('books.owner', name: @book.owner)
   p.small = @book.authors
   #avg-rating

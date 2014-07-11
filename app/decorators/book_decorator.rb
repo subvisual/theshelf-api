@@ -41,6 +41,10 @@ class BookDecorator < Draper::Decorator
     h.edit_book_path(object)
   end
 
+  def edit_link
+    h.link_to h.t('books.actions.edit'), edit_path
+  end
+
   def as_json
     {
       path: path,
@@ -81,9 +85,5 @@ class BookDecorator < Draper::Decorator
 
   def return_link
     h.link_to h.t('books.actions.return'), return_path, class: 'btn-negative'
-  end
-
-  def edit_link
-    h.link_to h.t('books.actions.edit'), edit_path
   end
 end

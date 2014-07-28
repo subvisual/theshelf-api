@@ -53,6 +53,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :loan do
+    book
+    association :borrower, factory: :user
+  end
+
   factory :review do
     body 'Nice one!'
     association :book

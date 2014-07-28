@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'services/book_keeper'
 
 describe BookKeeper, type: :model do
@@ -85,5 +86,38 @@ describe BookKeeper, type: :model do
       expect(book_keeper.return_by!(borrower: double('User'))).to be_falsey
     end
 
+  end
+
+  context '#extend_loan!' do
+    it 'extends the ending period' do
+      user = build :user
+      book = create(:lent_book, borrower: user)
+      old_period = book.current_loan.ends_at
+      book_keeper = BookKeeper.new(book: book)
+
+      book_keeper.extend_loan! borrower: user
+
+      new_period = old_period + 15.days
+      expect(book.current_loan.ends_at).to eq new_period
+    end
+
+    it 'remains lent' do
+      user = build :user
+      book = create(:lent_book, borrower: user)
+      old_state = book.state
+      book_keeper = BookKeeper.new(book: book)
+
+      book_keeper.extend_loan! borrower: user
+
+      expect(book.state).to eq old_state
+    end
+
+    it "returns false if the book isn't lent" do
+      loan = double("Loan", :extend! => true)
+      book = double("Book", available?: true, current_loan_by: loan)
+      book_keeper = BookKeeper.new(book: book)
+
+      expect(book_keeper.extend_loan!).not_to be
+    end
   end
 end

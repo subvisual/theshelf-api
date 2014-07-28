@@ -13,6 +13,10 @@ step "I've borrowed a book" do
   @book = create(:lent_book, borrower: @user).decorate
 end
 
+step "I've extended the loan" do
+  @book.current_loan.extend!
+end
+
 step "there isn't a book with title :title" do |title|
   @title = title
   expect(page).not_to have_content title
@@ -20,6 +24,10 @@ end
 
 step "I've read a book" do
   @read_book = create(:read_book, borrower: @user)
+end
+
+step "there is one week left on my loan" do
+  Timecop.travel(@book.current_loan.ends_at - 7.days)
 end
 
 step "I borrow an available book" do
@@ -111,6 +119,10 @@ step "I search for that word" do
   end
 end
 
+step "I extend my loan period" do
+  first('[class^="btn"]', text: I18n.t('books.actions.extend')).click
+end
+
 step "I should see the book listed" do
   expect(page).to have_content @book.title
 end
@@ -164,6 +176,14 @@ end
 
 step "I should see the read books list" do
   expect(page).to have_content @read_book.title
+end
+
+step "I should see that my loan was extended" do
+  expect(page).to have_content I18n.t('flash.book.extended')
+end
+
+step "I should not see an extend link" do
+  expect(page).not_to have_content I18n.t('books.actions.extend')
 end
 
 step "I should see my new review" do

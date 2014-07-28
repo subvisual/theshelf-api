@@ -10,7 +10,7 @@
         = fa_icon 'power-off'
 
   ul.list-striped.borrowed-books
-    - presented_current_user.currently_borrowed_books.each do | book|
+    - presented_current_user.currently_borrowed_books.each do |book|
       li.media
         .media-image
           = link_to image_tag(book.cover.small), book.path
@@ -19,6 +19,7 @@
             .book-title.milli.truncate title="#{book.title}"
               = link_to book.title, book.path
           .book-action = book.action
+          p = t('books.expiration_date', date: l(book.loan_ends_at, format: :regular))
 
   a#close-menu.positive-link.close-menu href='#'
     = t('menu.close')

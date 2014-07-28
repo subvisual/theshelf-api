@@ -24,6 +24,14 @@ class Book < ActiveRecord::Base
     loans.by_most_recent.first
   end
 
+  def current_loan_by(borrower)
+    loans.where(user_id: borrower.id).by_most_recent.first
+  end
+
+  def extendable?
+    current_loan.extendable?
+  end
+
   def self.search(query)
     if query
       where('title LIKE ? or authors LIKE ?', "%#{query}%", "%#{query}%")

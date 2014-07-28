@@ -2,7 +2,7 @@ class BookDecorator < Draper::Decorator
   delegate :authors, :cover, :cover_cache, :id, :last_review_by, :owner,
     :pages, :published_on, :readings, :reviews_by, :state, :subtitle, :summary,
     :title, :total_reviews, :url, :average_rating, :available?, :lent?,
-    :unavailable?, :to_model, :isbn, :ebook
+    :unavailable?, :loans, :current_loan, :to_model, :isbn, :ebook
   decorates_association :reviews
 
   def action
@@ -11,6 +11,10 @@ class BookDecorator < Draper::Decorator
     else
       loan_actions
     end
+  end
+
+  def loan_ends_at
+    current_loan.ends_at
   end
 
   def average_rating
@@ -35,6 +39,10 @@ class BookDecorator < Draper::Decorator
 
   def return_path
     h.return_book_path(object)
+  end
+
+  def extend_path
+    h.extend_book_path(object)
   end
 
   def edit_path
@@ -70,7 +78,7 @@ class BookDecorator < Draper::Decorator
 
   def lent_actions
     if borrowed_by_me?
-      return_link
+      return_link + extend_link
     else
       h.content_tag(:div, class: 'borrower') do
         h.content_tag(:div, h.image_tag(current_borrower.avatar.thumb)) +
@@ -97,5 +105,11 @@ class BookDecorator < Draper::Decorator
 
   def return_link
     h.link_to h.t('books.actions.return'), return_path, class: 'btn-negative'
+  end
+
+  def extend_link
+    if object.extendable?
+      h.link_to h.t('books.actions.extend'), extend_path, class: 'btn-negative'
+    end
   end
 end

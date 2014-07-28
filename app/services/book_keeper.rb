@@ -21,6 +21,12 @@ class BookKeeper
     end
   end
 
+  def extend_loan!(borrower: nil)
+    return false if book.available?
+
+    book.current_loan_by(borrower).extend!
+  end
+
   private
   attr_reader :book
 end

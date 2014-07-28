@@ -7,6 +7,7 @@ TheShelf::Application.routes.draw do
     member do
       get 'borrow' => 'book_keeper#borrow'
       get 'return' => 'book_keeper#return'
+      get 'extend' => 'book_keeper#extend'
       get 'review' => 'reviews#new'
       post 'review' => 'reviews#create'
     end

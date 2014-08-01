@@ -9,6 +9,7 @@ gem 'draper', '~> 1.3'
 gem 'ejs'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'mechanize'
 gem 'mini_magick'
 gem 'paranoia', '~> 2.0'
 gem 'puma'
@@ -36,7 +37,6 @@ group :development do
   gem 'capistrano-rvm',     '~> 0.1.0'
   gem 'capistrano-bundler', '~> 1.1.0'
   gem 'capistrano3-puma'
-  gem 'mechanize'
   gem 'quiet_assets'
 end
 

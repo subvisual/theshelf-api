@@ -35,6 +35,17 @@ FactoryGirl.define do
         BookKeeper.new(book: book).lend_to! borrower: evaluator.borrower
       end
     end
+
+    factory :read_book do
+      ignore do
+        borrower nil
+      end
+
+      after(:create) do |book, evaluator|
+        BookKeeper.new(book: book).lend_to! borrower: evaluator.borrower
+        BookKeeper.new(book: book).return_by! borrower: evaluator.borrower
+      end
+    end
   end
 
   factory :review do

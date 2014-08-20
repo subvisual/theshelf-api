@@ -14,7 +14,12 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def currently_borrowed_books
-    Book.joins(:loans)
-      .where(loans: { user_id: self.id, closed_at: nil })
+    Book.joins(:loans).
+      where(loans: { user_id: id, closed_at: nil })
+  end
+
+  def read_books
+    Book.joins(:loans).
+      where(loans: { user_id: id }).where.not(loans: { closed_at: nil }).uniq
   end
 end

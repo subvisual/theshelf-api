@@ -6,6 +6,7 @@ en:
       edit: Edit
       return: Return
     new: Add new book
+    read_books: Read books 
     search: Search Book
     submit: Submit
     owner: "belongs to %{name}"

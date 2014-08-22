@@ -1,0 +1,7 @@
+header.sign-in-header-wrap
+  .logo
+    = link_to '', root_path, class: 'logo-background'
+
+.sign-in-body-wrap
+  h1.kilo = t('users.sign_up')
+  = render '/sessions/form'

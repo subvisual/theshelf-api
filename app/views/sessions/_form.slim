@@ -6,4 +6,5 @@
     .text = form.password_field :password
 
     .form-actions
+      = link_to t('forms.users.new.sign_up'), sign_up_path, class: 'btn-negative'
       = form.submit t('forms.users.new.sign_in'), class: 'btn-positive'

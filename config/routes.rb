@@ -3,7 +3,6 @@ TheShelf::Application.routes.draw do
   root 'books#index'
 
   resources :session, controller: :sessions, only: [:create]
-  resources :users, controller: :users, only: [:create]
   resources :books do
     member do
       get 'borrow'
@@ -27,4 +26,5 @@ TheShelf::Application.routes.draw do
   delete '/log_out' => 'sessions#destroy', :as => 'log_out'
   
   get '/sign_up' => 'users#new', :as => nil
+  post '/users' => 'users#create', :as => nil
 end

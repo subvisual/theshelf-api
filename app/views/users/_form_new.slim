@@ -12,3 +12,12 @@
 
     .form-actions
       = form.submit t('forms.users.new.sign_up'), class: 'btn-positive'
+
+coffee:
+  $ ->
+    $("form").validate
+      rules:
+        "user[first_name]": "required",
+        "user[last_name]": "required",
+        "user[email]": "required",
+        "user[password]": "required"

@@ -1,6 +1,6 @@
 class UsersController < Clearance::UsersController
-  layout 'simple'
-  
+  layout 'simple', only: "new"
+
   def create
     @user = User.new user_params
 
@@ -8,10 +8,10 @@ class UsersController < Clearance::UsersController
       sign_in @user
       redirect_back_or url_after_create
     else
-      render :new
+      render :new, layout: 'simple'
     end
   end
-  
+
   def update
     if current_user.update(user_params)
       redirect_to root_path

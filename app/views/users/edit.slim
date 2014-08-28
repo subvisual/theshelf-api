@@ -5,7 +5,7 @@ section.default-page
     .image-and-fields
       = render 'form', form: form, user: current_user
 
-  h1.read-books-title = t('read_books')
+  h1.read-books-title = t('books.read_books')
   ul.list-inline.read-books
     - current_user.read_books.each do |read_book|
       li.media

@@ -1,11 +1,11 @@
-When(/^I change my first name$/) do
+step "I change my first name" do
   @user ||= build(:user)
   within('form') do
     fill_in 'user_first_name', with: @user.first_name
   end
 end
 
-When(/^I fill in the sign up form$/) do
+step "I fill in the sign up form" do
   @user ||= build(:user)
   within('form') do
     fill_in 'user_first_name', with: @user.first_name
@@ -15,18 +15,18 @@ When(/^I fill in the sign up form$/) do
   end
 end
 
-When(/^I sign up$/) do
+step "I sign up" do
   find('.btn-positive').click
 end
 
-When(/^I submit the new details$/) do
-  first('.form-actions .btn-positive').click
+step "I submit the new details" do
+  first(".form-actions .btn-positive").click
 end
 
-Then(/^I should see my new name$/) do
-  page.should have_content @user.decorate.name
+step "I should see my new name" do
+  expect(page).to have_content @user.decorate.name
 end
 
-Then(/^I should be redirected to the shelf page$/) do
-  current_path.should eq root_path
+step "I should be redirected to the shelf page" do
+  expect(current_path).to eq root_path
 end

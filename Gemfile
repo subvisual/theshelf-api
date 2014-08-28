@@ -29,7 +29,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'spring-commands-cucumber'
 end
 
 group :development do
@@ -45,11 +44,11 @@ end
 group :test do
   gem 'capybara', '~> 2.0'
   gem 'capybara-webkit'
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.2'
   gem 'nokogiri'
   gem 'selenium-webdriver', '~> 2.43'
+  gem 'turnip'
   gem 'webmock'
 end
 

@@ -1,4 +1,4 @@
-@javascript @selenium
+@javascript
 Feature: Search books
   As a user
   I want to be able to search for books

@@ -2,6 +2,10 @@
 
 = render 'layouts/head'
 
+header.sign-in-header-wrap
+  .logo
+    = link_to '', root_path, class: 'logo-background'
+
 body
   #sticky-root.simple-container
     = yield

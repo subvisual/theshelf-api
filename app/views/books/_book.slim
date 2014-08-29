@@ -18,6 +18,8 @@
     p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
   - if @book.pages
     p.small = "#{@book.pages} #{t('helpers.label.book.pages')}"
+  - if @book.isbn
+    p.small = "#{t('helpers.label.book.isbn')} #{@book.isbn}"
   - if @book.summary.present?
     h2.micro = t('helpers.label.book.summary')
-    = @book.summary
+    = @book.summary.html_safe

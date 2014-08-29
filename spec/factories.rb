@@ -14,6 +14,7 @@ FactoryGirl.define do
 
   factory :book, aliases: [:available_book] do
     sequence(:title) { |n| "#{n}Book" }
+    sequence(:isbn) { |n| "9785#{n}" }
     authors 'John Doe'
 
     factory :rated_book do

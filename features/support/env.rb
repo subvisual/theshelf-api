@@ -1,7 +1,10 @@
+require './features/support/goodreads_helpers'
+require './features/support/webmock_helpers'
 require 'capybara/session'
 require 'cucumber/rails'
 require 'pry'
 require 'factory_girl'
+
 begin
   FactoryGirl.find_definitions
 rescue
@@ -35,3 +38,7 @@ rescue NameError
 end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+WebMock.disable_net_connect!(allow_localhost: true)
+
+World(GoodreadsHelpers, WebmockHelpers)

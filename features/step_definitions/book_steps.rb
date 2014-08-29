@@ -37,17 +37,29 @@ When(/^I submit the book$/) do
   click_on I18n.t('books.submit')
 end
 
+When(/^I submit the ISBN$/) do
+  stub_goodreads_request
+  click_on I18n.t('books.isbn_submit')
+end
+
 When(/^I fill the new book form$/) do
   @book ||= build(:book)
-  within("form") do
+  within("#new_book") do
     fill_in 'book_title', with: @book.title
     fill_in 'book_authors', with: @book.authors
   end
 end
 
+When(/^I fill the ISBN form$/) do
+  @book ||= build(:book, goodreads_mock_response)
+  within("#import-book-form") do
+    fill_in 'isbn-input', with: @book.isbn
+  end
+end
+
 When(/^add myself as the book's owner$/) do
   @book.owner = "King Arthur"
-  within("form") do
+  within("#new_book") do
     fill_in 'book_owner', with: @book.owner
   end
 end

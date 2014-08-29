@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+    <key><![CDATA[T53myHhdIfErokIZt6SZEw]]></key>
+    <method><![CDATA[book_isbn]]></method>
+  </Request>
+  <book>
+    <id>13422727</id>
+    <title><![CDATA[A Dance with Dragons (A Song of Ice and Fire, #5)]]></title>
+    <isbn><![CDATA[0553801473]]></isbn>
+    <isbn13><![CDATA[9780553801477]]></isbn13>
+    <asin><![CDATA[]]></asin>
+    <image_url>http://d.gr-assets.com/books/1329188207m/13422727.jpg</image_url>
+    <small_image_url>http://d.gr-assets.com/books/1329188207s/13422727.jpg</small_image_url>
+    <publication_year>2011</publication_year>
+    <publication_month>7</publication_month>
+    <publication_day>12</publication_day>
+    <publisher>Bantam</publisher>
+    <language_code>eng</language_code>
+    <is_ebook>false</is_ebook>
+    <description><![CDATA[In the aftermath of a colossal battle, the future of the Seven Kingdoms hangs in the balance — beset by newly emerging threats from every direction. In the east, Daenerys Targaryen, the last scion of House Targaryen, rules with her three dragons as queen of a city built on dust and death. But Daenerys has thousands of enemies, and many have set out to find her. As they gather, one young man embarks upon his own quest for the queen, with an entirely different goal in mind.<br><br>Fleeing from Westeros with a price on his head, Tyrion Lannister, too, is making his way to Daenerys. But his newest allies in this quest are not the rag-tag band they seem, and at their heart lies one who could undo Daenerys's claim to Westeros forever.<br><br>Meanwhile, to the north lies the mammoth Wall of ice and stone — a structure only as strong as those guarding it. There, Jon Snow, 998th Lord Commander of the Night's Watch, will face his greatest challenge. For he has powerful foes not only within the Watch but also beyond, in the land of the creatures of ice.<br><br>From all corners, bitter conflicts reignite, intimate betrayals are perpetrated, and a grand cast of outlaws and priests, soldiers and skinchangers, nobles and slaves, will face seemingly insurmountable obstacles. Some will fail, others will grow in the strength of darkness. But in a time of rising restlessness, the tides of destiny and politics will lead inevitably to the greatest dance of all.<br><br>]]></description>
+    <work>
+      <best_book_id type="integer">10664113</best_book_id>
+      <books_count type="integer">69</books_count>
+      <default_chaptering_book_id type="integer">10664113</default_chaptering_book_id>
+      <default_description_language_code nil="true"></default_description_language_code>
+      <desc_user_id type="integer">13744607</desc_user_id>
+      <id type="integer">2936175</id>
+      <media_type>book</media_type>
+      <original_language_id type="integer" nil="true"></original_language_id>
+      <original_publication_day type="integer">1</original_publication_day>
+      <original_publication_month type="integer">9</original_publication_month>
+      <original_publication_year type="integer">2007</original_publication_year>
+      <original_title>A Dance with Dragons</original_title>
+      <rating_dist>5:106392|4:84265|3:32483|2:6298|1:1368|total:230806</rating_dist>
+      <ratings_count type="integer">230806</ratings_count>
+      <ratings_sum type="integer">980433</ratings_sum>
+      <reviews_count type="integer">375715</reviews_count>
+      <text_reviews_count type="integer">14612</text_reviews_count>
+    </work>
+    <average_rating>4.25</average_rating>
+    <num_pages><![CDATA[1016]]></num_pages>
+    <format><![CDATA[Hardcover]]></format>
+    <edition_information><![CDATA[First Edition]]></edition_information>
+    <ratings_count><![CDATA[4795]]></ratings_count>
+    <text_reviews_count><![CDATA[612]]></text_reviews_count>
+    <url><![CDATA[http://www.goodreads.com/book/show/13422727-a-dance-with-dragons]]></url>
+    <link><![CDATA[http://www.goodreads.com/book/show/13422727-a-dance-with-dragons]]></link>
+    <authors>
+      <author>
+        <id>346732</id>
+        <name>George R.R. Martin</name>
+        <image_url><![CDATA[http://d.gr-assets.com/authors/1351944410p5/346732.jpg]]></image_url>
+        <small_image_url><![CDATA[http://d.gr-assets.com/authors/1351944410p2/346732.jpg]]></small_image_url>
+        <link><![CDATA[http://www.goodreads.com/author/show/346732.George_R_R_Martin]]></link>
+        <average_rating>4.35</average_rating>
+        <ratings_count>2318529</ratings_count>
+        <text_reviews_count>110602</text_reviews_count>
+      </author>
+    </authors>
+
+    <reviews_widget>
+      <![CDATA[
+      <style>
+        #goodreads-widget {
+        font-family: georgia, serif;
+        padding: 18px 0;
+        width:565px;
+        }
+        #goodreads-widget h1 {
+        font-weight:normal;
+        font-size: 16px;
+        border-bottom: 1px solid #BBB596;
+        margin-bottom: 0;
+        }
+        #goodreads-widget a {
+        text-decoration: none;
+        color:#660;
+        }
+        iframe{
+        background-color: #fff;
+        }
+        #goodreads-widget a:hover { text-decoration: underline; }
+        #goodreads-widget a:active {
+        color:#660;
+        }
+        #gr_footer {
+        width: 100%;
+        border-top: 1px solid #BBB596;
+        text-align: right;
+        }
+        #goodreads-widget .gr_branding{
+        color: #382110;
+        font-size: 11px;
+        text-decoration: none;
+        font-family: verdana, arial, helvetica, sans-serif;
+        }
+      </style>
+      <div id="goodreads-widget">
+        <div id="gr_header"><h1><a href="http://www.goodreads.com/book/show/13422727-a-dance-with-dragons">A Dance with Dragons Reviews</a></h1></div>
+        <iframe id="the_iframe" src="http://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=0553801473&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" width="565" height="400" frameborder="0"></iframe>
+        <div id="gr_footer">
+          <a href="http://www.goodreads.com/book/show/13422727-a-dance-with-dragons?utm_medium=api&amp;utm_source=reviews_widget" class="gr_branding" target="_blank">Reviews from Goodreads.com</a>
+        </div>
+      </div>
+
+      ]]>
+    </reviews_widget>
+    <popular_shelves>
+      <shelf name="fantasy" count="12147"/>
+      <shelf name="favorites" count="2459"/>
+      <shelf name="fiction" count="2189"/>
+      <shelf name="to-read" count="1941"/>
+      <shelf name="series" count="777"/>
+      <shelf name="currently-reading" count="732"/>
+      <shelf name="kindle" count="601"/>
+      <shelf name="epic-fantasy" count="576"/>
+      <shelf name="sci-fi-fantasy" count="461"/>
+      <shelf name="a-song-of-ice-and-fire" count="398"/>
+    </popular_shelves>
+    <book_links>
+      <book_link>
+        <id>1</id>
+        <name>Amazon</name>
+        <link>http://www.goodreads.com/book_link/follow/1</link>
+      </book_link>
+      <book_link>
+        <id>3</id>
+        <name>Barnes &amp; Noble</name>
+        <link>http://www.goodreads.com/book_link/follow/3</link>
+      </book_link>
+      <book_link>
+        <id>10</id>
+        <name>Audible</name>
+        <link>http://www.goodreads.com/book_link/follow/10</link>
+      </book_link>
+      <book_link>
+        <id>4</id>
+        <name>Abebooks</name>
+        <link>http://www.goodreads.com/book_link/follow/4</link>
+      </book_link>
+      <book_link>
+        <id>882</id>
+        <name>Book Depository</name>
+        <link>http://www.goodreads.com/book_link/follow/882</link>
+      </book_link>
+      <book_link>
+        <id>1027</id>
+        <name>Kobo</name>
+        <link>http://www.goodreads.com/book_link/follow/1027</link>
+      </book_link>
+      <book_link>
+        <id>9</id>
+        <name>Indigo</name>
+        <link>http://www.goodreads.com/book_link/follow/9</link>
+      </book_link>
+      <book_link>
+        <id>2</id>
+        <name>Half.com</name>
+        <link>http://www.goodreads.com/book_link/follow/2</link>
+      </book_link>
+      <book_link>
+        <id>5</id>
+        <name>Alibris</name>
+        <link>http://www.goodreads.com/book_link/follow/5</link>
+      </book_link>
+      <book_link>
+        <id>2102</id>
+        <name>iBooks</name>
+        <link>http://www.goodreads.com/book_link/follow/2102</link>
+      </book_link>
+      <book_link>
+        <id>107</id>
+        <name>Better World Books</name>
+        <link>http://www.goodreads.com/book_link/follow/107</link>
+      </book_link>
+      <book_link>
+        <id>3928</id>
+        <name>Target.com</name>
+        <link>http://www.goodreads.com/book_link/follow/3928</link>
+      </book_link>
+      <book_link>
+        <id>1602</id>
+        <name>Google Play</name>
+        <link>http://www.goodreads.com/book_link/follow/1602</link>
+      </book_link>
+      <book_link>
+        <id>7</id>
+        <name>IndieBound</name>
+        <link>http://www.goodreads.com/book_link/follow/7</link>
+      </book_link>
+      <book_link>
+        <id>8</id>
+        <name>Libraries</name>
+        <link>http://www.goodreads.com/book_link/follow/8</link>
+      </book_link>
+
+    </book_links>
+    <series_works>
+      <series_work>
+        <id>297699</id>
+        <user_position>5</user_position>
+        <series>
+          <id>43790</id>
+          <title>
+            <![CDATA[
+            A Song of Ice and Fire
+            ]]>
+          </title>
+          <description>
+            <![CDATA[
+            The whole series is comprised of one epic story that is still being written. It is intended to be complete in seven volumes, but the author has stated it could go on for longer.
+
+            <i>*<a href="http://www.goodreads.com/series/49615-the-hedge-knight">Tales of Dunk and Egg</a></i> prequel novellas can be found in the following anthologies:
+            "The Hedge Knight": <a href="http://www.goodreads.com/book/show/77232.Legends">Legends</a> &amp; <a href="http://www.goodreads.com/book/show/417730.Dreamsongs">Dreamsongs II</a>
+            "The Sworn Sword": <a href="http://www.goodreads.com/book/show/77563.Legends_II">Legends II</a>
+            "The Mystery Knight": <a href="http://www.goodreads.com/book/show/6714177-warriors">Warriors</a>
+            <s>"The She-Wolves of Winterfell"</s>: <a href="https://www.goodreads.com/book/show/17279560-dangerous-women">Dangerous Women</a> No longer true. See author blog https://www.goodreads.com/author_blog_posts/6095345-dunk-and-egg
+
+            Series also known as:
+            <i>* Jää ja tule laul
+              * Canción de hielo y fuego
+              * Een Lied van IJs en Vuur
+              * Tulen ja jään laulu
+              * שיר של אש וקרח
+              * Píseň ledu a ohně
+              * A Jég és Tűz Dala
+              * Das Lied von Eis und Feuer
+              * Το Παιχνίδι του Στέμματος
+              * Pesma leda i vatre
+              * As Crônicas de Gelo e fogo
+              * Le cronache del ghiaccio e del fuoco
+              * Pjesma Leda i Vatre
+              * Pesem ledu in ognja
+              * Le Trône de fer
+              * Pieśń Lodu i Ognia
+              * Песен за огън и лед
+              * Buz ve Ateşin Şarkısı
+              * 얼음과 불의 노래</i>
+              * มหาศึกชิงบัลลังก์
+              * Ledo ir ugnies daina
+
+              Alternate numberings for this series:
+              * <a href="http://www.goodreads.com/series/97951-le-tr-ne-de-fer">Le Trône de fer</a>
+              * <a href="http://www.goodreads.com/series/105522-as-cr-nicas-de-gelo-e-fogo-das-lied-von-eis-und-feuer">As Crónicas de Gelo e Fogo</a>
+              * <a href="http://www.goodreads.com/series/105522-as-cr-nicas-de-gelo-e-fogo-das-lied-von-eis-und-feuer">Das Lied von Eis und Feuer</a>
+              * <a href="http://www.goodreads.com/series/105410-das-lied-von-eis-und-feuer-audible">Das Lied von Eis und Feuer (Audible)</a>
+              * <a href="http://www.goodreads.com/series/104861-le-cronache-del-ghiaccio-e-del-fuoco">Le cronache del ghiaccio e del fuoco</a>
+              * <a href="http://www.goodreads.com/series/108926-buz-ve-ate-in-ark-s">Buz ve Ateşin Şarkısı</a>
+
+              A Song of Ice and Fire Graphic Novels series:
+              * <a href="http://www.goodreads.com/series/89481-a-song-of-ice-and-fire-graphic-novels">A Song of Ice and Fire Graphic Novels series</a>
+              ]]>
+            </description>
+            <note>
+              <![CDATA[
+              Please do NOT delete the translated names and the link to series with different numbering.
+              ]]>
+            </note>
+            <series_works_count>30</series_works_count>
+            <primary_work_count>7</primary_work_count>
+            <numbered>true</numbered>
+          </series>
+
+        </series_work>
+
+      </series_works>
+      <similar_books>
+        <book>
+          <id>944076</id>
+          <title><![CDATA[Last Argument of Kings (The First Law, #3)]]></title>
+          <isbn>0575077905</isbn>
+          <isbn13>9780575077904</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1302062699s/944076.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1302062699m/944076.jpg]]></image_url>
+          <average_rating>4.24</average_rating>
+          <ratings_count>34666</ratings_count>
+          <authors>
+            <author>
+              <id>276660</id>
+              <name>Joe Abercrombie</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>478951</id>
+          <title><![CDATA[The Bonehunters (Malazan Book of the Fallen, #6)]]></title>
+          <isbn>0553813153</isbn>
+          <isbn13>9780553813159</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1399934281s/478951.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1399934281m/478951.jpg]]></image_url>
+          <average_rating>4.39</average_rating>
+          <ratings_count>10997</ratings_count>
+          <authors>
+            <author>
+              <id>31232</id>
+              <name>Steven Erikson</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>15790816</id>
+          <title><![CDATA[The Tyrant's Law (The Dagger and the Coin, #3)]]></title>
+          <isbn>0316080705</isbn>
+          <isbn13>9780316080705</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1351071320s/15790816.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1351071320m/15790816.jpg]]></image_url>
+          <average_rating>4.10</average_rating>
+          <ratings_count>2106</ratings_count>
+          <authors>
+            <author>
+              <id>134</id>
+              <name>Daniel Abraham</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>45108</id>
+          <title>Fool&apos;s Fate (Tawny Man, #3)</title>
+          <isbn>0553582461</isbn>
+          <isbn13>9780553582468</isbn13>
+          <small_image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/50x75-6121bf4c1f669098041843ec9650ca19.png]]></small_image_url>
+          <image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/111x148-6204a98ba2aba2d1aa07b9bea87124f8.png]]></image_url>
+          <average_rating>4.32</average_rating>
+          <ratings_count>26186</ratings_count>
+          <authors>
+            <author>
+              <id>25307</id>
+              <name>Robin Hobb</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>7743175</id>
+          <title><![CDATA[A Memory of Light (Wheel of Time, #14)]]></title>
+          <isbn>0765325950</isbn>
+          <isbn13>9780765325952</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1336055749s/7743175.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1336055749m/7743175.jpg]]></image_url>
+          <average_rating>4.49</average_rating>
+          <ratings_count>34400</ratings_count>
+          <authors>
+            <author>
+              <id>6252</id>
+              <name>Robert Jordan</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>9832370</id>
+          <title><![CDATA[BookRags Summary:  A Storm of Swords]]></title>
+          <isbn></isbn>
+          <isbn13></isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1369340463s/9832370.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1369340463m/9832370.jpg]]></image_url>
+          <average_rating>4.62</average_rating>
+          <ratings_count>14753</ratings_count>
+          <authors>
+            <author>
+              <id>4819027</id>
+              <name>BookRags</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>7704943</id>
+          <title><![CDATA[The White Luck Warrior (Aspect-Emperor, #2)]]></title>
+          <isbn>1841495395</isbn>
+          <isbn13>9781841495392</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1290027924s/7704943.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1290027924m/7704943.jpg]]></image_url>
+          <average_rating>4.07</average_rating>
+          <ratings_count>1835</ratings_count>
+          <authors>
+            <author>
+              <id>8587</id>
+              <name>R. Scott Bakker</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>11100431</id>
+          <title><![CDATA[Heir of Novron (The Riyria Revelations, #5-6)]]></title>
+          <isbn>0316187712</isbn>
+          <isbn13>9780316187718</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1307960132s/11100431.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1307960132m/11100431.jpg]]></image_url>
+          <average_rating>4.45</average_rating>
+          <ratings_count>10445</ratings_count>
+          <authors>
+            <author>
+              <id>2063919</id>
+              <name>Michael J. Sullivan</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>6736971</id>
+          <title><![CDATA[The Desert Spear (Demon Cycle, #2)]]></title>
+          <isbn>0345503813</isbn>
+          <isbn13>9780345503817</isbn13>
+          <small_image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/50x75-6121bf4c1f669098041843ec9650ca19.png]]></small_image_url>
+          <image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/111x148-6204a98ba2aba2d1aa07b9bea87124f8.png]]></image_url>
+          <average_rating>4.25</average_rating>
+          <ratings_count>30069</ratings_count>
+          <authors>
+            <author>
+              <id>1405152</id>
+              <name>Peter V. Brett</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>12499290</id>
+          <title><![CDATA[The Blinding Knife (Lightbringer, #2)]]></title>
+          <isbn>031607991X</isbn>
+          <isbn13>9780316079914</isbn13>
+          <small_image_url><![CDATA[http://d.gr-assets.com/books/1338432693s/12499290.jpg]]></small_image_url>
+          <image_url><![CDATA[http://d.gr-assets.com/books/1338432693m/12499290.jpg]]></image_url>
+          <average_rating>4.46</average_rating>
+          <ratings_count>17480</ratings_count>
+          <authors>
+            <author>
+              <id>1370283</id>
+              <name>Brent Weeks</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>6661489</id>
+          <title>Shadowrise (Shadowmarch, #3)</title>
+          <isbn>0756405491</isbn>
+          <isbn13>9780756405496</isbn13>
+          <small_image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/50x75-6121bf4c1f669098041843ec9650ca19.png]]></small_image_url>
+          <image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/111x148-6204a98ba2aba2d1aa07b9bea87124f8.png]]></image_url>
+          <average_rating>3.97</average_rating>
+          <ratings_count>2903</ratings_count>
+          <authors>
+            <author>
+              <id>6587</id>
+              <name>Tad Williams</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>400900</id>
+          <title><![CDATA[Dreams of Steel (The Chronicle of the Black Company, #5)]]></title>
+          <isbn>0812502108</isbn>
+          <isbn13>9780812502107</isbn13>
+          <small_image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/50x75-6121bf4c1f669098041843ec9650ca19.png]]></small_image_url>
+          <image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/111x148-6204a98ba2aba2d1aa07b9bea87124f8.png]]></image_url>
+          <average_rating>4.06</average_rating>
+          <ratings_count>3714</ratings_count>
+          <authors>
+            <author>
+              <id>13026</id>
+              <name>Glen Cook</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>887877</id>
+          <title><![CDATA[Red Seas Under Red Skies (Gentleman Bastard #2)]]></title>
+          <isbn>0553804685</isbn>
+          <isbn13>9780553804683</isbn13>
+          <small_image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/50x75-6121bf4c1f669098041843ec9650ca19.png]]></small_image_url>
+          <image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/111x148-6204a98ba2aba2d1aa07b9bea87124f8.png]]></image_url>
+          <average_rating>4.21</average_rating>
+          <ratings_count>34614</ratings_count>
+          <authors>
+            <author>
+              <id>73149</id>
+              <name>Scott Lynch</name>
+            </author>
+          </authors>
+        </book>
+        <book>
+          <id>40217</id>
+          <title><![CDATA[Kushiel's Justice (Imriel's Trilogy, #2)]]></title>
+          <isbn>0446500038</isbn>
+          <isbn13>9780446500036</isbn13>
+          <small_image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/50x75-6121bf4c1f669098041843ec9650ca19.png]]></small_image_url>
+          <image_url><![CDATA[http://s.gr-assets.com/assets/nophoto/book/111x148-6204a98ba2aba2d1aa07b9bea87124f8.png]]></image_url>
+          <average_rating>4.23</average_rating>
+          <ratings_count>10686</ratings_count>
+          <authors>
+            <author>
+              <id>9237</id>
+              <name>Jacqueline Carey</name>
+            </author>
+          </authors>
+        </book>
+      </similar_books>
+    </book>
+
+  </GoodreadsResponse>

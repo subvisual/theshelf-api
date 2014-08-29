@@ -14,6 +14,7 @@ TheShelf::Application.routes.draw do
     end
     collection do
       get 'search'
+      get 'import' => 'import#import'
     end
   end
 

@@ -18,6 +18,10 @@ Given(/^there isn't a book with title (\w+)/) do |title|
   page.should_not have_content title
 end
 
+Given(/^I've read a book$/) do
+  @read_book = create(:read_book, borrower: @user)
+end
+
 When(/^I borrow an available book$/) do
   within '#book-list' do
     first('.btn-positive').click
@@ -130,4 +134,8 @@ end
 
 Then(/^I should see an empty search results message$/) do
   page.should_not have_css ".gallery li"
+end
+
+Then(/^I should see the read books list$/) do
+  page.should have_content @read_book.title
 end

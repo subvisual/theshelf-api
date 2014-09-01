@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140404130657) do
     t.string   "owner"
   end
 
+  add_index "books", ["state"], name: "index_books_on_state"
+
   create_table "loans", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "book_id",    null: false

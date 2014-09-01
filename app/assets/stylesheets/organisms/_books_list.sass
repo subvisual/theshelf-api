@@ -69,12 +69,32 @@
     .book-action [class^="btn"]
       +linkify
 
+    
+.read-books-title
+  margin-top: $base-spacing
+  margin-bottom: $base-spacing
+    
+.read-books
+  > *
+    width: $read-books-item-width
+    margin-bottom: $base-spacing
+  
+@for $read-books-columns from 2 through $read-books-max-columns
+  @if $read-books-columns < $read-books-max-columns
+    +between(grid-breakpoint($read-books-item-width, $read-books-columns), grid-breakpoint($read-books-item-width, $read-books-columns + 1))
+      .read-books li:not(:nth-child(#{$read-books-columns}n+#{$read-books-columns}))
+        margin-right: $base-spacing
+  @else
+    +at-least(grid-breakpoint($read-books-item-width, $read-books-columns))
+      .read-books li:not(:nth-child(#{$read-books-columns}n+#{$read-books-columns}))
+        margin-right: $base-spacing
+      
 @for $gallery-columns from 2 through $gallery-max-columns
   @if $gallery-columns < $gallery-max-columns
-    +between(gallery-breakpoint($gallery-columns), gallery-breakpoint($gallery-columns + 1))
+    +between(grid-breakpoint($gallery-item-width, $gallery-columns), grid-breakpoint($gallery-item-width, $gallery-columns + 1))
       .gallery li:not(:nth-child(#{$gallery-columns}n+#{$gallery-columns}))
         margin-right: $base-spacing
   @else
-    +at-least(gallery-breakpoint($gallery-columns))
+    +at-least(grid-breakpoint($gallery-item-width, $gallery-columns))
       .gallery li:not(:nth-child(#{$gallery-columns}n+#{$gallery-columns}))
         margin-right: $base-spacing

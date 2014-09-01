@@ -23,8 +23,12 @@ Given(/^I (?:am on|go to) a borrowed book's page$/) do
   visit book_path(@book.id)
 end
 
-Given(/^I am on the edit account page$/) do
+Given(/^I (?:am on|go to) the edit account page$/) do
   visit my_account_path
+end
+
+When(/^I reload the page$/) do
+  visit(current_path)
 end
 
 When(/^I go to a book's edit page$/) do

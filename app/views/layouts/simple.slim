@@ -2,11 +2,12 @@
 
 = render 'layouts/head'
 
-header.sign-in-header-wrap
-  .logo
-    = link_to '', root_path, class: 'logo-background'
 
 body
+  header.sign-in-header-wrap.logo
+    = link_to root_path do
+      .logo-background
+
   #sticky-root.simple-container
     = yield
     #sticky-root-footer

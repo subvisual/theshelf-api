@@ -6,6 +6,10 @@ end
 Given(/^I am a visitor$/) do
 end
 
+Given(/^I (?:am on|go to) the sign up page$/) do
+  visit sign_up_path
+end
+
 Given(/^I (?:am on|go to) the shelf page$/) do
   visit books_path
 end

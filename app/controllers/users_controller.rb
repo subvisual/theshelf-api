@@ -1,5 +1,5 @@
 class UsersController < Clearance::UsersController
-  layout 'simple', only: "new"
+  layout 'simple', only: 'new'
 
   def create
     @user = User.new user_params

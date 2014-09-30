@@ -4,7 +4,7 @@
   .book-stats
     .book-readings
       .small = t('helpers.label.book.readings', count: @book.readings)
-    = render 'my_rating', book: @book
+    = render 'books/my_rating', book: @book
 
 .book-info
   h1.book-title.milli = @book.title
@@ -13,7 +13,7 @@
     .small = t('books.owner', name: @book.owner)
   p.small = @book.authors
   #avg-rating
-    = render 'rating_show', book: @book, rating_value: @book.average_rating
+    = render 'books/rating_show', book: @book, rating_value: @book.average_rating
   - if @book.published_on
     p.small = "#{t('helpers.label.book.published_on')} #{@book.published_on}"
   - if @book.pages

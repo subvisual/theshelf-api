@@ -53,7 +53,7 @@ class BookDecorator < Draper::Decorator
       owner: owner,
       authors: authors,
       total_reviews: h.t('reviews.total_reviews', count: total_reviews),
-      rating_show: h.render('rating_show', book: self, rating_value: average_rating),
+      rating_show: h.render('books/rating_show', book: self, rating_value: average_rating),
       action: action
     }.to_json
   end

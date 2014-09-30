@@ -5,15 +5,12 @@ TheShelf::Application.routes.draw do
   resources :session, controller: :sessions, only: [:create]
   resources :books do
     member do
-      get 'borrow'
-      patch 'rate'
-      get 'average'
-      get 'return'
-      get 'review' => 'books#new_review', as: 'new_review'
-      post 'review' => 'books#create_review', as: 'create_review'
+      get 'borrow' => 'book_keeper#borrow'
+      get 'return' => 'book_keeper#return'
+      get 'review' => 'reviews#new'
+      post 'review' => 'reviews#create'
     end
     collection do
-      get 'search'
       get 'import' => 'import#import'
     end
   end
@@ -28,4 +25,12 @@ TheShelf::Application.routes.draw do
 
   get '/sign_up' => 'users#new', :as => nil
   post '/users' => 'users#create', :as => nil
+
+  namespace 'api' do
+    namespace 'v1' do
+      get 'search' => 'search#search'
+      patch 'rate' => 'ratings#rate'
+      get 'average' => 'ratings#average'
+    end
+  end
 end

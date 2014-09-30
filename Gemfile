@@ -49,7 +49,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.2'
   gem 'nokogiri'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.43'
   gem 'webmock'
 end
 

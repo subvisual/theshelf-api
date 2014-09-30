@@ -16,9 +16,10 @@ class Rating
       @toggleLoading()
       id = @$el.data('bookid')
       rating = if event.currentTarget.checked is true then event.currentTarget.value else "0"
-      $.ajax "/books/" + id + "/rate",
+      $.ajax '/api/v1/rate',
         type: "PATCH"
         data:
+          book_id: id
           rating: rating
         success: =>
           new UpdatesAverage('#avg-rating', id).update()
@@ -34,8 +35,10 @@ class UpdatesAverage
     @$bookId = bookId
 
   update: ->
-    $.ajax "/books/" + @$bookId + "/average",
-      type: "GET"
+    $.ajax '/api/v1/average',
+      type: 'GET'
+      data:
+        book_id: @$bookId
       success: (data) =>
         @$el.html(data.attachmentPartial)
 

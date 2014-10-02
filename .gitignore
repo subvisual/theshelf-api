@@ -9,3 +9,4 @@
 custom_plan.rb
 zeus.json
 .envrc
+.env

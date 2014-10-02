@@ -1,0 +1,7 @@
+= form_for :import_book, url: import_books_path, method: 'get', html: {id: 'import-book-form'} do |form|
+  fieldset.fields
+	  = form.label :isbn, class: "hide-visually"
+	  .text.required= form.text_field :isbn, id: 'isbn-input', required: true, placeholder: t("helpers.label.book.isbn")
+
+	  .form-actions
+	    = form.submit t("books.isbn_submit"), class: "btn-positive"

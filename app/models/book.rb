@@ -10,6 +10,7 @@ class Book < ActiveRecord::Base
   has_many :borrowers, through: :loans
   has_many :loans
 
+  validates :isbn, uniqueness: true
   validates :title, :state, :authors, presence: true
   validates :state, inclusion: { in: LoanStates.all }
 

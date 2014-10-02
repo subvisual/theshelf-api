@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404130657) do
+ActiveRecord::Schema.define(version: 20140907211928) do
 
   create_table "books", force: true do |t|
     t.string   "title",                                                null: false
@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 20140404130657) do
     t.datetime "updated_at"
     t.string   "cover"
     t.string   "owner"
+    t.string   "isbn"
   end
 
+  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true
   add_index "books", ["state"], name: "index_books_on_state"
 
   create_table "loans", force: true do |t|

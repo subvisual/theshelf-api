@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'webmock/rspec'
 require 'clearance/testing'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -41,4 +42,21 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
+
+  WebMock.disable_net_connect!(allow_localhost: true)
+
+  config.before(:each) do
+    api_key = '123456789'
+
+    Goodreads.configure(
+        api_key: api_key,
+        api_secret: 'GOODREADS_API_SECRET'
+    )
+
+    stub_request(:get,
+      'http://www.goodreads.com/book/isbn' +
+      '?format=xml&isbn=9780553801477&key=' +
+      api_key).
+      to_return(status: 200, body: File.new('./spec/fixtures/goodreads_response.xml'))
+  end
 end

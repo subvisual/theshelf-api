@@ -2,7 +2,7 @@ class BookDecorator < Draper::Decorator
   delegate :authors, :cover, :cover_cache, :id, :last_review_by, :owner,
     :pages, :published_on, :readings, :reviews_by, :state, :subtitle, :summary,
     :title, :total_reviews, :url, :average_rating, :available?, :lent?,
-    :unavailable?, :to_model
+    :unavailable?, :to_model, :isbn
   decorates_association :reviews
 
   def action

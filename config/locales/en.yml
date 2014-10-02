@@ -7,8 +7,10 @@ en:
       return: Return
     new: Add new book
     read_books: Read books 
+    new_from_isbn: Add new book from ISBN
     search: Search Book
     submit: Submit
+    isbn_submit: Search ISBN
     owner: "belongs to %{name}"
 
   flash:
@@ -19,6 +21,7 @@ en:
       returned: Book successfully returned
       reviewed: Book successfully reviewed
       updated: Book successfully updated
+      not_found: Book not found
 
   forms:
     books:
@@ -44,6 +47,7 @@ en:
     label:
       book:
         authors: Authors
+        isbn: ISBN
         owner: Owner (leave blank if it is the company)
         pages: pages
         published_on: Published on

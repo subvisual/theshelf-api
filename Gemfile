@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'cancan'
+gem "cancan"
 gem 'carrierwave'
 gem 'clearance'
 gem 'coffee-rails', '~> 4.0.0'
@@ -8,6 +8,7 @@ gem 'compass-rails', '~> 1.1.2'
 gem 'draper', '~> 1.3'
 gem 'ejs'
 gem 'font-awesome-rails'
+gem 'goodreads'
 gem 'jquery-rails'
 gem 'mechanize'
 gem 'mini_magick'
@@ -21,7 +22,9 @@ gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rspec-rails', '~> 2.13'
   gem 'shoulda-matchers'
   gem 'spring'
@@ -31,7 +34,6 @@ end
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'capistrano',         '~> 3.0.1'
   gem 'capistrano-rails',   '~> 1.1.0'
   gem 'capistrano-rvm',     '~> 0.1.0'
@@ -46,7 +48,9 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.2'
+  gem 'nokogiri'
   gem 'selenium-webdriver'
+  gem 'webmock'
 end
 
 group :doc do

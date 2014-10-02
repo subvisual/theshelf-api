@@ -27,6 +27,9 @@ fieldset.fields
 
   = form.label :pages, class: 'hide-visually'
   .text = form.text_field :pages, placeholder: t('helpers.label.book.pages')
+
+  = form.label :isbn, class: 'hide-visually'
+  .text = form.text_field :isbn, placeholder: t('helpers.label.book.isbn')
   = form.label :cover, class: 'hide-visually'
 
   .form-actions
@@ -34,7 +37,7 @@ fieldset.fields
 
 coffee:
   $ ->
-    $("form").validate({
+    $(".new-book").validate({
       rules:
         "book[pages]": "number"
     })

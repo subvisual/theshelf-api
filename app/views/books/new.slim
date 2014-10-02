@@ -1,5 +1,9 @@
 section.default-page
+  h1.kilo = t('books.new_from_isbn')
+
+  = render 'isbn_form'
+
   h1.kilo = t('books.new')
 
-  = form_for @book do |form|
+  = form_for @book, id: 'new-book' do |form|
     .image-and-fields = render 'form', form: form, book: @book

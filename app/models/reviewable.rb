@@ -14,6 +14,6 @@ module Reviewable
   end
 
   def total_reviews
-    reviews.count
+    reviews.size
   end
 end

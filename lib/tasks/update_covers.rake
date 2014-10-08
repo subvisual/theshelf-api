@@ -7,20 +7,40 @@ namespace :web do
     agent = Mechanize.new
 
     within_tmp_dir do
-      Book.all.each do |book_without_cover|
+      Book.where(cover: nil).each do |book_without_cover|
         agent.get(website) do |page|
           search_result = page.form(search_form_name) do |search|
-            search.send("#{search_input_name}=", book_without_cover.isbn)
+            search.send("#{search_input_name}=", book_without_cover.title)
           end.submit
 
-          #book_page = agent.click search_result.link_with(text: /#{Regexp.escape(book_without_cover.title)}/)
-          image_url = search_result.search(cover_image_selector).first.attributes["src"].value
+          book_page = agent.click search_result.link_with(text: /#{Regexp.escape(book_without_cover.title)}/)
+          image_url = book_page.search(cover_image_selector).first.attributes["src"].value
 
           File.open("#{book_without_cover.title.parameterize}.png", 'wb') do |file|
             file << open(image_url).read
             book_without_cover.cover = file
           end
           book_without_cover.save
+        end
+      end
+    end
+  end
+
+  task update_covers: :environment do
+    within_tmp_dir do
+      Book.all.each do |book|
+        agent.get(website) do |page|
+          search_result = page.form(search_form_name) do |search|
+            search.send("#{search_input_name}=", book.isbn)
+          end.submit
+
+          image_url = search_result.search(cover_image_selector).first.attributes["src"].value
+
+          File.open("#{book.title.parameterize}.png", 'wb') do |file|
+            file << open(image_url).read
+            book.cover = file
+          end
+          book.save
         end
       end
     end

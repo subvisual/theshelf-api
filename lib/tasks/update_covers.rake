@@ -27,6 +27,12 @@ namespace :web do
   end
 
   task update_covers: :environment do
+    website = 'https://www.goodreads.com/search'
+    search_form_name = 'searchForm'
+    search_input_name = 'q'
+    cover_image_selector = '#coverImage'
+    agent = Mechanize.new
+
     within_tmp_dir do
       Book.all.each do |book|
         agent.get(website) do |page|

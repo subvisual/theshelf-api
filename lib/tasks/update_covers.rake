@@ -41,13 +41,19 @@ namespace :web do
             search.send("#{search_input_name}=", book.isbn)
           end.submit
 
-          image_url = search_result.search(cover_image_selector).first.attributes["src"].value
+          cover_images = search_result.search(cover_image_selector)
+          if cover_images.any?
+            image_url = cover_images.first.attributes["src"].value
 
-          File.open("#{book.title.parameterize}.png", 'wb') do |file|
-            file << open(image_url).read
-            book.cover = file
+            filename = book.isbn.presence || book.title
+            File.open("#{filename.parameterize}.png", 'wb') do |file|
+              file << open(image_url).read
+              book.cover = file
+            end
+            book.save
+          else
+            puts "Isbn #{book.isbn} not found. Moving to the next book"
           end
-          book.save
         end
       end
     end

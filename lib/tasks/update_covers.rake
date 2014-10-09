@@ -35,6 +35,7 @@ namespace :web do
 
     within_tmp_dir do
       Book.all.each do |book|
+        puts "Searching isbn #{book.isbn} ..."
         agent.get(website) do |page|
           search_result = page.form(search_form_name) do |search|
             search.send("#{search_input_name}=", book.isbn)

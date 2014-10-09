@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Loan do
+describe Loan, :type => :model do
   context '#start!' do
     it 'needs a book and borrower' do
       expect {

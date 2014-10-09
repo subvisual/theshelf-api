@@ -1,7 +1,6 @@
 require 'services/book_keeper'
 
-describe BookKeeper do
-
+describe BookKeeper, type: :model do
   context '#lend_to!' do
     it "changes the book's state to lent" do
       user = build_stubbed(:user)
@@ -10,7 +9,7 @@ describe BookKeeper do
 
       book_keeper.lend_to!(borrower: user)
 
-      book.should be_lent
+      expect(book).to be_lent
     end
 
     it "saves the book's borrower" do
@@ -20,7 +19,7 @@ describe BookKeeper do
 
       book_keeper.lend_to!(borrower: user)
 
-      book.current_borrower.should eq user
+      expect(book.current_borrower).to eq user
     end
 
     it 'starts the loan' do
@@ -30,14 +29,14 @@ describe BookKeeper do
 
       book_keeper.lend_to!(borrower: user)
 
-      book.current_loan.should_not be_closed
+      expect(book.current_loan).not_to be_closed
     end
 
     it 'returns false if the book is already borrowed' do
       book = double("Book", available?: false)
       book_keeper = BookKeeper.new(book: book)
 
-      book_keeper.lend_to!.should be_false
+      expect(book_keeper.lend_to!).to be_falsey
     end
   end
 
@@ -49,7 +48,7 @@ describe BookKeeper do
 
       book_keeper.return_by!(borrower: user)
 
-      book.should be_available
+      expect(book).to be_available
     end
 
     it 'ends the loan' do
@@ -59,7 +58,7 @@ describe BookKeeper do
 
       book_keeper.return_by!(borrower: user)
 
-      book.current_loan.should be_closed
+      expect(book.current_loan).to be_closed
     end
 
     it 'increments the number of readings' do
@@ -76,14 +75,14 @@ describe BookKeeper do
       book = double('Book', lent?: true, current_borrower: current_borrower)
       book_keeper = BookKeeper.new(book: book)
 
-      book_keeper.return_by!(borrower: another_user).should be_false
+      expect(book_keeper.return_by!(borrower: another_user)).to be_falsey
     end
 
     it "returns false if the book isn't lent" do
       book = double('Book', lent?: false)
       book_keeper = BookKeeper.new(book: book)
 
-      book_keeper.return_by!(borrower: double('User')).should be_false
+      expect(book_keeper.return_by!(borrower: double('User'))).to be_falsey
     end
 
   end

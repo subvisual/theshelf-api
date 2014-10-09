@@ -1,7 +1,6 @@
 require 'services/import_book'
 
-describe ImportBook do
-
+describe ImportBook, type: :model do
   context "#perform" do
     it "imports a book from goodreads" do
       import_params = { isbn: '9780553801477',
@@ -10,8 +9,8 @@ describe ImportBook do
 
       book_params = importer.perform
 
-      book_params[:isbn].should eq import_params[:isbn]
-      book_params[:title].should eq import_params[:title]
+      expect(book_params[:isbn]).to eq import_params[:isbn]
+      expect(book_params[:title]).to eq import_params[:title]
     end
   end
 end

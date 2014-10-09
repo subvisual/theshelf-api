@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'services/rate_book'
 
-describe RateBook do
+describe RateBook, type: :model do
   context "#rate!" do
     let(:user) { create :user }
     let(:book) { create :book }
@@ -9,7 +9,7 @@ describe RateBook do
     it 'requires a book, a rater and a rating value' do
       rate_book = RateBook.new(book: nil, rater: nil, rating: nil)
 
-      rate_book.rate!.should be_false
+      expect(rate_book.rate!).to be_falsey
     end
 
     it "rates a book for a user" do
@@ -43,7 +43,7 @@ describe RateBook do
     it "updates the book's average rating" do
       rating = 3
 
-      book.should_receive(:update_average_rating!)
+      expect(book).to receive(:update_average_rating!)
 
       RateBook.new(book: book, rater: user, rating: rating).rate!
     end

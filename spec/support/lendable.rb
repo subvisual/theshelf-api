@@ -6,14 +6,14 @@ shared_examples 'a lendable resource' do
       it "sets the resource's state to #{state}" do
         resource.send(:"make_#{state}")
 
-        resource.should send("be_#{state}")
+        expect(resource).to send("be_#{state}")
       end
     end
   end
 
   context 'on initialization' do
     it 'is available by default' do
-      resource.should be_available
+      expect(resource).to be_available
     end
   end
 end

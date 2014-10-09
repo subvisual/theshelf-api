@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem "cancan"
-gem 'carrierwave'
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 gem 'clearance'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1.2'
@@ -25,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 2.13'
+  gem 'rspec-rails', '~> 3.1.0'
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'

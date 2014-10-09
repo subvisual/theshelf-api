@@ -6,14 +6,14 @@ shared_examples 'a authorizable resource' do
       it "sets the resource's role to #{role}" do
         resource.send(:"make_#{role}")
 
-        resource.should send("be_#{role}")
+        expect(resource).to send("be_#{role}")
       end
     end
   end
 
   context 'on initialization' do
     it 'is registered by default' do
-      resource.should be_registered
+      expect(resource).to be_registered
     end
   end
 end

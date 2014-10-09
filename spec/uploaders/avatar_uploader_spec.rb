@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'carrierwave/test/matchers'
 
-describe AvatarUploader do
+describe AvatarUploader, type: :model do
   include CarrierWave::Test::Matchers
 
   before do

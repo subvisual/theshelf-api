@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'carrierwave/test/matchers'
 
-describe CoverUploader do
+describe CoverUploader, type: :model do
   include CarrierWave::Test::Matchers
 
   before do

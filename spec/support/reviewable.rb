@@ -6,7 +6,7 @@ shared_examples 'a reviewable resource' do
       user = build :user
       Review.create(book: resource, reviewer: user, body: 'Nice')
 
-      resource.reload.total_reviews.should eq 1
+      expect(resource.reload.total_reviews).to eq 1
     end
   end
 end

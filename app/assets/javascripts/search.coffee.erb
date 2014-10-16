@@ -5,8 +5,9 @@ class Search
     @bindSearch()
 
   bindSearch: ->
-    @$el.keyup =>
-      @searchBooks()
+    @$el.keyup _.debounce(
+      => @searchBooks()
+      200)
 
   searchBooks: ->
     search_url = "<%= Rails.application.routes.url_helpers.api_v1_search_path %>"

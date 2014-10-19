@@ -6,7 +6,7 @@ class Api::V1::SearchController < ApplicationController
   def search
     books = Book.search(search_params).decorate
 
-    respond_with books.map(&:as_json)
+    render json: books.map(&:as_json), root: nil
   end
 
   private

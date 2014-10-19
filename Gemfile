@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem "cancan"
+gem 'active_model_serializers'
+gem 'cancan'
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 gem 'clearance'
 gem 'coffee-rails', '~> 4.0.0'

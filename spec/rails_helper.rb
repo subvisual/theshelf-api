@@ -12,6 +12,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include FactoryGirl::Syntax::Methods
+  config.include Requests::JsonHelpers, type: :request
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

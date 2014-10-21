@@ -10,13 +10,13 @@ Feature: Return book
     Given I've borrowed a book
     And I am on the shelf page
     When I return the book
-    Then I see that the book is available for borrowing
+    Then I should be redirected to the review page
 
   Scenario: I return a book from its page
     Given I've borrowed a book
     And I am on a borrowed book's page
     When I return the book
-    Then I see that the book is available for borrowing
+    Then I should be redirected to the review page
 
   Scenario: I can't return a book that wasn't borrowed by me
     Given there are no books borrowed by me

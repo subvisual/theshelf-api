@@ -2,14 +2,14 @@ class BookDecorator < Draper::Decorator
   delegate :authors, :cover, :cover_cache, :id, :last_review_by, :owner,
     :pages, :published_on, :readings, :reviews_by, :state, :subtitle, :summary,
     :title, :total_reviews, :url, :average_rating, :available?, :lent?,
-    :unavailable?, :to_model, :isbn
+    :unavailable?, :to_model, :isbn, :ebook
   decorates_association :reviews
 
   def action
-    if object.available?
-      borrow_link
-    elsif object.lent?
-      lent_actions
+    if object.ebook.present?
+      download_link
+    else
+      loan_actions
     end
   end
 
@@ -60,6 +60,14 @@ class BookDecorator < Draper::Decorator
 
   private
 
+  def loan_actions
+    if object.available?
+      borrow_link
+    elsif object.lent?
+      lent_actions
+    end
+  end
+
   def lent_actions
     if borrowed_by_me?
       return_link
@@ -77,6 +85,10 @@ class BookDecorator < Draper::Decorator
 
   def current_borrower
     object.current_borrower.decorate
+  end
+
+  def download_link
+    h.link_to h.t('books.actions.download'), object.ebook, class: 'btn-positive'
   end
 
   def borrow_link

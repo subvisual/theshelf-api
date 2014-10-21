@@ -1,5 +1,5 @@
 section.default-page.book-page
-  = render 'book'
+  = render 'book', book: @book
   = @book.edit_link
   .book-action = @book.action
 

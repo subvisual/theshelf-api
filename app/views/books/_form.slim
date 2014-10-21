@@ -1,4 +1,5 @@
 fieldset
+  = form.label :cover, class: 'hide-visually'
   .image-upload-with-preview.required style="background-image:url(#{book.cover})"
     = form.file_field :cover, data: { text: t('forms.books.upload_cover') }
   = form.hidden_field :cover_cache
@@ -12,6 +13,9 @@ fieldset.fields
 
   = form.label :authors, class: 'hide-visually'
   .text.required = form.text_field :authors, required: true, placeholder: t('helpers.label.book.authors')
+
+  = form.label :isbn, class: 'hide-visually'
+  .text = form.text_field :isbn, placeholder: t('helpers.label.book.isbn')
 
   = form.label :owner, class: 'hide-visually'
   .text = form.text_field :owner, placeholder: t('helpers.label.book.owner')
@@ -28,9 +32,8 @@ fieldset.fields
   = form.label :pages, class: 'hide-visually'
   .text = form.text_field :pages, placeholder: t('helpers.label.book.pages')
 
-  = form.label :isbn, class: 'hide-visually'
-  .text = form.text_field :isbn, placeholder: t('helpers.label.book.isbn')
-  = form.label :cover, class: 'hide-visually'
+  = form.label :ebook, class: 'hide-visually'
+  .text = form.text_field :ebook, placeholder: t('helpers.label.book.ebook')
 
   .form-actions
     = form.submit t('books.submit'), class: 'btn-positive'

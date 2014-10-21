@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006150421) do
+ActiveRecord::Schema.define(version: 20141021161800) do
 
   create_table "books", force: true do |t|
     t.string   "title",                                                null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141006150421) do
     t.string   "owner"
     t.string   "isbn"
     t.integer  "reviews_count",                          default: 0
+    t.string   "ebook"
   end
 
   add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true

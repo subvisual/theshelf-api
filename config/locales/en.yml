@@ -3,10 +3,11 @@ en:
     actions:
       add: Add new book
       borrow: Borrow
+      download: Download
       edit: Edit
       return: Return
     new: Add new book
-    read_books: Read books 
+    read_books: Read books
     new_from_isbn: Add new book from ISBN
     search: Search Book
     submit: Submit
@@ -47,6 +48,7 @@ en:
     label:
       book:
         authors: Authors
+        ebook: Ebook link
         isbn: ISBN
         owner: Owner (leave blank if it is the company)
         pages: pages

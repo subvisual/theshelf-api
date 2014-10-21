@@ -46,11 +46,20 @@ step "I submit the review" do
   find(".review-form .btn-positive").click
 end
 
-step "I fill the new book form" do
+step "I fill the book form" do
   @book ||= build(:book)
   within("#new_book") do
     fill_in 'book_title', with: @book.title
     fill_in 'book_authors', with: @book.authors
+  end
+end
+
+step "I fill the ebook form" do
+  @book ||= build(:ebook)
+  within("#new_book") do
+    fill_in 'book_title', with: @book.title
+    fill_in 'book_authors', with: @book.authors
+    fill_in 'book_ebook', with: @book.ebook
   end
 end
 
@@ -128,16 +137,25 @@ step "that I am the book's owner" do
   expect(page).to have_content @book.owner
 end
 
+step "a button to download the ebook" do
+  expect(page).to have_css "[href='#{@book.ebook}']"
+  expect(page).not_to have_content I18n.t('books.actions.borrow')
+end
+
 step "I see that the book was borrowed by me" do
-  expect(page).to have_css ".btn-negative"
+  expect(page).to have_content I18n.t('books.actions.return')
 end
 
 step "I see that the book is available for borrowing" do
-  expect(page).to have_css ".btn-positive"
+  expect(page).to have_content I18n.t('books.actions.borrow')
+end
+
+step "I should be redirected to the review page" do
+  expect(current_path).to eq review_book_path(@book.id)
 end
 
 step "I can't see a return button" do
-  expect(page).not_to have_css ".btn-negative"
+  expect(page).not_to have_content I18n.t('books.actions.return')
 end
 
 step "I should see an empty search results message" do

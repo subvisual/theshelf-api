@@ -17,6 +17,10 @@ FactoryGirl.define do
     sequence(:isbn) { |n| "9785#{n}" }
     authors 'John Doe'
 
+    factory :ebook do
+      ebook 'www.example.com/some_link_to_the_ebook_location'
+    end
+
     factory :rated_book do
       ignore do
         rater nil

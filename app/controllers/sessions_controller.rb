@@ -1,4 +1,4 @@
-class SessionsController < Clearance::SessionsController
+class SessionsController < ApplicationController
   layout 'simple'
 
   def url_after_destroy

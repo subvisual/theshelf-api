@@ -21,6 +21,7 @@ module TheShelf
     # config.i18n.default_locale = :de
     I18n.enforce_available_locales = false
 
+    config.middleware.use "UserToken"
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag
     }

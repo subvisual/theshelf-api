@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe 'Books API', type: :request do
+describe 'V1 Books API', type: :request do
   context 'get /books' do
     it 'sends a list of books' do
       allow(Book).to receive(:all).and_return(build_stubbed_list(:book, 10))
 
-      get '/books', nil, {'accept' => 'application/json; version=1'}
+      get '/books', nil, authenticated_request_header(user: user)
 
       expect(response).to be_success
       expect(parsed_response.length).to eq 10
@@ -17,14 +17,14 @@ describe 'Books API', type: :request do
       book = build_stubbed(:book)
       allow(Book).to receive(:find).and_return(book)
 
-      get "/books/#{book.id}", nil, {'accept' => 'application/json; version=1'}
+      get "/books/#{book.id}", nil, authenticated_request_header(user: user)
 
       expect(response).to be_success
       expect(parsed_response['id']).to eq book.id
     end
 
     it 'sends an error code' do
-      get '/books/99', nil, {'accept' => 'application/json; version=1'}
+      get '/books/99', nil, authenticated_request_header(user: user)
 
       expect(response).to be_not_found
     end
@@ -35,14 +35,14 @@ describe 'Books API', type: :request do
       book = create :book
       allow(Book).to receive(:find).and_return(book)
 
-      delete "/books/#{book.id}", nil, {'accept' => 'application/json; version=1'}
+      delete "/books/#{book.id}", nil, authenticated_request_header(user: user)
 
       expect(response).to be_success
       expect(parsed_response['id']).to eq book.id
     end
 
     it 'sends an error code' do
-      delete '/books/99', nil, {'accept' => 'application/json; version=1'}
+      delete '/books/99', nil, authenticated_request_header(user: user)
 
       expect(response).to be_not_found
     end
@@ -52,24 +52,22 @@ describe 'Books API', type: :request do
     it 'updates a book' do
       book = create :book
 
-      title = 'testAPI'
       book_params = {
         'book' => {
-          'title' => title
+          'title' => 'testAPI'
         }
       }
 
-      put "/books/#{book.id}", book_params,
-      {'accept' => 'application/json; version=1'}
+      put "/books/#{book.id}", book_params, authenticated_request_header(user: user)
 
       expect(response).to be_success
-      expect(parsed_response['title']).to eq title
+      expect(parsed_response['title']).to eq book_params['book']['title']
     end
 
     it 'sends an error code on wrong params' do
       book = create :book
 
-      put "/books/#{book.id}", nil, {'accept' => 'application/json; version=1'}
+      put "/books/#{book.id}", nil,  authenticated_request_header(user: user)
 
       expect(response).to be_bad_request
     end
@@ -79,7 +77,7 @@ describe 'Books API', type: :request do
     it 'creates a book' do
       book_attributes = attributes_for(:book)
 
-      post '/books/', { 'book' => book_attributes }, {'accept' => 'application/json; version=1'}
+      post '/books/', { 'book' => book_attributes }, authenticated_request_header(user: user)
 
       expect(response).to be_successful
       expect(parsed_response['title']).to eq book_attributes[:title]
@@ -88,9 +86,17 @@ describe 'Books API', type: :request do
     it 'sends missing attributes error code' do
       book_attributes = {'title' => 'random'}
 
-      post '/books/', { 'book' => book_attributes }, {'accept' => 'application/json; version=1'}
+      post '/books/', { 'book' => book_attributes }, authenticated_request_header(user: user)
 
       expect(response).to be_bad_request
     end
+  end
+
+  def api_params
+    {'accept' => 'application/json; version=1', 'Authorization' => "token #{user.authentication_token}"}
+  end
+
+  def user
+    @_user ||= create(:user)
   end
 end

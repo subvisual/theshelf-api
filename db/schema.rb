@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021161800) do
+ActiveRecord::Schema.define(version: 20141022151026) do
 
   create_table "books", force: true do |t|
     t.string   "title",                                                null: false
@@ -70,20 +70,22 @@ ActiveRecord::Schema.define(version: 20141021161800) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: true do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
-    t.string   "first_name",                     null: false
-    t.string   "last_name",                      null: false
-    t.string   "role",                           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                               null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "role",                                null: false
     t.string   "avatar"
+    t.string   "authentication_token"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["role"], name: "index_users_on_role"
 
 end

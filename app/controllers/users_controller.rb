@@ -1,4 +1,4 @@
-class UsersController < Clearance::UsersController
+class UsersController <  ApplicationController
   layout 'simple', only: 'new'
 
   def create

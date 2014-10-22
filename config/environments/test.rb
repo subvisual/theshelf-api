@@ -1,29 +1,3 @@
-# http://robots.thoughtbot.com/faster-tests-sign-in-through-the-back-door
-class ClearanceBackDoor
-  def initialize(app)
-    @app = app
-  end
-
-  def call(env)
-    @env = env
-    sign_in_through_the_back_door
-    @app.call(@env)
-  end
-
-  private
-
-  def sign_in_through_the_back_door
-    if user_id = params['as']
-      user = User.find(user_id)
-      @env[:clearance].sign_in(user)
-    end
-  end
-
-  def params
-    Rack::Utils.parse_query(@env['QUERY_STRING'])
-  end
-end
-
 TheShelf::Application.configure do
   config.cache_classes = true
 
@@ -43,6 +17,4 @@ TheShelf::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.active_support.deprecation = :stderr
-
-  config.middleware.use ClearanceBackDoor
 end

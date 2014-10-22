@@ -1,8 +1,11 @@
 require_relative 'authorizable'
+require_relative 'authenticable'
 
 class User < ActiveRecord::Base
-  include Clearance::User
   include Authorizable
+  include Authenticable
+
+  devise :database_authenticatable, :registerable, :recoverable
 
   mount_uploader :avatar, AvatarUploader
 

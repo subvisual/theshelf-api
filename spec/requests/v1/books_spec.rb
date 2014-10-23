@@ -47,4 +47,31 @@ describe 'Books API', type: :request do
       expect(response).to be_not_found
     end
   end
+
+  context 'update /book' do
+    it 'updates a book' do
+      book = create :book
+
+      title = 'testAPI'
+      book_params = {
+        'book' => {
+          'title' => title
+        }
+      }
+
+      put "/books/#{book.id}", book_params,
+      {'accept' => 'application/json; version=1'}
+
+      expect(response).to be_success
+      expect(parsed_response['title']).to eq title
+    end
+
+    it 'sends an error code on wrong params' do
+      book = create :book
+
+      put "/books/#{book.id}", nil, {'accept' => 'application/json; version=1'}
+
+      expect(response).to be_bad_request
+    end
+  end
 end

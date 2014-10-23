@@ -74,4 +74,23 @@ describe 'Books API', type: :request do
       expect(response).to be_bad_request
     end
   end
+
+  context 'create /book' do
+    it 'creates a book' do
+      book_attributes = attributes_for(:book)
+
+      post '/books/', { 'book' => book_attributes }, {'accept' => 'application/json; version=1'}
+
+      expect(response).to be_successful
+      expect(parsed_response['title']).to eq book_attributes[:title]
+    end
+
+    it 'sends missing attributes error code' do
+      book_attributes = {'title' => 'random'}
+
+      post '/books/', { 'book' => book_attributes }, {'accept' => 'application/json; version=1'}
+
+      expect(response).to be_bad_request
+    end
+  end
 end

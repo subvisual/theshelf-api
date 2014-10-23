@@ -22,6 +22,15 @@ module V1
       render json: book
     end
 
+    def create
+      book = Book.new(book_params)
+      if book.save
+        render json: book, status: :created, location: book_url(book)
+      else
+        head :bad_request
+      end
+    end
+
     private
 
     def book_params

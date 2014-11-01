@@ -1,7 +1,7 @@
 module Requests
   module JsonHelpers
     def parsed_response
-      @_parsed_response ||= JSON.parse(response.body)
+      @_parsed_response ||= JSON.parse(response.body, symbolize_names: true)
     end
 
     def request_header(version: 1)

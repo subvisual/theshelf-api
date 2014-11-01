@@ -20,7 +20,7 @@ describe 'V1 Books API', type: :request do
       get "/books/#{book.id}", nil, authenticated_request_header(user: user)
 
       expect(response).to be_success
-      expect(parsed_response['id']).to eq book.id
+      expect(parsed_response[:id]).to eq book.id
     end
 
     it 'sends an error code' do
@@ -38,7 +38,7 @@ describe 'V1 Books API', type: :request do
       delete "/books/#{book.id}", nil, authenticated_request_header(user: user)
 
       expect(response).to be_success
-      expect(parsed_response['id']).to eq book.id
+      expect(parsed_response[:id]).to eq book.id
     end
 
     it 'sends an error code' do
@@ -53,15 +53,15 @@ describe 'V1 Books API', type: :request do
       book = create :book
 
       book_params = {
-        'book' => {
-          'title' => 'testAPI'
+        book: {
+          title: 'testAPI'
         }
       }
 
       put "/books/#{book.id}", book_params, authenticated_request_header(user: user)
 
       expect(response).to be_success
-      expect(parsed_response['title']).to eq book_params['book']['title']
+      expect(parsed_response[:title]).to eq book_params[:book][:title]
     end
 
     it 'sends an error code on wrong params' do
@@ -80,11 +80,11 @@ describe 'V1 Books API', type: :request do
       post '/books/', { 'book' => book_attributes }, authenticated_request_header(user: user)
 
       expect(response).to be_successful
-      expect(parsed_response['title']).to eq book_attributes[:title]
+      expect(parsed_response[:title]).to eq book_attributes[:title]
     end
 
     it 'sends missing attributes error code' do
-      book_attributes = {'title' => 'random'}
+      book_attributes = {title: 'random'}
 
       post '/books/', { 'book' => book_attributes }, authenticated_request_header(user: user)
 

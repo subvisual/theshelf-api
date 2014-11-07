@@ -91,12 +91,4 @@ describe 'V1 Books API', type: :request do
       expect(response).to be_bad_request
     end
   end
-
-  def api_params
-    {'accept' => 'application/json; version=1', 'Authorization' => "token #{user.authentication_token}"}
-  end
-
-  def user
-    @_user ||= create(:user)
-  end
 end

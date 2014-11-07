@@ -5,29 +5,29 @@ module V1
     def index
       books = Book.all
 
-      render json: books
+      render json: books, root: false
     end
 
     def show
-      render json: Book.find(params[:id])
+      render json: Book.find(params[:id]), root: false
     end
 
     def destroy
       book = Book.find(params[:id])
       book.destroy
-      render json: book
+      render json: book, root: false
     end
 
     def update
       book = Book.find(params[:id])
       book.update(book_params)
-      render json: book
+      render json: book, root: false
     end
 
     def create
       book = Book.new(book_params)
       if book.save
-        render json: book, status: :created, location: book_url(book)
+        render json: book, status: :created, location: book_url(book), root: false
       else
         head :bad_request
       end

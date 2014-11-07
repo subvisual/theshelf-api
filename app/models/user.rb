@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   include Authorizable
   include Authenticable
 
-  devise :database_authenticatable, :registerable, :recoverable
+  devise :database_authenticatable
 
   mount_uploader :avatar, AvatarUploader
 

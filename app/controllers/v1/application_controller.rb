@@ -1,6 +1,7 @@
 module V1
   class ApplicationController < ActionController::API
     include ActionController::HttpAuthentication::Token::ControllerMethods
+    include ActionController::Serialization
 
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActionController::ParameterMissing, with: :parameter_missing

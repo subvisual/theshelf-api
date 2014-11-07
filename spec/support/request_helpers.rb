@@ -9,7 +9,11 @@ module Requests
     end
 
     def authenticated_request_header(version: 1, user: user)
-      request_header(version: version).merge('Authorization' => "SHELF token=#{user.authentication_token}")
+      request_header(version: version).merge('Authorization' => token_encoder(user.authentication_token))
+    end
+
+    def token_encoder(token)
+      ActionController::HttpAuthentication::Token.encode_credentials(token)
     end
   end
 end

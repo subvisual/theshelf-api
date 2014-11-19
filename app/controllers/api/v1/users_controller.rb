@@ -1,6 +1,8 @@
 module API
   module V1
     class UsersController < ApplicationController
+      skip_authorization_check
+
       skip_before_filter :authenticate
 
       def create

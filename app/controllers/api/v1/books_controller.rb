@@ -1,7 +1,7 @@
 module API
   module V1
     class BooksController < ApplicationController
-      before_action :authenticate_user!
+      authorize_resource
 
       def index
         books = Book.all

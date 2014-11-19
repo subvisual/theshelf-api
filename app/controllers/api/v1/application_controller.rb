@@ -4,11 +4,14 @@ module API
       include ActionController::HttpAuthentication::Token::ControllerMethods
       include ActionController::MimeResponds
       include ActionController::Serialization
+      include CanCan::ControllerAdditions
 
       rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
       rescue_from ActionController::ParameterMissing, with: :parameter_missing
 
       before_action :authenticate
+
+      check_authorization
 
       private
 

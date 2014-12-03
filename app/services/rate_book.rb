@@ -15,6 +15,7 @@ class RateBook
   end
 
   private
+
   attr_reader :book, :rater, :rating_value
 
   def save_rating

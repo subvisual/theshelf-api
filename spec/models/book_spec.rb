@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Book, :type => :model do
+describe Book, type: :model do
   it_behaves_like 'a lendable resource'
   it_behaves_like 'a reviewable resource'
   it_behaves_like 'a rateable resource'
@@ -8,23 +8,23 @@ describe Book, :type => :model do
   context '.search' do
     it 'returns all books' do
       create(:book)
-      query = ""
+      query = ''
 
-      expect( Book.search(query) ).not_to be_empty
+      expect(Book.search(query)).not_to be_empty
     end
 
     it 'returns the matched books' do
       book = create(:book)
       query = book.title
 
-      expect( Book.search(query).first.title ).to eq query
+      expect(Book.search(query).first.title).to eq query
     end
 
     it 'returns nothing' do
-      create(:book, title: "some title")
-      query = "nothing"
+      create(:book, title: 'some title')
+      query = 'nothing'
 
-      expect( Book.search(query) ).to be_empty
+      expect(Book.search(query)).to be_empty
     end
   end
 end

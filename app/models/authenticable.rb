@@ -8,9 +8,9 @@ module Authenticable
   private
 
   def ensure_authentication_token
-    if authentication_token.blank?
-      self.authentication_token = generate_authentication_token
-    end
+    return unless authentication_token.blank?
+
+    self.authentication_token = generate_authentication_token
   end
 
   def generate_authentication_token

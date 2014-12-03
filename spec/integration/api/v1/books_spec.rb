@@ -84,7 +84,7 @@ describe 'V1 Books API', type: :request do
     end
 
     it 'sends missing attributes error code' do
-      book_attributes = {title: 'random'}
+      book_attributes = { title: 'random' }
 
       post '/books/', { 'book' => book_attributes }, authenticated_request_header(user: user)
 

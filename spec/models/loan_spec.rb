@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Loan, :type => :model do
+describe Loan, type: :model do
   context '#start!' do
     it 'needs a book and borrower' do
-      expect {
+      expect do
         Loan.new.start!
-      }.to raise_error
+      end.to raise_error
     end
   end
 
@@ -16,7 +16,7 @@ describe Loan, :type => :model do
       expect(loan).to be_extendable
     end
 
-    it "is false when the loan has been extended" do
+    it 'is false when the loan has been extended' do
       loan = build_stubbed(:loan)
       loan.start!
       loan.extend!
@@ -24,7 +24,7 @@ describe Loan, :type => :model do
       expect(loan).not_to be_extendable
     end
 
-    it "is false when more than one week of loan remains" do
+    it 'is false when more than one week of loan remains' do
       loan = build_stubbed(:loan, ends_at: 8.days.from_now)
 
       expect(loan).not_to be_extendable

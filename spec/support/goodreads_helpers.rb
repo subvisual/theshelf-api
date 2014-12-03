@@ -11,9 +11,9 @@ end
 private
 
 def parse_goodreads_response
-  Nokogiri::XML(get_goodreads_response)
+  Nokogiri::XML(goodreads_response)
 end
 
-def get_goodreads_response
+def goodreads_response
   File.new('./spec/fixtures/goodreads_response.xml')
 end

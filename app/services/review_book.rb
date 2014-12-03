@@ -12,5 +12,6 @@ class ReviewBook
   end
 
   private
+
   attr_reader :book, :reviewer, :content
 end

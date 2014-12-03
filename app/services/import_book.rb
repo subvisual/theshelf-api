@@ -23,14 +23,12 @@ class ImportBook
   end
 
   def format_response
-    date = convert_date
-    authors = author_name
     {
       title: @book.title,
       summary: @book.description,
       pages: @book.num_pages,
-      authors: authors,
-      published_on: date,
+      authors: author_name,
+      published_on: convert_date,
       remote_cover_url: @book.image_url,
       isbn: @book.isbn13
     }

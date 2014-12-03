@@ -30,7 +30,7 @@ module API
       end
 
       def unauthorized
-        self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+        headers['WWW-Authenticate'] = 'Token realm="Application"'
 
         respond_to do |format|
           format.json { render json: 'Bad credentials', status: :unauthorized }

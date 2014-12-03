@@ -34,7 +34,7 @@ describe BookKeeper, type: :model do
     end
 
     it 'returns false if the book is already borrowed' do
-      book = double("Book", available?: false)
+      book = double('Book', available?: false)
       book_keeper = BookKeeper.new(book: book)
 
       expect(book_keeper.lend_to!).to be_falsey
@@ -67,7 +67,7 @@ describe BookKeeper, type: :model do
       book = create(:lent_book, borrower: user)
       book_keeper = BookKeeper.new(book: book)
 
-      expect { book_keeper.return_by!(borrower: user) }.to change{ book.readings }.by(1)
+      expect { book_keeper.return_by!(borrower: user) }.to change { book.readings }.by(1)
     end
 
     it "returns false if the book wasn't borrowed by me" do
@@ -113,8 +113,8 @@ describe BookKeeper, type: :model do
     end
 
     it "returns false if the book isn't lent" do
-      loan = double("Loan", :extend! => true)
-      book = double("Book", available?: true, current_loan_by: loan)
+      loan = double('Loan', :extend! => true)
+      book = double('Book', available?: true, current_loan_by: loan)
       book_keeper = BookKeeper.new(book: book)
 
       expect(book_keeper.extend_loan!).not_to be

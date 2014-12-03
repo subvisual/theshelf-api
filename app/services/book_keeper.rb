@@ -28,5 +28,6 @@ class BookKeeper
   end
 
   private
+
   attr_reader :book
 end

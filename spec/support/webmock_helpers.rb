@@ -13,9 +13,7 @@ end
 
 def stub_isbn_search
   stub_request(:get,
-    'http://www.goodreads.com/book/isbn' +
-    '?format=xml&isbn=9780553801477&key=' +
-    @api_key).
+    "http://www.goodreads.com/book/isbn?format=xml&isbn=9780553801477&key=#{@api_key}").
     to_return(status: 200, body: File.new('./spec/fixtures/goodreads_response.xml'))
 end
 

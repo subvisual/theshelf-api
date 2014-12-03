@@ -19,5 +19,6 @@ class Ability
   end
 
   private
+
   attr_reader :user
 end

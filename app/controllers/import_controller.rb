@@ -35,7 +35,7 @@ class ImportController < ApplicationController
   end
 
   def redirect_with_import_failed
-    redirect_to :back, flash: { error: t("flash.book.not_found") }
+    redirect_to :back, flash: { error: t('flash.book.not_found') }
   end
 
   def book_import_params

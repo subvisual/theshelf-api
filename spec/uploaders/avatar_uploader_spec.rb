@@ -24,9 +24,9 @@ describe AvatarUploader, type: :model do
 
   context 'not allowed file type' do
     it 'does not save it' do
-      expect {
+      expect do
         @uploader.store!(File.open("#{Rails.root}/spec/fixtures/images/bad_example.gif"))
-      }.to raise_error CarrierWave::IntegrityError
+      end.to raise_error CarrierWave::IntegrityError
     end
   end
 end

@@ -13,11 +13,11 @@ class Loan < ActiveRecord::Base
   end
 
   def extend!
-    update! ends_at: self.ends_at + EXTENSION_PERIOD
+    update! ends_at: ends_at + EXTENSION_PERIOD
   end
 
   def closed?
-    !!closed_at
+    closed_at.present?
   end
 
   def extendable?

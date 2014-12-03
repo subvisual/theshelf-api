@@ -12,5 +12,6 @@ class ApiRequest
   end
 
   private
+
   attr_reader :request
 end

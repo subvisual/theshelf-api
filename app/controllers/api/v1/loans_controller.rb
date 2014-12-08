@@ -5,7 +5,7 @@ module API
 
       def create
         if borrow_book!
-          render json: book.current_loan, root: false
+          render json_v1: book.current_loan
         else
           head :unprocessable_entity
         end
@@ -13,7 +13,7 @@ module API
 
       def destroy
         if return_book!
-          render json: book.current_loan, root: false
+          render json_v1: book.current_loan
         else
           head :unprocessable_entity
         end

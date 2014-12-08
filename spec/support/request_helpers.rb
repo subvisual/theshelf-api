@@ -4,7 +4,7 @@ module RequestHelpers
   end
 
   def request_header(version: 1)
-    { 'Accept' => "application/json; version=#{version}" }
+    { 'Accept' => "application/vnd.theshelf-v#{version}+json" }
   end
 
   def authenticated_request_header(version: 1, user: nil)

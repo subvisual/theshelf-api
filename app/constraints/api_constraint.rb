@@ -7,6 +7,6 @@ class ApiConstraint
   end
 
   def matches?(request)
-    request.headers.fetch(:accept).include?("version=#{version}")
+    request.headers.fetch(:accept).include?("vnd.theshelf-v#{version}")
   end
 end

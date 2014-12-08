@@ -6,29 +6,30 @@ module API
       def index
         books = Book.all
 
-        render json: books, root: false
+        render json_v1: books
       end
 
       def show
-        render json: Book.find(params[:id]), root: false
+        render json_v1: Book.find(params[:id])
       end
 
       def destroy
         book = Book.find(params[:id])
         book.destroy
-        render json: book, root: false
+        render json_v1: book
       end
 
       def update
         book = Book.find(params[:id])
         book.update(book_params)
-        render json: book, root: false
+        render json_v1: book
       end
 
       def create
         book = Book.new(book_params)
+
         if book.save
-          render json: book, status: :created, location: book_url(book), root: false
+          render json_v1: book, status: :created, location: book_url(book)
         else
           head :bad_request
         end

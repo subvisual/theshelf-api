@@ -51,7 +51,6 @@ describe 'V1 Books API', type: :request do
   context 'update /book' do
     it 'updates a book' do
       book = create :book
-
       book_params = {
         book: {
           title: 'testAPI'
@@ -77,7 +76,7 @@ describe 'V1 Books API', type: :request do
     it 'creates a book' do
       book_attributes = attributes_for(:book)
 
-      post '/books/', { 'book' => book_attributes }, authenticated_request_header(user: user)
+      post '/books', { book: book_attributes }, authenticated_request_header(user: user)
 
       expect(response).to be_successful
       expect(parsed_response[:title]).to eq book_attributes[:title]

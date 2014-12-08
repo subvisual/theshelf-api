@@ -13,6 +13,12 @@ module API
 
       check_authorization
 
+      # necessary to return the right content type and response body
+      ActionController::Renderers.add :json_v1 do |resource, options|
+        self.content_type = Mime::JSON_V1
+        self.response_body = _render_option_json(resource, options)
+      end
+
       private
 
       def authenticate
@@ -33,7 +39,7 @@ module API
         headers['WWW-Authenticate'] = 'Token realm="Application"'
 
         respond_to do |format|
-          format.json { render json: 'Bad credentials', status: :unauthorized }
+          format.json_v1 { render json_v1: 'Bad credentials', status: :unauthorized }
         end
       end
 

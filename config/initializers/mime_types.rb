@@ -4,4 +4,4 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 
-Mime::Type.register "application/vnd.theshelf-v1+json", :json_v1
+Mime::Type.register "application/vnd.theshelf.v1+json", :json_v1

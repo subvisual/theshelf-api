@@ -22,6 +22,15 @@ module TheShelf
     I18n.enforce_available_locales = false
 
     config.assets.enabled = false
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :patch, :post, :delete, :put, :options, :head]
+      end
+    end
+
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag
     }

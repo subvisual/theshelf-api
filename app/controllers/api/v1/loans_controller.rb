@@ -19,6 +19,14 @@ module API
         end
       end
 
+      def update
+        if extend_book!
+          render json_v1: book.current_loan
+        else
+          head :unprocessable_entity
+        end
+      end
+
       private
 
       def borrow_book!
@@ -27,6 +35,11 @@ module API
 
       def return_book!
         BookKeeper.new(book: book).return_by!(borrower: current_user)
+      end
+
+      def extend_book!
+        return false unless params[:extended] == 'true'
+        BookKeeper.new(book: book).extend_loan!(borrower: current_user)
       end
 
       def book

@@ -22,7 +22,7 @@ class BookKeeper
   end
 
   def extend_loan!(borrower: nil)
-    return false if book.available?
+    return false unless book.extendable?
 
     book.current_loan_by(borrower).extend!
   end

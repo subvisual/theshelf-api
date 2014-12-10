@@ -41,4 +41,29 @@ describe 'V1 Users API', type: :request do
       expect(response).not_to be_success
     end
   end
+
+  context 'update /book/:id/loan' do
+    it 'extends a loan' do
+      book = create(:lent_book, borrower: user)
+
+      Timecop.freeze(25.day.from_now) do
+        patch "/books/#{book.id}/loan", { extended: true }, authenticated_request_header(user: user)
+      end
+
+      expect(response).to be_success
+      expect(parsed_response[:extended]).to be true
+    end
+
+    it "fails to extend a loan when it's already extended" do
+      book = create(:lent_book, borrower: user)
+
+      Timecop.freeze(25.days.from_now) do
+        book.current_loan.extend!
+
+        patch "/books/#{book.id}/loan", { extended: true }, authenticated_request_header(user: user)
+      end
+
+      expect(response).not_to be_success
+    end
+  end
 end

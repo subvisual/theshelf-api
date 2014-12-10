@@ -9,7 +9,7 @@ class Ability
   def registered
     can :read, :all
     can :manage, Book
-    can :create, Loan
+    can [:create, :update], Loan
     can :destroy, Loan, borrower: user
   end
 

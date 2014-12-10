@@ -24,11 +24,11 @@ class Loan < ActiveRecord::Base
     ending? && !extended?
   end
 
-  private
-
   def extended?
     ends_at.to_i > started_at.to_i + REGULAR_PERIOD
   end
+
+  private
 
   def ending?
     ends_at <= 7.days.from_now

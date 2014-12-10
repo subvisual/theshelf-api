@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 require 'services/book_keeper'
 
 describe BookKeeper, type: :model do
@@ -95,7 +95,9 @@ describe BookKeeper, type: :model do
       old_period = book.current_loan.ends_at
       book_keeper = BookKeeper.new(book: book)
 
-      book_keeper.extend_loan! borrower: user
+      Timecop.freeze(old_period - 1.day) do
+        book_keeper.extend_loan! borrower: user
+      end
 
       new_period = old_period + 15.days
       expect(book.current_loan.ends_at).to eq new_period
@@ -114,7 +116,7 @@ describe BookKeeper, type: :model do
 
     it "returns false if the book isn't lent" do
       loan = double('Loan', :extend! => true)
-      book = double('Book', available?: true, current_loan_by: loan)
+      book = double('Book', extendable?: false, current_loan_by: loan)
       book_keeper = BookKeeper.new(book: book)
 
       expect(book_keeper.extend_loan!).not_to be

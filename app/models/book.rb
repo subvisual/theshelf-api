@@ -29,7 +29,7 @@ class Book < ActiveRecord::Base
   end
 
   def extendable?
-    current_loan.extendable?
+    !available? && current_loan.extendable?
   end
 
   def self.search(query)

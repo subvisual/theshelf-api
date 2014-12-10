@@ -47,6 +47,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.2'
   gem 'nokogiri'
+  gem 'timecop'
   gem 'webmock'
 end
 

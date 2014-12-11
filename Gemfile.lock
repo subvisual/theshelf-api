@@ -123,6 +123,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
     netrc (0.7.7)
+    newrelic_rpm (3.9.8.273)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
@@ -237,7 +238,6 @@ GEM
     thor (0.18.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timecop (0.7.1)
     tins (0.13.1)
     treetop (1.4.15)
       polyglot
@@ -272,6 +272,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.2)
   goodreads
   mini_magick
+  newrelic_rpm
   nokogiri
   paranoia (~> 2.0)
   pg

@@ -1,5 +1,0 @@
-= form_tag review_book_path, method: 'post', class: 'review-form'
-  fieldset
-    label.hide-visually :review_body
-    .text = text_area :review, :body, placeholder: t('forms.reviews.comment')
-  .form-actions = submit_tag t('forms.reviews.submit'), class: 'btn-positive'

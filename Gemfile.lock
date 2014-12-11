@@ -66,7 +66,6 @@ GEM
       sshkit (~> 1.2.0)
     capistrano3-puma (0.1.2)
       capistrano (~> 3.0.0)
-    chunky_png (1.2.9)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -76,12 +75,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.8.9)
-    compass (0.12.2)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-    compass-rails (1.1.3)
-      compass (>= 0.12.2)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.2.0)
@@ -94,14 +87,11 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    domain_name (0.5.18)
-      unf (>= 0.0.5, < 1.0.0)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
     dotenv-rails (0.11.1)
       dotenv (= 0.11.1)
-    ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.3.0)
@@ -109,9 +99,6 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
-    font-awesome-rails (4.0.3.1)
-      railties (>= 3.2, < 5.0)
-    fssm (0.2.10)
     goodreads (0.3.0)
       activesupport (>= 3)
       hashie (~> 2.0)
@@ -120,25 +107,11 @@ GEM
       rest-client (~> 1.6)
     hashie (2.1.2)
     hike (1.2.3)
-    http-cookie (1.0.2)
-      domain_name (~> 0.5)
     i18n (0.6.11)
-    jquery-rails (3.0.4)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mechanize (2.7.2)
-      domain_name (~> 0.5, >= 0.5.1)
-      http-cookie (~> 1.0.0)
-      mime-types (~> 1.17, >= 1.17.2)
-      net-http-digest_auth (~> 1.1, >= 1.1.1)
-      net-http-persistent (~> 2.5, >= 2.5.2)
-      nokogiri (~> 1.4)
-      ntlm-http (~> 0.1, >= 0.1.1)
-      webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
@@ -146,15 +119,12 @@ GEM
     mini_portile (0.6.0)
     minitest (4.7.5)
     multi_json (1.10.1)
-    net-http-digest_auth (1.4)
-    net-http-persistent (2.9.4)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
     netrc (0.7.7)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
-    ntlm-http (0.1.1)
     oauth (0.4.7)
     orm_adapter (0.5.0)
     paranoia (2.0.1)
@@ -162,6 +132,7 @@ GEM
     parser (2.2.0.pre.8)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
+    pg (0.17.1)
     polyglot (0.3.3)
     powerpack (0.0.9)
     pry (0.9.12.4)
@@ -191,6 +162,11 @@ GEM
     rails-api (0.3.0)
       actionpack (>= 3.2.11)
       railties (>= 3.2.11)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -231,24 +207,11 @@ GEM
     rvm-capistrano (1.5.0)
       capistrano (>= 2.15.4)
     safe_yaml (1.0.3)
-    sass (3.2.13)
-    sass-rails (4.0.1)
-      railties (>= 4.0.0, < 5.0)
-      sass (>= 3.1.10)
-      sprockets-rails (~> 2.0.0)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
-    slim (2.0.2)
-      temple (~> 0.6.6)
-      tilt (>= 1.3.3, < 2.1)
-    slim-rails (2.0.4)
-      actionpack (>= 3.0, < 4.1)
-      activesupport (>= 3.0, < 4.1)
-      railties (>= 3.0, < 4.1)
-      slim (~> 2.0)
     slop (3.4.7)
     spring (1.1.0)
     spring-commands-rspec (1.0.1)
@@ -268,7 +231,6 @@ GEM
       net-ssh
       term-ansicolor
     subexec (0.2.3)
-    temple (0.6.7)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     thor (0.18.1)
@@ -283,15 +245,11 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.6)
     warden (1.2.3)
       rack (>= 1.0)
     webmock (1.18.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    webrobots (0.1.1)
 
 PLATFORMS
   ruby
@@ -307,32 +265,27 @@ DEPENDENCIES
   capistrano3-puma
   carrierwave!
   coffee-rails (~> 4.0.0)
-  compass-rails (~> 1.1.2)
   database_cleaner
   devise
   dotenv-rails
-  ejs
   factory_girl_rails (~> 4.2)
-  font-awesome-rails
   goodreads
-  jquery-rails
-  mechanize
   mini_magick
   nokogiri
   paranoia (~> 2.0)
+  pg
   pry-byebug
   pry-rails
   puma
   quiet_assets
   rails (= 4.0.0)
   rails-api
+  rails_12factor
   rspec-rails (~> 3.1.0)
   rubocop
   rvm-capistrano
-  sass-rails (~> 4.0.0)
   sdoc
   shoulda-matchers
-  slim-rails
   spring
   spring-commands-rspec
   sqlite3

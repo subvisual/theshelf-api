@@ -4,24 +4,21 @@ gem 'active_model_serializers'
 gem 'cancan'
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'compass-rails', '~> 1.1.2'
 gem 'devise'
 gem 'dotenv-rails'
-gem 'ejs'
-gem 'font-awesome-rails'
 gem 'goodreads'
-gem 'jquery-rails'
-gem 'mechanize'
 gem 'mini_magick'
 gem 'paranoia', '~> 2.0'
 gem 'puma'
 gem 'rails', '4.0.0'
 gem 'rails-api'
 gem 'rvm-capistrano'
-gem 'sass-rails', '~> 4.0.0'
-gem 'slim-rails'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'pry-rails'
@@ -30,6 +27,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'sqlite3'
 end
 
 group :development do

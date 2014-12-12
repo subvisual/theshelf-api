@@ -6,7 +6,7 @@ TheShelf::Application.routes.draw do
       resources :books do
         resource :loan, only: [:create, :destroy, :update]
       end
-      resources :users, only: [:create]
+      resources :users, only: [:create, :show, :index]
     end
   end
 end

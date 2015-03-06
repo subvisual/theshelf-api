@@ -22,7 +22,7 @@ FactoryGirl.define do
     end
 
     factory :rated_book do
-      ignore do
+      transient do
         rater nil
       end
 
@@ -32,7 +32,7 @@ FactoryGirl.define do
     end
 
     factory :lent_book do
-      ignore do
+      transient do
         borrower nil
       end
 
@@ -42,7 +42,7 @@ FactoryGirl.define do
     end
 
     factory :read_book do
-      ignore do
+      transient do
         borrower nil
       end
 

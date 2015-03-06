@@ -85,7 +85,6 @@ describe BookKeeper, type: :model do
 
       expect(book_keeper.return_by!(borrower: double('User'))).to be_falsey
     end
-
   end
 
   context '#extend_loan!' do

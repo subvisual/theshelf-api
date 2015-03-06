@@ -7,7 +7,7 @@ module API
 
       def create
         if user.valid_password?(user_params[:password])
-          render json_v1: user, serializer: SessionSerializer
+          render json: user, serializer: SessionSerializer
         else
           head :unauthorized
         end

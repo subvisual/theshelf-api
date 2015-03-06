@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141022151026) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: true do |t|
     t.string   "title",                                                null: false
     t.string   "subtitle"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20141022151026) do
     t.string   "ebook"
   end
 
-  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true
-  add_index "books", ["state"], name: "index_books_on_state"
+  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true, using: :btree
+  add_index "books", ["state"], name: "index_books_on_state", using: :btree
 
   create_table "loans", force: true do |t|
     t.integer  "user_id",    null: false
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 20141022151026) do
     t.datetime "closed_at"
   end
 
-  add_index "loans", ["book_id"], name: "index_loans_on_book_id"
-  add_index "loans", ["user_id"], name: "index_loans_on_user_id"
+  add_index "loans", ["book_id"], name: "index_loans_on_book_id", using: :btree
+  add_index "loans", ["user_id"], name: "index_loans_on_user_id", using: :btree
 
   create_table "ratings", force: true do |t|
     t.integer  "value",      null: false
@@ -55,8 +58,8 @@ ActiveRecord::Schema.define(version: 20141022151026) do
     t.datetime "updated_at"
   end
 
-  add_index "ratings", ["book_id"], name: "index_ratings_on_book_id"
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
+  add_index "ratings", ["book_id"], name: "index_ratings_on_book_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "reviews", force: true do |t|
     t.text     "body",       null: false
@@ -66,8 +69,8 @@ ActiveRecord::Schema.define(version: 20141022151026) do
     t.datetime "updated_at"
   end
 
-  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at",                          null: false
@@ -83,9 +86,9 @@ ActiveRecord::Schema.define(version: 20141022151026) do
     t.datetime "reset_password_sent_at"
   end
 
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["role"], name: "index_users_on_role"
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role"], name: "index_users_on_role", using: :btree
 
 end

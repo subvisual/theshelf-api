@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'active_model_serializers'
+gem 'rails', '4.2.0'
+gem 'rails-api'
+
+gem 'active_model_serializers', '0.9.3'
 gem 'cancan'
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
 gem 'coffee-rails', '~> 4.0.0'
@@ -12,8 +15,6 @@ gem 'mini_magick'
 gem 'newrelic_rpm'
 gem 'paranoia', '~> 2.0'
 gem 'puma'
-gem 'rails', '4.0.0'
-gem 'rails-api'
 gem 'rvm-capistrano'
 gem 'uglifier', '>= 1.3.0'
 

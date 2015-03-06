@@ -21,6 +21,7 @@ module TheShelf
     # config.i18n.default_locale = :de
     I18n.enforce_available_locales = false
 
+    config.active_record.raise_in_transactional_callbacks = true
     config.assets.enabled = false
     config.middleware.insert_before 0, Rack::Cors do
       allow do

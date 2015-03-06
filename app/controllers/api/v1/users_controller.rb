@@ -6,21 +6,21 @@ module API
       skip_before_filter :authenticate
 
       def index
-        render json_v1: User.all
+        render json: User.all
       end
 
       def create
         user = User.new(user_params)
 
         if user.save
-          render json_v1: user
+          render json: user
         else
           head :bad_request
         end
       end
 
       def show
-        render json_v1: User.find(params[:id])
+        render json: User.find(params[:id])
       end
 
       private

@@ -10,14 +10,9 @@ module API
       rescue_from ActionController::ParameterMissing, with: :parameter_missing
 
       before_action :authenticate
+      after_action :set_content_type
 
       check_authorization
-
-      # necessary to return the right content type and response body
-      ActionController::Renderers.add :json_v1 do |resource, options|
-        self.content_type = Mime::JSON_V1
-        self.response_body = _render_option_json(resource, options)
-      end
 
       private
 
@@ -36,11 +31,14 @@ module API
       end
 
       def unauthorized
+        set_content_type
         headers['WWW-Authenticate'] = 'Token realm="Application"'
 
-        respond_to do |format|
-          format.json_v1 { render json_v1: 'Bad credentials', status: :unauthorized }
-        end
+        render json: 'Bad credentials', status: :unauthorized
+      end
+
+      def set_content_type
+        headers['Content-Type'] = Mime::JSON_V1.to_s
       end
 
       def record_not_found

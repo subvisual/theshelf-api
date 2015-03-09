@@ -7,6 +7,8 @@ This is a fork of [The Shelf](https://github.com/groupbuddies/theshelf). In the 
 
 The Shelf is an online library for small companies to keep track of their books, encourage reading and to create discussion around knowledge. It has been developed as an internal tool by Group Buddies.
 
+## Setup
+
 ### Create a user
 
 There is a rake task to create a user using email and password.
